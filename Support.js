@@ -18,58 +18,58 @@ registerPlugin({
 
     name: 'Support++',
     version: '0.1',
-    description: 'Advanced Support Script + Ticket System + E-Mail Notification + Channel rename',
+    description: 'Advanced Support Script + Ticket System + e-mail notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
     engines: '>= 0.9.16'
 
     vars: [{
         name: 'spSupporterId',
-        title: 'Supporter Servergroup ID - for more use x,x [No Space!]',
+        title: 'Supporter servergroup ID - comma seperated values, whithout spaces',
         placeholder: '44,9,11 (usw..)',
         type: 'string'
     }, {
         name: 'spIgnoreId',
-        title: 'Ignore Servergroup ID - for more use x,x [No Space!]',
+        title: 'Ignore servergroup ID - comma seperated values, whithout spaces',
         placeholder: '44,9,11 (usw..)',
         type: 'string'
     }, {
         name: 'spSupportChannel',
-        title: 'Select the support channel that the users enter when they need support.',
+        title: 'Select the support channel that users enter when they need support',
         type: 'channel'
     }, {
         name: 'spSupportUserMessage',
-        title: 'Send a message to the users who join',
-        placeholder: 'Hello &u, please wait a supporter was called [Variable &u = Username]',
+        title: 'Message when a user joins',
+        placeholder: 'Hello &u, please wait. A supporter was informed [Variable &u = Username]',
         type: 'string'
     }, {
         name: 'spSupportMessage',
-        title: 'Send a message to the supporter, if a user needs help. [Variable &u = Username]',
-        placeholder: 'User &u, need Support!',
+        title: 'Message to the supporter if a user needs help [Variable &u = Username]',
+        placeholder: 'User &u needs support!',
         type: 'string'
     }, {
         name: 'spSupportUserNoMessage',
-        title: 'Send a message to users who need help, but is not a supporter online. [Variable &u = Username]',
-        placeholder: 'Sorry &u, but no Supporter are Online!',
+        title: 'Response when there\'s no supporter online [Variable &u = Username]',
+        placeholder: 'Sorry &u but no supporter are online!',
         type: 'string'
     }, {
         name: 'spSupportUserIgnoreMessage',
-        title: 'Send a message to Ignore User. [Variable &u = Username]',
-        placeholder: 'Sorry &u, but you on the Ignore list.',
+        title: 'Message to ignored users [Variable &u = Username]',
+        placeholder: 'Sorry &u but you on the ignore list.',
         type: 'string'
     }, {
         name: 'spTicketCommand',
-        title: 'Command to send an Ticket! (e.g !ticket)',
+        title: 'Command to send a ticket (e.g !ticket)',
         placeholder: '!t | !ticket | !tr ...',
         type: 'string'
     }, {
         name: 'spTicketSendMsg',
-        title: 'Show Ticket confirmation. [Variable &u = Username]',
+        title: 'Ticket confirmation message [Variable &u = Username]',
         placeholder: 'Your ticket has been sent',
         type: 'string'
     }, {
         name: 'spNewTicketMsg',
-        title: 'Message show when you get a new ticket! [Variable &u = Username]',
-        placeholder: 'New Ticket from &u !',
+        title: 'Message when a supporter gets a new ticket [Variable &u = Username]',
+        placeholder: 'New ticket from &u !',
         type: 'string'
     }, {
         name: 'spMsgMode',
@@ -78,62 +78,62 @@ registerPlugin({
         options: ['Poke', 'Chat']
     }, {
         name: 'spEmailModeTicket',
-        title: 'Ticket Notification Modus via E-Mail!',
+        title: 'Ticket notification mode via e-mail',
         type: 'select'
-        options: ['Always', 'Supporter Offline', 'Never']
+        options: ['Always', 'When no supporter online', 'Never']
     }, {
         name: 'spEmailModeSupport',
-        title: 'Support Notification Modus via E-Mail!',
+        title: 'Support notification mode via e-mail',
         type: 'select'
-        options: ['Always', 'Supporter Offline', 'Never']
+        options: ['Always', 'When no supporter online', 'Never']
     }, {
         name: 'spEmail',
-        title: 'Support | The E-Mail adresse ',
-        placeholder: 'support@yourdomain.de',
+        title: 'Support | e-mail address',
+        placeholder: 'support@example.com',
         type: 'string'
     }, {
         name: 'spEmailSubjekt',
-        title: 'Support | The E-Mail Subjekt [Variable &u = Username]',
-        placeholder: 'Support | &u join the Supportroom...',
+        title: 'Support | e-mail subject [Variables: &u = username]',
+        placeholder: 'Support | &u joined the supportroom...',
         type: 'string'
     }, {
         name: 'spEmailText',
-        title: 'Support | The E-Mail Text [Variable &u = Username]',
-        placeholder: 'Hello Supporter Team,\n\n User &u joint Supportroom and need Support!\n\n Pleas help!\n Thanks ;)',
+        title: 'Support | e-mail message [Variables: &u = username]',
+        placeholder: 'Hello support team,\n\n User &u joined the supportroom and needs support.\n\n Help yould be appreciated!\n Thanks ;)',
         type: 'multiline'
     }, {
         name: 'spEmailTicket',
-        title: 'Ticket | The E-Mail adresse',
-        placeholder: 'support@yourdomain.de',
+        title: 'Ticket | e-mail address',
+        placeholder: 'support@example.com',
         type: 'string'
     }, {
         name: 'spEmailSubjektTicket',
-        title: 'Ticket | The E-Mail Subjekt [Variable &u = Username]',
+        title: 'Ticket | e-mail subject [Variables: &u = username]',
         placeholder: 'Ticket | New Ticket from &u',
         type: 'string'
     }, {
         name: 'spEmailTextTicket',
-        title: 'Ticket | The E-Mail Text [Variable &u = Username | &msg = Message]',
-        placeholder: 'Hello Supporter,\n\n New Ticket:\nName: &u\nMessage: &msg\n\n Pleas answear the Ticket!\ Thanks ;)',
+        title: 'Ticket | e-mail message [Variables: &u = username | &msg = message]',
+        placeholder: 'Hello supporter,\n\n new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline'
     }, {
         name: 'spSupportChannelRenameMode',
-        title: 'Selct Channel Rename Allow?'
+        title: 'Enable channel rename?'
         type: 'select'
         options: ['Yes', 'NO']
     }, {
         name: 'spSupportChannelNameOnlineMsg',
-        title: 'Channel Name Open Support (!online)',
+        title: 'Channel name when support is open (!online)',
         placeholder: '[cspacer]Support [Online]',
         type: 'string'
     }, {
         name: 'spSupportChannelNameOfflineMsg',
-        title: 'Channel Name Closed Support (!offline)',
+        title: 'Channel name when support is closed (!offline)',
         placeholder: '[cspacer]Support [Offline]',
         type: 'string'
     }, {
         name: 'spSupportChannelNameChange',
-        title: 'Support Change Name Channel ',
+        title: 'The channel shat should be renamed',
         type: 'channel'
     }],
 
@@ -197,7 +197,7 @@ registerPlugin({
                                 url: "https://api.allesverhext.de/extern/sinusbot/support.php/?mail=" + encodeURIComponent(config.spEmail) + "&sb=" + encodeURIComponent(config.spEmailSubjekt.replace("&u", ev.client.name())) + "&msg=" + encodeURIComponent(spEmailText),
                                 "timeout": 60000,
                             });
-                            engine.log('Email is sending....')
+                            engine.log('e-mail was sent....')
                         }
                     } else {
                         if (config.spMsgMode == 0) {
@@ -211,7 +211,7 @@ registerPlugin({
                                 url: "https://api.allesverhext.de/extern/sinusbot/support.php/?mail=" + encodeURIComponent(config.spEmail) + "&sb=" + encodeURIComponent(config.spEmailSubjekt.replace("&u", ev.client.name())) + "&msg=" + encodeURIComponent(spEmailText),
                                 "timeout": 60000,
                             });
-                            engine.log('Email is sending....')
+                            engine.log('e-mail was sent....')
                         }
                     }
                 } else {
@@ -256,7 +256,7 @@ registerPlugin({
                                         url: "https://api.allesverhext.de/extern/sinusbot/support.php/?mail=" + encodeURIComponent(config.spEmailTicket) + "&sb=" + encodeURIComponent(spEmailSubjektTicket.replace("&u", ev.client.name())) + "&msg=" + encodeURIComponent(spEmailTextTicket.replace("&u", ev.client.name())),
                                         "timeout": 60000,
                                     });
-                                    engine.log('Email is sending....')
+                                    engine.log('e-mail was sent....')
                                 }
                             }
                         }
@@ -278,7 +278,7 @@ registerPlugin({
                         url: "https://api.allesverhext.de/extern/sinusbot/support.php/?mail=" + encodeURIComponent(config.spEmailTicket) + "&sb=" + encodeURIComponent(spEmailSubjektTicket.replace("&u", ev.client.name())) + "&msg=" + encodeURIComponent(spEmailTextTicket.replace("&u", ev.client.name())),
                         "timeout": 60000,
                     });
-                    engine.log('Email is sending....')
+                    engine.log('e-mail was sent....')
                 }
             }
         }
