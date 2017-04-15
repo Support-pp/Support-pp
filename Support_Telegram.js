@@ -20,7 +20,7 @@ registerPlugin({
     version: '0.1',
     description: 'Advanced Support Script + Ticket System + e-mail notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
-    engines: '>= 0.9.16'
+    engines: '>= 0.9.16',
 
     vars: [{
         name: 'spSupporterId',
@@ -79,12 +79,12 @@ registerPlugin({
     }, {
         name: 'spEmailModeTicket',
         title: 'Ticket notification mode via e-mail',
-        type: 'select'
+        type: 'select',
         options: ['Always', 'When no supporter online', 'Never']
     }, {
         name: 'spEmailModeSupport',
         title: 'Support notification mode via e-mail',
-        type: 'select'
+        type: 'select',
         options: ['Always', 'When no supporter online', 'Never']
     }, {
         name: 'spTelegramID',
@@ -108,8 +108,8 @@ registerPlugin({
         type: 'multiline'
     }, {
         name: 'spSupportChannelRenameMode',
-        title: 'Enable channel rename?'
-        type: 'select'
+        title: 'Enable channel rename?',
+        type: 'select',
         options: ['Yes', 'NO']
     }, {
         name: 'spSupportChannelNameOnlineMsg',
@@ -127,14 +127,14 @@ registerPlugin({
         type: 'channel'
     }],
 
-}, function(engine, config, info) {
+}, function(sinusbot, config, info) {
 
-    //NOTE: Engine 2 Variablen
+    // NOTE: Require module variables
     var event = require('event');
     var engine = require('engine');
     var backend = require('backend');
 
-    //NOTE: Variablen
+    // NOTE: Parsed config variables
     var spIgnoreId = config.spIgnoreId.split(',');
     var spSupporterId = config.spSupporterId.split(',');
 
@@ -154,7 +154,7 @@ registerPlugin({
                         }
                     })
                 });
-                if (!(ignore)) {
+                if (!ignore) {
                     var SupporterOnline = false;
                     backend.getClients().forEach(function(client) {
                         client.getServerGroups().forEach(function(group) {
@@ -167,8 +167,8 @@ registerPlugin({
                                         client.chat('[B]Support | [/B]' + config.spSupportMessage.replace("&u", ev.client.name()));
                                     }
                                 }
-                            })
-                        })
+                            });
+                        });
                     });
 
 
@@ -183,7 +183,7 @@ registerPlugin({
                         }
 
                         if (config.spEmailModeTicket == 0) {
-                            http({
+                          sinusbot.http({
 
                                 url: "https://api.allesverhext.de/extern/sinusbot/support/check.php?id=" + config.spTelegramID + "&token=" + config.spTelegramToken + "&msg=" + encodeURIComponent(spTelegrammTextSupport),
                                 "timeout": 60000,
@@ -243,18 +243,18 @@ registerPlugin({
                                 if (config.spEmailModeTicket == 0) {
                                   var spTelegrammTextTicket = config.spTelegrammTextTicket.replace("&u", ev.client.name());
                                   var spTelegrammTextTicket = spTelegrammTextTicket.replace("&msg", rTicket);
-                                  http({
+                                  sinusbot.http({
 
                                       url: "https://api.allesverhext.de/extern/sinusbot/support/check.php?id=" + config.spTelegramID + "&token=" + config.spTelegramToken + "&msg=" + encodeURIComponent(spTelegrammTextTicket),
-                                      "timeout": 60000,
+                                      timeout: 60000,
                                   });
                                   engine.log('Telegramm msg was sent....')
-                              
+
                                 }
                             }
                         }
-                    })
-                })
+                    });
+                });
             });
             if (config.spMsgMode == 0) {
                 ev.client.poke('[B]Ticket | [/B]' + config.spTicketSendMsg.replace("&u", ev.client.name()));
@@ -266,16 +266,16 @@ registerPlugin({
                 if (config.spEmailModeTicket == 0 || config.spEmailModeTicket == 1) {
                   var spTelegrammTextTicket = config.spTelegrammTextTicket.replace("&u", ev.client.name());
                   var spTelegrammTextTicket = spTelegrammTextTicket.replace("&msg", rTicket);
-                  http({
+                  sinusbot.http({
 
                       url: "https://api.allesverhext.de/extern/sinusbot/support/check.php?id=" + config.spTelegramID + "&token=" + config.spTelegramToken + "&msg=" + encodeURIComponent(spTelegrammTextTicket),
-                      "timeout": 60000,
+                      timeout: 60000,
                   });
                   engine.log('Telegramm msg was sent....')
               }
             }
         }
-        //NOTE: Remove this watermarket ist deny! Reed the GNU!
+        // NOTE: Remove this watermarket ist denied! Read the GNU!
         if (ev.text == '!help' || ev.text == '!info') {
             ev.client.chat('Support++ by VerHext. Thanks for use.')
         }
@@ -285,7 +285,7 @@ registerPlugin({
                     client.getServerGroups().forEach(function(group) {
                         spSupporterId.forEach(function(group2) {
                             if (group.id() == group2) {
-                                channelUpdate(config.spSupportChannelNameChange, {
+                                sinusbot.channelUpdate(config.spSupportChannelNameChange, {
                                     name: (config.spSupportChannelNameOfflineMsg)
                                 });
                             }
@@ -298,12 +298,12 @@ registerPlugin({
                     client.getServerGroups().forEach(function(group) {
                         spSupporterId.forEach(function(group2) {
                             if (group.id() == group2) {
-                                channelUpdate(config.spSupportChannelNameChange, {
+                                sinusbot.channelUpdate(config.spSupportChannelNameChange, {
                                     name: (config.spSupportChannelNameOnlineMsg)
                                 });
                             }
-                        })
-                    })
+                        });
+                    });
                 });
             }
         }
