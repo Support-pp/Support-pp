@@ -99,7 +99,7 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextSupport',
         title: 'Support | Telegramm message [Variables: &u = username]',
-        placeholder: 'Hello support team,\n\n User &u joined the supportroom and needs support.\n\n Help yould be appreciated!\n Thanks ;)',
+        placeholder: 'Hello support team,\n\n User &u joined the supportroom and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline'
     }, {
         name: 'spTelegrammTextTicket',
