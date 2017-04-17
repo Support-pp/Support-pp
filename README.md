@@ -10,6 +10,7 @@ ______________________________________________________________________
 
 
 
-Thanks for the Support:
-- Irgendwer and Maxibanki
-- LEpEX german translate
+Thanks for the support:
+- @irgendwr and @maxibanki
+
+and LEpEX for the german translate.
