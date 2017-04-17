@@ -123,7 +123,7 @@ registerPlugin({
         type: 'string'
     }, {
         name: 'spSupportChannelNameChange',
-        title: 'The channel shat should be renamed',
+        title: 'The channel that should be renamed',
         type: 'channel'
     }],
 
