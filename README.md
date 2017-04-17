@@ -3,22 +3,23 @@ Advanced Sinusbot Support Script
 
 ![](https://allesverhext.de/download/web_1.png)
 
-# Feaures
+# Features
 
 - Channel notification
-- irnore lis
-- message (no support online)
-- ticket create
-- notification send via Telegram
-- Channel rename (!online / !offline)
+- ignore list
+- message (no supporter online)
+- create ticket
+- notification send via Telegram (optional)
+- Channel (name) rename (!online / !offline)
 - new engine (v2)
 - support via e-mail (support@allesverhext.de)and Discord...
 
 
-# Update
+# Updates
 
-- notification via Discord ...
+- notification via Discord, E-Mail (Smtp)
 - more support channel [Array]
+- change description
 - 
 - 
 ______________________________________________________________________
@@ -31,5 +32,4 @@ ______________________________________________________________________
 
 Thanks for the support:
 - @irgendwr and @maxibanki
-
-and LEpEX for the german translate.
+- LEpEX for the german translate.
