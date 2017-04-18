@@ -14,7 +14,7 @@ registerPlugin({
 
     name: 'Support++',
     version: '0.1',
-    description: 'Advanced Support Script + Ticket System + Telegram notification + channel rename',
+    description: 'Advanced support script + ticket system + Telegram notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
     engines: '>= 0.9.16',
 
@@ -106,7 +106,7 @@ registerPlugin({
         name: 'spSupportChannelRenameMode',
         title: 'Enable channel rename?',
         type: 'select',
-        options: ['Yes', 'NO']
+        options: ['Yes', 'No']
     }, {
         name: 'spSupportChannelNameOnlineMsg',
         title: 'Channel name when support is open (!online)',
