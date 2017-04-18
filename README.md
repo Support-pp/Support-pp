@@ -27,6 +27,12 @@ ______________________________________________________________________
  https://stats.uptimerobot.com/Qk70QsJE6
  ______________________________________________________________________
 
+# License
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+
+Dieses Material steht unter der Creative-Commons-Lizenz Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International. Um eine Kopie dieser Lizenz zu sehen, besuchen Sie http://creativecommons.org/licenses/by-nc-sa/4.0/.
+____________________
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 
