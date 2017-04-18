@@ -12,7 +12,7 @@ Advanced Sinusbot Support Script
 - notification send via Telegram (optional)
 - Channel (name) rename (!online / !offline)
 - new engine (v2)
-- support via e-mail (support@allesverhext.de)and Discord...
+- support via e-mail (support@allesverhext.de)and Discord (https://discord.gg/rmmZHJW)
 
 
 # Updates
