@@ -14,14 +14,14 @@ registerPlugin({
 
     name: 'Support++',
     version: '0.1',
-    description: 'Advanced Support Script + Ticket System + e-mail notification + channel rename',
+    description: 'Erweitertes Support Script + Ticket System + Telegram Benachichtigung + Channel umbenennen',
     author: 'VerHext <support@allesverhext.de>',
+    translator: 'LEpEX',
     engines: '>= 0.9.16'
-	translator: 'LEpEX'
 
     vars: [{
         name: 'spSupporterId',
-        title: 'Supporter Servergroupen ID - Mit Kommer trennen [Kein LEERZEICHEN]',
+        title: 'Supporter Servergruppen ID - Mit Kommer trennen [Kein LEERZEICHEN]',
         placeholder: '44,9,11 (usw..)',
         type: 'string'
     }, {
@@ -35,12 +35,12 @@ registerPlugin({
         type: 'channel'
     }, {
         name: 'spSupportUserMessage',
-        title: 'Nachricht an den User beim betreten des Suppurt Channels. [Variable &u = Username]',
+        title: 'Nachricht an den User, beim betreten des Suppurt Channels. [Variable &u = Username]',
         placeholder: 'Hey &u, ein Supporter wurde soebend informiert mit (!T) kannst du ein Ticket Erstellen!',
         type: 'string'
     }, {
         name: 'spSupportMessage',
-        title: 'Nachricht an den Supporter wenn ein User Support benötigt. [Variable &u = Username]',
+        title: 'Nachricht an den Supporter, wenn ein User Support benötigt. [Variable &u = Username]',
         placeholder: 'Der User u% benötigt Support, bitte kümmere dich um ihn!',
         type: 'string'
     }, {
@@ -90,7 +90,7 @@ registerPlugin({
         type: 'string'
     }, {
         name: 'spTelegramToken',
-        title: 'Telegram token, show https://telegram.me/tssupport_bot . You get the token from the bot whit /id',
+        title: 'Telegram Token, öffne den Link:  https://telegram.me/tssupport_bot . Schreibe Ihn mit /id an. Du bekomst deineen Token!',
         placeholder: '987654321 (Nicht weitergeben...)',
         type: 'string'
     }, {
@@ -110,17 +110,17 @@ registerPlugin({
         options: ['Ja', 'Nein']
     }, {
         name: 'spSupportChannelNameOnlineMsg',
-        title: 'Channel Name wenn der Support-Channel geöffnet ist (!online)',
+        title: 'Channel Name wenn der Support-Channel geöffnet ist. (!online)',
         placeholder: '[cspacer]Support [Online]',
         type: 'string'
     }, {
         name: 'spSupportChannelNameOfflineMsg',
-        title: 'Channel Name wenn der Support-Channel geschlossen ist (!offline)',
+        title: 'Channel Name wenn der Support-Channel geschlossen ist. (!offline)',
         placeholder: '[cspacer]Support [Offline]',
         type: 'string'
     }, {
         name: 'spSupportChannelNameChange',
-        title: 'Wähle den Channel aus welche umbennent werden soll',
+        title: 'Wähle den Channel aus welche umbenannt werden soll.',
         type: 'channel'
     }],
 
