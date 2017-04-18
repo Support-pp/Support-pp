@@ -14,7 +14,7 @@ registerPlugin({
 
     name: 'Support++',
     version: '0.1',
-    description: 'Advanced Support Script + Ticket System + e-mail notification + channel rename',
+    description: 'Advanced Support Script + Ticket System + Telegram notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
     engines: '>= 0.9.16',
 
@@ -74,12 +74,12 @@ registerPlugin({
         options: ['Poke', 'Chat']
     }, {
         name: 'spEmailModeTicket',
-        title: 'Ticket notification mode via e-mail',
+        title: 'Ticket notification mode via Telegram',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never']
     }, {
         name: 'spEmailModeSupport',
-        title: 'Support notification mode via e-mail',
+        title: 'Support notification mode Telegraml',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never']
     }, {
