@@ -21,12 +21,12 @@ registerPlugin({
 
     vars: [{
         name: 'spSupporterId',
-        title: 'Supporter Servergruppen ID - Mit Kommer trennen [Kein LEERZEICHEN]',
+        title: 'Supporter Servergruppen ID - Mit Komma trennen [Kein LEERZEICHEN]',
         placeholder: '44,9,11 (usw..)',
         type: 'string'
     }, {
         name: 'spIgnoreId',
-        title: 'Ignorierte Servergruppen - Mit Kommer trennen [Kein LEERZEICHEN]',
+        title: 'Ignorierte Servergruppen - Mit Komma trennen [Kein LEERZEICHEN]',
         placeholder: '44,9,11 (usw..)',
         type: 'string'
     }, {
@@ -40,13 +40,13 @@ registerPlugin({
         type: 'string'
     }, {
         name: 'spSupportMessage',
-        title: 'Nachricht an den Supporter, wenn ein User Support benötigt. [Variable &u = Username]',
+        title: 'Nachricht an den Supporter, wenn ein User den Support Channel betritt. [Variable &u = Username]',
         placeholder: 'Der User u% benötigt Support, bitte kümmere dich um ihn!',
         type: 'string'
     }, {
         name: 'spSupportUserNoMessage',
         title: 'Nachricht wenn kein Supporter Online ist. [Variable &u = Username]',
-        placeholder: 'Hi &u, leider ist momentan kein Supporter online [WENN EINGESTELLT] (mit dem Befehl !T kannst du ein Ticket erstellen)!',
+        placeholder: 'Hi &u, leider ist momentan kein Supporter online [WENN EINGESTELLT] (mit dem Befehl !t kannst du ein Ticket erstellen)!',
         type: 'string'
     }, {
         name: 'spSupportUserIgnoreMessage',
@@ -80,12 +80,12 @@ registerPlugin({
         options: ['Immer', 'Kein Supporter Online!', 'Nie']
     }, {
         name: 'spEmailModeSupport',
-        title: 'Support  Benachigtigunsmodus mit Telegram',
+        title: 'Support Channel Benachigtigunsmodus mit Telegram',
         type: 'select'
         options: ['Immer', 'Kein Supporter Online!', 'Nie']
     }, {
         name: 'spTelegramID',
-        title: 'Telegram id, öffne den Link:  https://telegram.me/tssupport_bot . Schreibe Ihn mit /id an. Du bekomst deine ID!',
+        title: 'Telegram Id, öffne den Link:  https://telegram.me/tssupport_bot . Schreibe Ihn mit /id an. Du bekomst deine Id!',
         placeholder: '123456789 (Nicht weitergeben...)',
         type: 'string'
     }, {
@@ -96,12 +96,12 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextSupport',
         title: 'Support | Telegramm Nachricht wenn ein user den Support-Channel betritt. [Variables: &u = username]',
-        placeholder: 'Hi Support Team,\n\n Der User &u  hat den Support-Channel betretenund benötigt Support.\n\n Bitte Hilfe ihm wenn möglich!\n Danke ;)',
+        placeholder: 'Hey Support Team,\n\n der User &u  hat den Support-Channel betretenund und benötigt Support.\n\n Bitte Hilfe ihm wenn möglich!\n Danke ;)',
         type: 'multiline'
     }, {
         name: 'spTelegrammTextTicket',
         title: 'Ticket | Telegramm Nachricht vom Ticket [Variables: &u = Username | &msg = Nachricht]',
-        placeholder: 'Hi Supporter,\n\n Neues Ticket:\nName: &u\nNachricht: &msg\n\n Bitte antworte, Danke ;)',
+        placeholder: 'Hi Supporter,\n\n neues Ticket von :\nName: &u\nNachricht: &msg\n\n Bitte bearbeite das Ticket. Danke ;)',
         type: 'multiline'
     }, {
         name: 'spSupportChannelRenameMode',
