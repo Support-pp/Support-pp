@@ -20,7 +20,7 @@ registerPlugin({
     version: '0.1',
     description: 'Advanced Support Script + Ticket System + e-mail notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
-    engines: '>= 0.9.16',
+    engine: '>= 0.9.16',
     vars: [{
         name: 'spSupporterId',
         title: 'Supporter servergroup ID - comma seperated values, whithout spaces',
