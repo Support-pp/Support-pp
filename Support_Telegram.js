@@ -16,7 +16,7 @@ registerPlugin({
     version: '0.1',
     description: 'Advanced support script + ticket system + Telegram notification + channel rename',
     author: 'VerHext <support@allesverhext.de>',
-    engines: '>= 0.9.16',
+    engine: '>= 0.9.16',
 
     vars: [{
         name: 'spSupporterId',

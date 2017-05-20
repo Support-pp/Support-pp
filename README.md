@@ -20,10 +20,8 @@ Advanced Sinusbot Support Script
 - notification via Discord, E-Mail (Smtp)
 - more support channel [Array]
 - change description
-- 
-- 
 ______________________________________________________________________
- Show the Status over the API and the Telegram/Discord BOT ...
+ Telegram and Discord API status/uptime:
  https://stats.uptimerobot.com/Qk70QsJE6
  ______________________________________________________________________
 
@@ -37,5 +35,5 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 
 
 Thanks for the support:
-- @irgendwr and @maxibanki
+- [@irgendwr](https://github.com/irgendwr) and [@maxibanki](https://github.com/maxibanki)
 - LEpEX for the german translate.

@@ -17,7 +17,7 @@ registerPlugin({
     description: 'Erweitertes Support Script + Ticket System + Telegram Benachichtigung + Channel umbenennen',
     author: 'VerHext <support@allesverhext.de>',
     translator: 'LEpEX',
-    engines: '>= 0.9.16'
+    engine: '>= 0.9.16'
 
     vars: [{
         name: 'spSupporterId',
