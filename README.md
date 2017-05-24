@@ -45,3 +45,4 @@ Thanks for the support:
 - [@lapotor](https://github.com/lapotor) for the Website
 - [@irgendwr](https://github.com/irgendwr) and [@maxibanki](https://github.com/maxibanki)
 - LEpEX for the german translate.
+![](https://allesverhext.de/upload/support/9.png)
