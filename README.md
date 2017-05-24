@@ -5,21 +5,27 @@ Advanced Sinusbot Support Script
 
 # Features
 
+- Module store - easy expand functions.
 - Channel notification
 - ignore list
 - message (no supporter online)
 - create ticket
-- notification send via Telegram (optional)
+- notification send via Telegram (module)
+- notification send via Discord (module)
 - Channel (name) rename (!online / !offline)
 - new engine (v2)
-- support via e-mail (support@allesverhext.de)and Discord (https://discord.gg/rmmZHJW)
+- antifloot system
+- prefix change
+- 
+- support via e-mail (support@allesverhext.de)and Discord (https://discord.gg/3acZCcu)
 
 
 # Updates
 
-- notification via Discord, E-Mail (Smtp)
-- more support channel [Array]
-- change description
+- Channel Edit Algoritmus
+- Automatic open/close Channel
+
+- Website from [@lapotor](https://github.com/lapotor)
 ______________________________________________________________________
  Telegram and Discord API status/uptime:
  https://stats.uptimerobot.com/Qk70QsJE6
@@ -35,5 +41,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 
 
 Thanks for the support:
+
+- [@lapotor](https://github.com/lapotor) for the Website
 - [@irgendwr](https://github.com/irgendwr) and [@maxibanki](https://github.com/maxibanki)
 - LEpEX for the german translate.
