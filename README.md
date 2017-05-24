@@ -1,7 +1,7 @@
 # SinusbotScripts
 Advanced Sinusbot Support Script
 
-![](https://allesverhext.de/download/web_2.png)
+![](https://allesverhext.de/upload/support/1.png)
 
 # Features
 
