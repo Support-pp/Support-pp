@@ -1,0 +1,56 @@
+v2.0.4.7
+- add var liste to easy change the system vars. (start at line 1735)
+- add kick out feature, when support channel closed. Request by Niklas1507
+- fix variable '&spI' (show the online supporter (int))
+==============================================
+v2.0.4.6
+- fix Discord notification
+- change db type for pro tickets
+- add commad to show all tickets (for the next pro feature)
+- fix var name
+==============================================
+v2.0.4.5
+- add private police accept box (mandatory)
+- change Discord secturity token to sha(256) hash
+- add PRO version feature 
+- change and add lots of small things in the "Support++ Discord bot"
+- dd /replay function for the PRO version.
+==============================================
+v2.0.4.4
+- fixe bug with channelEdit / afk channel
+- fix Queu module (change online to offline)
+==============================================
+v2.0.4.3
+- fixe bug with default offline sound
+- add password to channelEdit (close support channel for all user with password)
+- move "anti flood" from beta to stables
+==============================================
+v2.0.4.2
+- add Themen Module
+- fixes time error (+1)
+- rename Script to "support-pp"
+==============================================
+v2.0.4
+ChannelEdit:
+    - automatic close and open
+    - open/ close with prefix (e.g. !open ts)
+    - open on time.
+Queue play default sounds
+Support:
+    - varibale supporter online (int)
+    - variable supporter online (name array)
+$
+==============================================
+v2.0.3
+ChannelEdit fixing / Thanks @GamerBoomTV | Dan
+
+==============================================
+v2.0.2
+Discord Message fixing
+
+==============================================
+v2.0.1 BETA
+
+==============================================
+v2.0.0
+fix Ticket module [two if request] - Ticket supporter != Array
