@@ -6,6 +6,9 @@
 [![forthebadge](http://forthebadge.com/images/badges/cc-nc-sa.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/check-it-out.svg)](http://forthebadge.com)
 
+# Versionen
+You can find the offical and up-to date reposetory on our GitLab server: ![Gitlab](https://gitlab.support-pp.de/support/support-pp)
+
 # Support++
 Advanced Sinusbot Support Script
 
