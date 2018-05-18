@@ -1,3 +1,30 @@
+v2.0.4.9-2
+- add Website / Status page to the script
+- change license to MIT
+- add remote support module (That is a tool, who help us to find errors or failed configurated fields.)
+- add 6 pro member to the script. Thank you for the support <3
+- change a small bug (wrong api request...)
+
+
+v2.0.4.8
+- fix "id" undefined error.
+- add module activate request. ("replace" of undefine error.)
+- add FeedbackSystem #1
+- set default value to undefined vars.
+- rework the Discord bot.
+- add more vars to the TicketSystem #45
+- all sub afk channel selected (for big server) #46
+- discord message now avaible in embed or norm message. #4
+- fixing TicketSytsem #10
+- add request telegram activated #41
+- advanced ChannelEdit commands #7
+- add config for notification mode for supporter and user seperate #37
+- allow BBCode for discord #3 
+- create a big Support++ API #19
+- allow now external storage via MySQL #42
+- add a new tutorial for ChannelEdit (created by DJJayT) 
+- use now GitLab (https://gitlab.support-pp.de)
+
 v2.0.4.7
 - add var liste to easy change the system vars. (start at line 1735)
 - add kick out feature, when support channel closed. Request by Niklas1507
@@ -39,7 +66,6 @@ Queue play default sounds
 Support:
     - varibale supporter online (int)
     - variable supporter online (name array)
-$
 ==============================================
 v2.0.3
 ChannelEdit fixing / Thanks @GamerBoomTV | Dan
