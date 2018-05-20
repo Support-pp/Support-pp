@@ -18,7 +18,3 @@ That way we know the best what we should implement.
 
 ### Realization
  *(If you know exactly how we can do this please share this idea with us here)*
-
-/label ~Feature-Request
-
-/subscribe
