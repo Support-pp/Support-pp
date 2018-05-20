@@ -1,6 +1,6 @@
 //2.0.4.9-1
 /*
-Copyright (C) 2017 VerHext <support@allesverhext.de>
+Copyright (C) 2018 VerHext <support@allesverhext.de>
 
 Support-Mail: <support@support-pp.de>
 This work is licensed under the MIT License
