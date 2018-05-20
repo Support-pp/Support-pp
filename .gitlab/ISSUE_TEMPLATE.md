@@ -44,7 +44,3 @@ Please also check if you have enter everywhere something where an '(*)' is.
 
 ### Screenshots
 *(Please include Screenshots of your full Config of Support++ here)*
-
-/label ~BUG
-
-/subscribe
