@@ -3,7 +3,7 @@ If there is a similar Issue, please comment on it so we can help you faster.
 
 Please also check if you have enter everywhere something where an '(*)' is.
 
-(Please read and remove this section before submiting your BUG)
+(Please read and remove this section before submiting your ISSUE)
 
 ------------------------------------------------
 
@@ -11,7 +11,7 @@ Please also check if you have enter everywhere something where an '(*)' is.
 <details>
 <summary>Operation System</summary>
 <pre>
-    (Please enter the output of `lsb_release -a` here)
+    (Please enter the output of `cat /etc/issue` here)
     
     (If you have rent your by a hoster please name them here)
 </pre>
