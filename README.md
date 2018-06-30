@@ -49,7 +49,7 @@ You can also use the provided template for bug reporting [right here](https://gi
 - Website by [@lapotor](https://github.com/lapotor)
 ______________________________________________________________________
  Telegram and Discord API status/uptime:
- https://stats.uptimerobot.com/Qk70QsJE6
+ https://status.support-pp.de/
  ______________________________________________________________________
 
 # License
