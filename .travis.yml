@@ -1,3 +1,3 @@
-language: javascript
+language: node_js
 script:
- - pro.json
+ - node pro.json
