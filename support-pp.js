@@ -1044,7 +1044,7 @@ registerPlugin({
         },{
             name: 'spTimeChannelManager',
             indent: 2,
-            title: 'Select yout time',
+            title: 'Select your time',
             type: 'array',
             vars: [{
                 name: 'spTimePrefix',
