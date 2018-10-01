@@ -3,13 +3,10 @@
 [![Discord](https://discordapp.com/api/guilds/303663158923493376/widget.png)](https://discord.gg/q3pAcGA)
 [![forthebadge](http://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/cc-nc-sa.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/check-it-out.svg)](http://forthebadge.com)
 
 # Support++
 Advanced Sinusbot Support Script
-
-![](https://allesverhext.de/upload/support/1.png)
 
 # Download
 
