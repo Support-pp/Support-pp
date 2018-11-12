@@ -1,3 +1,14 @@
+v2.0.4.9-2.2
+md5 [2C643D6DBBBD218846ED0077189E517B]
+- fix automatic channel close manager by leave
+- fix unauth access to db
+
+
+v2.0.4.9-2.1
+- change DSGVo text
+- change copyright mail
+
+
 v2.0.4.9-2
 - add Website / Status page to the script
 - change license to MIT
