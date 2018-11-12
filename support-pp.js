@@ -1,4 +1,4 @@
-//2.0.4.9-2.1
+//2.0.4.9-2.2
 /*
 Copyright (C) 2017 VerHext <support@allesverhext.de>
 
@@ -41,7 +41,7 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
     
     name: 'Support++',
-    version: '2.0.4.9-2.1 BETA',
+    version: '2.0.4.9-2.2 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'VerHext <support@support-pp.de>',
     enableWeb: true,
@@ -3372,7 +3372,7 @@ engine.log("[Support++] : Ticket ID:  " + store.get("spp_ticket_nr") )
             ev.client.chat("This server uses VerHext's [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url] script. Developed by the Support++ Team. Thanks for use!")
         }
         if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.1 BETA[/url]")
+            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.2 BETA[/url]")
         }
         if (ev.text == '!time')
         {
@@ -3703,29 +3703,30 @@ engine.log("[Support++] : Ticket ID:  " + store.get("spp_ticket_nr") )
     
 
  //--------------------------------------------------- { Automatic SupportChannel Manager} -----------------------------------------------------------
-          event.on('clientMove', function(ev) {
+ event.on('clientMove', function(ev) {
+
 
 
         if (!backend.isConnected()) return;
         if (ev.client.isSelf()) return;
-        if (typeof ev.toChannel == 'undefined') return;
 
         var formChannelId = 0;
         if (ev.fromChannel != null){
             formChannelId = ev.fromChannel.id()
         }
 
-        if (formChannelId == 0 ){
-            //engine.log("TRIGGERD!!!")
+        if (formChannelId == 0 && config.spMySQLActiv){
             if ( IsUserSupporter(ev.client.id())){
                 if (dbc) dbc.exec("INSERT INTO sp_supporter (sp_uid, sp_name) VALUES ('"+ev.client.uid() +"', '" + ev.client.name() +"') ON DUPLICATE KEY UPDATE sp_name = '" + ev.client.name() +"'"); // TODO: ESCAPE!
             }
-    }
+         }
+
 
 
 if (config.spAutomaticChannelManager){
 
 
+   
 
     var fromAfk = false;
     var toAFK = false;
@@ -3740,10 +3741,13 @@ if (config.spAutomaticChannelManager){
             fromAfk = true;
 
         }
+        try{
         if (ev.toChannel.id() == afkChannels[i].spAfkChannel)
         {
             toAFK = true;
         }
+    }catch(err){}
+
     }
 
     if (fromAfk && toAFK )
@@ -3791,6 +3795,7 @@ if (config.spAutomaticChannelManager){
                     });
                 });
             }
+            
         });
     }
         catch(err) {
