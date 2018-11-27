@@ -1,3 +1,9 @@
+---
+name: report
+about: Create a report to help us improve
+
+---
+
 Please search the Issues before you create a new one.
 If there is a similar Issue, please comment on it so we can help you faster.
 
