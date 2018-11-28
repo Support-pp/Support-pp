@@ -1,3 +1,10 @@
+v2.0.4.9-2.3
+md5 [94B0FB76395BF100806712E31208403D]
+- add coffee stop module    ( Resolved #22)
+- change license owner from VerHext to support++
+    [I]The copyright from the script is moved to the org Support++
+
+
 v2.0.4.9-2.2
 md5 [2C643D6DBBBD218846ED0077189E517B]
 - fix automatic channel close manager by leave
