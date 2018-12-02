@@ -41,7 +41,7 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
 
     name: 'Support++',
-    version: '2.0.4.9-2.3.1 BETA',
+    version: '2.0.4.9-2.4 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
     enableWeb: true,
@@ -184,7 +184,7 @@ registerPlugin({
         }]
     }, {
         name: 'spMsgMode_sp',
-        title: 'Notification mode for supporters',
+        title: 'Notification mode for supporters (*)',
         type: 'select',
         options: ['Poke', 'Chat'],
         conditions: [{
@@ -297,7 +297,7 @@ registerPlugin({
     }, {
         name: 'spHost',
         indent: 4,
-        title: 'Database host (PRO: db.support-pp.de)',
+        title: 'Database host (PRO: db.support-pp.de) (*)',
         placeholder: '49.145.xx.xx or domain',
         type: 'string',
         conditions: [{
@@ -313,7 +313,7 @@ registerPlugin({
     }, {
         name: 'spUsername',
         indent: 4,
-        title: 'Database username (Please don\'t use the root account!)',
+        title: 'Database username (Please don\'t use the root account!) (*)',
         placeholder: 'Support-pp',
         type: 'string',
         conditions: [{
@@ -329,9 +329,9 @@ registerPlugin({
     }, {
         name: 'spPassword',
         indent: 4,
-        title: 'Database password (Please only use an account with a password assigned!)',
+        title: 'Database password (Please only use an account with a password assigned!) (*)',
         placeholder: 'xxxxxxxxxxxxxxxxx',
-        type: 'string',
+        type: 'password',
         conditions: [{
             field: 'spLanguage',
             value: 1
@@ -345,7 +345,7 @@ registerPlugin({
     }, {
         name: 'spDB',
         indent: 4,
-        title: 'Database name (PRO: sp_)',
+        title: 'Database name (PRO: sp_) (*)',
         placeholder: 'SinusbotSupportSorage',
         type: 'string',
         conditions: [{
@@ -392,7 +392,7 @@ registerPlugin({
     }, {
         name: 'spTicketCommand',
         indent: 4,
-        title: 'Command to send a ticket (e.g !ticket)',
+        title: 'Command to send a ticket (e.g !ticket) (*)',
         placeholder: '!t | !ticket | !tr ...',
         type: 'string',
         conditions: [{
@@ -410,7 +410,7 @@ registerPlugin({
     }, {
         name: 'spTicketSendMsg',
         indent: 4,
-        title: 'Ticket confirmation message [Variable &u = Username]',
+        title: 'Ticket confirmation message [Variable &u = Username] (*)',
         placeholder: 'Your ticket has been sent',
         type: 'string',
         conditions: [{
@@ -428,7 +428,7 @@ registerPlugin({
     }, {
         name: 'spNewTicketMsg',
         indent: 4,
-        title: 'Message sent to supporters when receiving a new ticket [Variable &u = Username, &client = Client[Object] ]',
+        title: 'Message sent to supporters when receiving a new ticket [Variable &u = Username, &client = Client[Object] ] (*)',
         placeholder: 'New ticket from &u !',
         type: 'string',
         conditions: [{
@@ -479,7 +479,7 @@ registerPlugin({
     }, {
         name: 'spTelegramModeTicket',
         indent: 4,
-        title: 'Ticket notification mode via Telegram',
+        title: 'Ticket notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
@@ -497,7 +497,7 @@ registerPlugin({
     }, {
         name: 'spTelegramModeSupport',
         indent: 4,
-        title: 'Support notification mode via Telegram',
+        title: 'Support notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
@@ -515,7 +515,7 @@ registerPlugin({
     }, {
         name: 'spTelegramID',
         indent: 4,
-        title: 'Telegram ChatId',
+        title: 'Telegram ChatId (*)',
         placeholder: '123456789',
         type: 'string',
         conditions: [{
@@ -533,7 +533,7 @@ registerPlugin({
     }, {
         name: 'spTelegramToken',
         indent: 4,
-        title: 'Telegram Bot token',
+        title: 'Telegram Bot token (*)',
         placeholder: '987654321',
         type: 'password',
         conditions: [{
@@ -551,7 +551,7 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextSupport',
         indent: 4,
-        title: 'Support | Telegram message [Variables: &u = username]',
+        title: 'Support | Telegram message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
@@ -569,7 +569,7 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextTicket',
         indent: 4,
-        title: 'Ticket | Telegram message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip]',
+        title: 'Ticket | Telegram message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
@@ -606,7 +606,7 @@ registerPlugin({
     }, {
         name: 'spDiscordModeTicket',
         indent: 4,
-        title: 'Ticket notification mode via Discord',
+        title: 'Ticket notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
@@ -624,7 +624,7 @@ registerPlugin({
     }, {
         name: 'spDiscordModeSupport',
         indent: 4,
-        title: 'Support notification mode via Discord',
+        title: 'Support notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
@@ -662,7 +662,7 @@ registerPlugin({
     }, {
         name: 'spDiscordID',
         indent: 4,
-        title: 'Discord ChatId',
+        title: 'Discord ChatId (*)',
         placeholder: '123456789',
         type: 'string',
         conditions: [{
@@ -680,7 +680,7 @@ registerPlugin({
     }, {
         name: 'spDiscordToken',
         indent: 4,
-        title: 'Discord Bot token',
+        title: 'Discord Bot token (*)',
         placeholder: '987654321',
         type: 'string',
         conditions: [{
@@ -698,7 +698,7 @@ registerPlugin({
     }, {
         name: 'spDiscordTextSupport',
         indent: 4,
-        title: 'Support | Discord message [Variables: &u = username]',
+        title: 'Support | Discord message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
@@ -716,7 +716,7 @@ registerPlugin({
     }, {
         name: 'spDiscordTextTicket',
         indent: 4,
-        title: 'Ticket | Discord message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip]',
+        title: 'Ticket | Discord message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
@@ -768,7 +768,7 @@ registerPlugin({
     }, {
         name: 'spSupportChannelCommandOpen',
         indent: 2,
-        title: 'Channel open command',
+        title: 'Channel open command (*)',
         placeholder: '!online',
         type: 'string',
         conditions: [{
@@ -784,7 +784,7 @@ registerPlugin({
     }, {
         name: 'spSupportChannelCommandClose',
         indent: 2,
-        title: 'Channel close command',
+        title: 'Channel close command (*)',
         placeholder: '!offline',
         type: 'string',
         conditions: [{
@@ -807,26 +807,26 @@ registerPlugin({
             {
                 name: 'spSupportChannelNameOnlineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is open (!online)',
+                title: 'Channel name to set when support is open (!online) (*)',
                 placeholder: '[cspacer]Support [Online]',
                 type: 'string',
             }, {
                 name: 'spSupportChannelNameOnlinDescription',
                 indent: 1,
-                title: 'Channel description to set when support is open (!online)',
+                title: 'Channel description to set when support is open (!online) (*)',
                 placeholder: 'Support channel is open.',
                 type: 'multiline',
             }, {
                 name: 'spSupportChannelMaxClientsOnline',
                 indent: 1,
-                title: 'Change the maxClients when online.',
+                title: 'Change the maxClients when online. (*)',
                 placeholder: '10',
                 type: 'number',
 
             }, {
                 name: 'spSupportChannelNameOfflineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is closed (!offline)',
+                title: 'Channel name to set when support is closed (!offline) (*)',
                 placeholder: '[cspacer]Support [Offline]',
                 type: 'string',
             }, {
@@ -838,7 +838,7 @@ registerPlugin({
             }, {
                 name: 'spSupportChannelMaxClientsOffline',
                 indent: 1,
-                title: 'Change the maxClients when offline.',
+                title: 'Change the maxClients when offline. (*)',
                 placeholder: '0',
                 type: 'number',
 
@@ -846,23 +846,23 @@ registerPlugin({
 
                 name: 'spSupportChannelNameChange',
                 indent: 1,
-                title: 'The channel that should be renamed',
+                title: 'The channel that should be renamed (*)',
                 type: 'channel',
             }, {
                 name: 'spSupportChannelSupporterId',
                 indent: 1,
-                title: "Supporter Id's for selected Channel.",
+                title: "Supporter Id's for selected Channel. (*)",
                 type: 'strings',
             }, {
                 name: 'spSupportChannelPasswordActiv',
                 indent: 1,
-                title: 'Close offline channel with password. (No User can join.)',
+                title: 'Close offline channel with password. (No User can join.) (*)',
                 type: 'select',
                 options: ['Yes', 'NO'],
             }, {
                 name: 'spSupportChannelKickActiv',
                 indent: 1,
-                title: 'If a channel is closed, kick all waiting users? (only one)', // only one?
+                title: 'If a channel is closed, kick all waiting users? (only one) (*)', // only one?
                 type: 'select',
                 options: ['Yes', 'NO'],
             }, {
@@ -888,7 +888,7 @@ registerPlugin({
     {
         name: 'spSupportChannelSupporterId',
         indent: 3,
-        title: 'Default Supporter Id. Can change all channels.',
+        title: 'Default Supporter Id. Can change all channels. (*)',
         type: 'strings',
         conditions: [{
             field: 'spLanguage',
@@ -984,7 +984,7 @@ registerPlugin({
     }, {
         name: 'spTimeZo',
         indent: 3,
-        title: 'Select your time zone. Check the time with !time.',
+        title: 'Select your time zone. Check the time with !time. (*)',
         type: 'select',
         options: [
             'UTC-12:00',
@@ -1044,7 +1044,7 @@ registerPlugin({
     }, {
         name: 'spTimeChannelManager',
         indent: 2,
-        title: 'Select yout time',
+        title: 'Select yout time (*)',
         type: 'array',
         vars: [{
             name: 'spTimePrefix',
@@ -1585,7 +1585,7 @@ registerPlugin({
     {
         name: 'spSelectMusic',
         indent: 1,
-        title: 'Select the nummber of the Online Song.',
+        title: 'Select the nummber of the Online Song. (*)',
         placeholder: '2',
         type: 'number',
         conditions: [{
@@ -1601,7 +1601,7 @@ registerPlugin({
     }, {
         name: 'spSelectMusicOffline',
         indent: 1,
-        title: 'Select the nummber of the Offline Song.',
+        title: 'Select the nummber of the Offline Song. (*)',
         placeholder: '2',
         type: 'number',
         conditions: [{
@@ -1633,7 +1633,7 @@ registerPlugin({
 
         name: 'spQueueVolumen',
         indent: 4,
-        title: 'Select the Volumen: ',
+        title: 'Select the Volumen:  (*)',
         placeholder: '60',
         type: 'number',
         conditions: [{
@@ -1722,7 +1722,7 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsReduce',
         indent: 4,
-        title: 'Reduce points per minute',
+        title: 'Reduce points per minute (*)',
         placeholder: '5',
         type: 'number',
         conditions: [{
@@ -1740,7 +1740,7 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsLimit',
         indent: 4,
-        title: 'Points to lock the user',
+        title: 'Points to lock the user (*)',
         placeholder: '60',
         type: 'number',
         conditions: [{
@@ -1758,7 +1758,7 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsTicket',
         indent: 4,
-        title: 'Points for each ticket',
+        title: 'Points for each ticket (*)',
         placeholder: '20',
         type: 'number',
         conditions: [{
@@ -1776,7 +1776,7 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsSupport',
         indent: 4,
-        title: 'Points for each support request',
+        title: 'Points for each support request (*)',
         placeholder: '20',
         type: 'number',
         conditions: [{
@@ -1812,7 +1812,7 @@ registerPlugin({
     }, {
         name: 'spCoffeeStopGroup',
         indent: 4,
-        title: 'Servergroup Id to ignore the supporter.',
+        title: 'Servergroup Id to ignore the supporter. (*)',
         type: 'strings',
         conditions: [{
             field: 'spLanguage',
@@ -1844,23 +1844,23 @@ registerPlugin({
     }, {
         name: 'spThemen',
         indent: 4,
-        title: 'Topic',
+        title: 'Topic (*)',
         placeholder: '2',
         type: 'array',
         vars: [{
             name: 'spThemaName',
             indent: 1,
-            title: 'Name of the topic',
+            title: 'Name of the topic (*)',
             type: 'string'
         }, {
             name: 'spThemaId',
             indent: 1,
-            title: 'ID of the topic',
+            title: 'ID of the topic (*)',
             type: 'number'
         }, {
             name: 'spThemaSupporterGroups',
             indent: 1,
-            title: 'Supporter servergroup ID for the topic',
+            title: 'Supporter servergroup ID for the topic (*)',
             type: 'strings'
         }],
         conditions: [{
@@ -1876,7 +1876,7 @@ registerPlugin({
     }, {
         name: 'spThemenMessageSupporter',
         indent: 4,
-        title: 'Message supporter [Variable &u = User, &thema = Thema]',
+        title: 'Message supporter [Variable &u = User, &thema = Thema] (*)',
         placeholder: 'Hey, the User &u needs support for topic &thema !  ',
         type: 'string',
         conditions: [{
@@ -1894,7 +1894,7 @@ registerPlugin({
     }, {
         name: 'spThemenMessageUser',
         indent: 4,
-        title: 'Message User [Variable &u = User, &thema = Thema]',
+        title: 'Message User [Variable &u = User, &thema = Thema] (*)',
         placeholder: 'Please wait &u, a special supporter for topic &thema has been notified.',
         type: 'string',
         conditions: [{
@@ -1912,7 +1912,7 @@ registerPlugin({
     }, {
         name: 'spThemenMessage',
         indent: 4,
-        title: 'Select the topic message. [Variable &themen-array = Array with all topics + ids]',
+        title: 'Select the topic message. [Variable &themen-array = Array with all topics + ids] (*)',
         placeholder: 'Please select a topic ID... \n &themen-array',
         type: 'multiline',
         conditions: [{
@@ -2036,12 +2036,12 @@ registerPlugin({
     }, {
         name: 'spFeedbackQuestions',
         indent: 4,
-        title: 'Set the Questions (Hint: The questions must be answered with a number of stars.)',
+        title: 'Set the Questions (Hint: The questions must be answered with a number of stars.) (*)',
         type: 'array',
         vars: [{
             name: 'spFeedbackQuestion',
             indent: 4,
-            title: 'Set the Question',
+            title: 'Set the Question (*)',
             placeholder: 'How satisfied are you with the supporter?',
             type: 'string',
         }
@@ -2059,7 +2059,7 @@ registerPlugin({
     }, {
         name: 'msg_feedback_openFeedbakSession',
         indent: 4,
-        title: '[MSG] Welcome message. Start with the feedback system',
+        title: '[MSG] Welcome message. Start with the feedback system (*)',
         placeholder: 'Welcome to the Feedback System! Please help use with your participation! Thanks!',
         type: 'string',
         conditions: [{
@@ -2075,7 +2075,7 @@ registerPlugin({
     }, {
         name: 'msg_feedback_errorFeedbakSession',
         indent: 4,
-        title: '[MSG] User pressed an unallowed key',
+        title: '[MSG] User pressed an unallowed key (*)',
         placeholder: 'Sorry, please complete the feedback or exit with !exit',
         type: 'string',
         conditions: [{
@@ -2091,7 +2091,7 @@ registerPlugin({
     }, {
         name: 'msg_feedback_closeFeedbakSession',
         indent: 4,
-        title: '[MSG] Close the Feedback session',
+        title: '[MSG] Close the Feedback session (*)',
         placeholder: 'Oh, ok, we close your feedback session :/',
         type: 'string',
         conditions: [{
@@ -2107,7 +2107,7 @@ registerPlugin({
     }, {
         name: 'msg_feedback_closeFeedbakSessionOk',
         indent: 4,
-        title: '[MSG] Finish the Feedback session. Thanks for the participation',
+        title: '[MSG] Finish the Feedback session. Thanks for the participation (*)',
         placeholder: 'Thank you for your Feedback!',
         type: 'string',
         conditions: [{
