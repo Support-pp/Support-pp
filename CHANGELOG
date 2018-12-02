@@ -1,3 +1,8 @@
+v2.0.4.9-2.4
+md5 [251aef6c2a9d9d610153af520f17cd75]
+- added (*) to required fields
+- changed string to password at database module
+
 v2.0.4.9-2.3.1
 md5 [89217516148038fa0e14783c0a7c991f]
 - resolve bug issues #28
