@@ -1,3 +1,7 @@
+v2.0.4.9-2.3.1
+md5 [89217516148038fa0e14783c0a7c991f]
+- resolve bug issues #28
+
 v2.0.4.9-2.3
 md5 [44D66C0ABD87267CDE22FDF587B96027]
 - add coffee break module    ( Resolved #22)

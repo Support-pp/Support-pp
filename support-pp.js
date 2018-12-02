@@ -1,4 +1,4 @@
-//2.0.4.9-2.3
+//2.0.4.9-2.3.1
 /*
 Copyright (C) 2017- 2018 VerHext <support@support-pp.de>
 
@@ -41,7 +41,7 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
 
     name: 'Support++',
-    version: '2.0.4.9-2.3 BETA',
+    version: '2.0.4.9-2.3.1 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
     enableWeb: true,
@@ -2357,7 +2357,6 @@ registerPlugin({
     }
 
 
-    //delDoubleGroups remove array -> objekt -> array
     function deleteDuplicates(arr) {
         var temp = {};
         for (var i = 1; i < arr.length; i++) temp[arr[i]] = true;
@@ -2366,27 +2365,23 @@ registerPlugin({
         return r;
     }
 
+
     function getSupporter(groupArray) {
         var supporter = [];
-        var supporterCoffee = [];
         var i = 0;
 
         if (groupArray == "all") {
-
             config.spSupportChannels.forEach(function (spg) {
                 backend.getClients().forEach(function (client) {
                     client.getServerGroups().forEach(function (group) {
                         spg.spSupporterId.forEach(function (group2) {
-
-                            if (group.id() == config.spCoffeeStopGroup[0]) {
-                                i = i + 1;
-                                supporterCoffee[i] = client.id();
-                            }
-
                             if (isAFK(client.getChannels()[0].id())) {
-                                if (group.id() == group2) {
-                                    i = i + 1;
-                                    supporter[i] = client.id();
+                                if (!isInCoffeeBreak(client)) {
+                                    if (group.id() == group2) {
+                                        i = i + 1;
+
+                                        supporter[i] = client.id();
+                                    }
                                 }
                             }
                         });
@@ -2398,18 +2393,12 @@ registerPlugin({
             backend.getClients().forEach(function (client) {
                 client.getServerGroups().forEach(function (group) {
                     groupArray.forEach(function (group2) {
-
-                        //Coffee check
-                        if (group.id() == config.spCoffeeStopGroup[0]) {
-                            i = i + 1;
-                            supporterCoffee[i] = client.id();
-                        }
-
                         if (isAFK(client.getChannels()[0].id())) {
-                            if (group.id() == group2) {
-
-                                i = i + 1;
-                                supporter[i] = client.id();
+                            if (!isInCoffeeBreak(client)) {
+                                if (group.id() == group2) {
+                                    i = i + 1;
+                                    supporter[i] = client.id();
+                                }
                             }
                         }
                     });
@@ -2417,34 +2406,24 @@ registerPlugin({
 
             });
         }
-        supporterCoffee.forEach(function (ignore) {
-            for (var i = supporter.length - 1; i >= 0; i--) {
-                if (supporter[i] === ignore) {
-                    supporter.splice(i, 1);
-                }
-            }
-        });
+
         return supporter;
     }
 
     function getSupporterInt() {
         var supporter = [];
-        var supporterCoffee = [];
         var i = 0;
         config.spSupportChannels.forEach(function (spg) {
             backend.getClients().forEach(function (client) {
                 client.getServerGroups().forEach(function (group) {
                     spg.spSupporterId.forEach(function (group2) {
                         if (isAFK(client.getChannels()[0].id())) {
-                            //Coffee check
-                            if (group.id() == config.spCoffeeStopGroup[0]) {
-                                i = i + 1;
-                                supporterCoffee[i] = client.id();
-                            }
-                            if (group.id() == group2) {
-                                i = i + 1;
+                            if (!isInCoffeeBreak(client)) {
+                                if (group.id() == group2) {
+                                    i = i + 1;
 
-                                supporter[i] = client.id();
+                                    supporter[i] = client.id();
+                                }
                             }
                         }
                     });
@@ -2453,17 +2432,47 @@ registerPlugin({
             });
         });
 
-
         var re = deleteDuplicates(supporter);
-        supporterCoffee.forEach(function (ignore) {
-            for (var i = re.length - 1; i >= 0; i--) {
-                if (re[i] === ignore) {
-                    re.splice(i, 1);
+        return re.length - 1;
+    }
+
+    //Check Ignore User
+    function isIgnore(client) {
+
+        var ignore = false;
+        config.spSupportChannels.forEach(function (spg) {
+            backend.getClientByID(client).getServerGroups().forEach(function (group) {
+                config.spIgnoreId.forEach(function (group2) {
+                    spg.spSupporterId.forEach(function (group3) {
+                        if (group.id() == group2 || group.id() == group3) {
+                            ignore = true;
+                        }
+                    });
+                });
+            });
+        });
+        return ignore;
+    }
+
+    //Check CoffeeBreak Supporter
+    function isInCoffeeBreak(client) {
+        if (!config.spCoffeeStopActiv) {
+            return false;
+        }
+
+        var ignore = false;
+
+        client.getServerGroups().forEach(function (group) {
+            config.spCoffeeStopGroup.forEach(function (group2) {
+
+                if (group.id() == group2) {
+                    ignore = true;
                 }
-            }
+
+            });
         });
 
-        return re.length - 1;
+        return ignore;
     }
 
     //Check Ignore User
@@ -3324,7 +3333,7 @@ registerPlugin({
             ev.client.chat("This server uses VerHext's [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url] script. Developed by the Support++ Team. Thanks for use!")
         }
         if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.3 BETA[/url]")
+            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.3.1 BETA[/url]")
         }
         if (ev.text == '!time') {
             ev.client.chat("[Support++] Your Time: " + time())
