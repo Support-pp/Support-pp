@@ -1,4 +1,4 @@
-//2.0.4.9-2.3.1
+//2.0.4.9-2.4
 /*
 Copyright (C) 2017- 2018 VerHext <support@support-pp.de>
 
@@ -60,6 +60,15 @@ registerPlugin({
         title: 'Select the language DE/EN',
         type: 'select',
         options: ['Deutsch (Version 2.0.5)', 'English'],
+        conditions: [{
+            field: 'spDatenschutz',
+            value: 0
+        }]
+    }, {
+        name: 'spNewsletter',
+        title: '[Newsletter] You want recive news / changelog or special information? Then subscribe to our newsletter!',
+        placeholder: 'mymail@mydomain.de',
+        type: 'string',
         conditions: [{
             field: 'spDatenschutz',
             value: 0
@@ -3330,10 +3339,10 @@ registerPlugin({
         //--------------------------------------------------- { LICENSE } -----------------------------------------------------------
         if (ev.text == '!info' || ev.text == '!help') {
             // The license dont allow you to remove this watermarket! Please dont remove this? The script was lots of work... Thanks for your undestand! :)
-            ev.client.chat("This server uses VerHext's [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url] script. Developed by the Support++ Team. Thanks for use!")
+            ev.client.chat("This server uses Support++ [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url]. Developed by the Support++ Team. Thanks for use!")
         }
         if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.3.1 BETA[/url]")
+            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.4 BETA[/url]")
         }
         if (ev.text == '!time') {
             ev.client.chat("[Support++] Your Time: " + time())
@@ -4020,6 +4029,59 @@ registerPlugin({
                 }
             });
         }
+    }
+    //----------------------------------------------------- { Newsletter } ------------------------------------------------------------
+    if (config.spNewsletter != ""){
+
+        if (store.get("newsletter-mail") != ""){
+            if (store.get("newsletter-mail") != config.spNewsletter){
+                engine.log("[Your e-mail adresse was changed! Pleas accept the new mail adress! :=]")
+                addMailToNewsletter(config.spNewsletter)
+                store.set("newsletter-mail", config.spNewsletter);
+            }
+        }
+        if (store.get("newsletter-mail") != ""){
+            return;
+        }
+        engine.log("[Thank you for subscribing to our Newsletter! :=]")
+        store.set("newsletter-mail", config.spNewsletter);
+        addMailToNewsletter(config.spNewsletter)
+        engine.log("->>  " + store.get("newsletter-mail"))
+    }else{
+        if (store.get("newsletter-mail") == ""){
+            return;
+        }
+        engine.log("[Oh, you unsubscribed from our Newsletter! :=]")
+        store.set("newsletter-mail", "");
+    }
+
+    function addMailToNewsletter(email){
+        sinusbot.http({
+            'method': 'POST',
+            'url': "https://newsletter-spp.herokuapp.com/newsletter",
+            'timeout': 6000,
+            'headers': {
+                "email": email,
+                "cache-control": "no-cache"
+            }
+        }, function (error, response) {
+            if (response.statusCode != 200) {
+                engine.log(error);
+                return;
+            }
+
+            var res;
+            try {
+                res = JSON.parse(response.data)
+                engine.log("[DEBUG] Newsletter-Status:: " + res.status )
+            } catch (err) {
+                engine.log(err);
+            }
+            if (res === undefined) {
+                engine.log("Error in JSON!");
+                return;
+            }
+        });
     }
 
     //--------------------------------------------------- {Queue play track} -----------------------------------------------------------
