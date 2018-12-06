@@ -4075,7 +4075,7 @@ registerPlugin({
         sinusbot.http({
             'method': 'POST',
             'url': "https://newsletter-spp.herokuapp.com/newsletter",
-            'timeout': 6000,
+            'timeout': 90000,
             'headers': {
                 "email": email,
                 "cache-control": "no-cache"

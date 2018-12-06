@@ -1,5 +1,5 @@
 v2.0.4.9-2.4
-md5 [not set]
+md5 [a72db5c0b38a2c573b877cc7f92976fb]
 - added (*) to required fields
 - changed string to password at database module
 - add newsletter module
