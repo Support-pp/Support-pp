@@ -1,4 +1,4 @@
-//2.0.4.9-2.3.1
+//2.0.4.9-2.4
 /*
 Copyright (C) 2017- 2018 VerHext <support@support-pp.de>
 
@@ -41,7 +41,7 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
 
     name: 'Support++',
-    version: '2.0.4.9-2.3.1 BETA',
+    version: '2.0.4.9-2.4 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
     enableWeb: true,
@@ -57,13 +57,23 @@ registerPlugin({
         options: ['Accept', 'Deny']
     }, {
         name: 'spLanguage',
-        title: 'Select the language DE/EN',
+        title: 'Select the language:',
         type: 'select',
-        options: ['Deutsch (Version 2.0.5)', 'English'],
+        options: ['English'],
         conditions: [{
             field: 'spDatenschutz',
             value: 0
         }]
+    }, {
+        name: 'spNewsletter',
+        title: '[Newsletter] You want recive news / changelog or special information? Then subscribe to our newsletter!',
+        placeholder: 'mymail@mydomain.de',
+        type: 'string',
+        conditions: [{
+            field: 'spDatenschutz',
+            value: 0
+        }]
+        /* REMOV in version 2.1.0
     }, {
         name: 'spSorryGermanNot',
         indent: 2,
@@ -75,6 +85,7 @@ registerPlugin({
             field: 'spDatenschutz',
             value: 0
         }]
+        */
     }, {
         name: 'spSupportChannels',
         indent: 2,
@@ -105,7 +116,7 @@ registerPlugin({
         }],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -117,7 +128,7 @@ registerPlugin({
         type: 'strings',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -138,7 +149,7 @@ registerPlugin({
         }],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -152,7 +163,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -165,7 +176,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -177,19 +188,19 @@ registerPlugin({
         options: ['Poke', 'Chat'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
         }]
     }, {
         name: 'spMsgMode_sp',
-        title: 'Notification mode for supporters',
+        title: 'Notification mode for supporters (*)',
         type: 'select',
         options: ['Poke', 'Chat'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -201,7 +212,7 @@ registerPlugin({
         title: 'Support++ module. Activate the module with the Checkbox.',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -216,7 +227,7 @@ registerPlugin({
                 type: 'checkbox',
                 conditions: [{
                     field: 'spLanguage',
-                    value: 1
+                    value: 0
                 },{
                     field: 'spDatenschutz',
                     value: 0
@@ -227,7 +238,7 @@ registerPlugin({
                 title: "Why should I use an external API? That's a good question ... I'll explain it to you ... Check it out on the website https://support-pp.de/api",
                 conditions: [{
                         field: 'spLanguage',
-                        value: 1
+                        value: 0
                     },{
                         field: 'spAPIActiv',
                         value: true
@@ -241,7 +252,7 @@ registerPlugin({
                 title: "[Disclaimer] The Support++ API is a external and independently API. it allows us to extend the script scope. Our API is developed under the highest privacy policy. Your data is secure thanks to AWS databases and accessible online at any time. However, we assume no liability for this API.",
                 conditions: [{
                         field: 'spLanguage',
-                        value: 1
+                        value: 0
                     },{
                         field: 'spAPIActiv',
                         value: true
@@ -256,7 +267,7 @@ registerPlugin({
                 type: 'password',
                 conditions: [{
                         field: 'spLanguage',
-                        value: 1
+                        value: 0
                     },{
                         field: 'spAPIActiv',
                         value: true
@@ -275,7 +286,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -286,7 +297,7 @@ registerPlugin({
         title: 'This module connects the SinusBot with your MySQL DB. The Module automatically creates all necessary tables for you.',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -297,12 +308,12 @@ registerPlugin({
     }, {
         name: 'spHost',
         indent: 4,
-        title: 'Database host (PRO: db.support-pp.de)',
+        title: 'Database host (PRO: db.support-pp.de) (*)',
         placeholder: '49.145.xx.xx or domain',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -313,12 +324,12 @@ registerPlugin({
     }, {
         name: 'spUsername',
         indent: 4,
-        title: 'Database username (Please don\'t use the root account!)',
+        title: 'Database username (Please don\'t use the root account!) (*)',
         placeholder: 'Support-pp',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -329,12 +340,12 @@ registerPlugin({
     }, {
         name: 'spPassword',
         indent: 4,
-        title: 'Database password (Please only use an account with a password assigned!)',
+        title: 'Database password (Please only use an account with a password assigned!) (*)',
         placeholder: 'xxxxxxxxxxxxxxxxx',
-        type: 'string',
+        type: 'password',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -345,12 +356,12 @@ registerPlugin({
     }, {
         name: 'spDB',
         indent: 4,
-        title: 'Database name (PRO: sp_)',
+        title: 'Database name (PRO: sp_) (*)',
         placeholder: 'SinusbotSupportSorage',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -364,7 +375,7 @@ registerPlugin({
         title: '[ i ] You don\'t have a MySQL DB? All PRO members receive a free DB from us. In that case, we mailed you your credentials with your donation confirmation. Questions? Please contact us.',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spMySQLActiv',
             value: true
@@ -384,7 +395,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -392,12 +403,12 @@ registerPlugin({
     }, {
         name: 'spTicketCommand',
         indent: 4,
-        title: 'Command to send a ticket (e.g !ticket)',
+        title: 'Command to send a ticket (e.g !ticket) (*)',
         placeholder: '!t | !ticket | !tr ...',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTicketActiv',
@@ -410,12 +421,12 @@ registerPlugin({
     }, {
         name: 'spTicketSendMsg',
         indent: 4,
-        title: 'Ticket confirmation message [Variable &u = Username]',
+        title: 'Ticket confirmation message [Variable &u = Username] (*)',
         placeholder: 'Your ticket has been sent',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTicketActiv',
@@ -428,12 +439,12 @@ registerPlugin({
     }, {
         name: 'spNewTicketMsg',
         indent: 4,
-        title: 'Message sent to supporters when receiving a new ticket [Variable &u = Username, &client = Client[Object] ]',
+        title: 'Message sent to supporters when receiving a new ticket [Variable &u = Username, &client = Client[Object] ] (*)',
         placeholder: 'New ticket from &u !',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTicketActiv',
@@ -450,7 +461,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spTicketActiv',
             value: true
@@ -471,7 +482,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -479,12 +490,12 @@ registerPlugin({
     }, {
         name: 'spTelegramModeTicket',
         indent: 4,
-        title: 'Ticket notification mode via Telegram',
+        title: 'Ticket notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -497,12 +508,12 @@ registerPlugin({
     }, {
         name: 'spTelegramModeSupport',
         indent: 4,
-        title: 'Support notification mode via Telegram',
+        title: 'Support notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -515,12 +526,12 @@ registerPlugin({
     }, {
         name: 'spTelegramID',
         indent: 4,
-        title: 'Telegram ChatId',
+        title: 'Telegram ChatId (*)',
         placeholder: '123456789',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -533,12 +544,12 @@ registerPlugin({
     }, {
         name: 'spTelegramToken',
         indent: 4,
-        title: 'Telegram Bot token',
+        title: 'Telegram Bot token (*)',
         placeholder: '987654321',
         type: 'password',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -551,12 +562,12 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextSupport',
         indent: 4,
-        title: 'Support | Telegram message [Variables: &u = username]',
+        title: 'Support | Telegram message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -569,12 +580,12 @@ registerPlugin({
     }, {
         name: 'spTelegrammTextTicket',
         indent: 4,
-        title: 'Ticket | Telegram message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip]',
+        title: 'Ticket | Telegram message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spTelegramActiv',
@@ -598,7 +609,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -606,12 +617,12 @@ registerPlugin({
     }, {
         name: 'spDiscordModeTicket',
         indent: 4,
-        title: 'Ticket notification mode via Discord',
+        title: 'Ticket notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -624,12 +635,12 @@ registerPlugin({
     }, {
         name: 'spDiscordModeSupport',
         indent: 4,
-        title: 'Support notification mode via Discord',
+        title: 'Support notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -647,7 +658,7 @@ registerPlugin({
         type: 'password',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDiscordActiv',
             value: true
@@ -662,12 +673,12 @@ registerPlugin({
     }, {
         name: 'spDiscordID',
         indent: 4,
-        title: 'Discord ChatId',
+        title: 'Discord ChatId (*)',
         placeholder: '123456789',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -680,12 +691,12 @@ registerPlugin({
     }, {
         name: 'spDiscordToken',
         indent: 4,
-        title: 'Discord Bot token',
+        title: 'Discord Bot token (*)',
         placeholder: '987654321',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -698,12 +709,12 @@ registerPlugin({
     }, {
         name: 'spDiscordTextSupport',
         indent: 4,
-        title: 'Support | Discord message [Variables: &u = username]',
+        title: 'Support | Discord message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -716,12 +727,12 @@ registerPlugin({
     }, {
         name: 'spDiscordTextTicket',
         indent: 4,
-        title: 'Ticket | Discord message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip]',
+        title: 'Ticket | Discord message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spDiscordActiv',
@@ -745,7 +756,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -757,7 +768,7 @@ registerPlugin({
         title: 'The new ChannelEdit System. This module now works with a "parameter"! You can now open / close every channel with the command: <!offline> <parameter> IDEA: A example parameter is "ts" = "!online ts"',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -768,12 +779,12 @@ registerPlugin({
     }, {
         name: 'spSupportChannelCommandOpen',
         indent: 2,
-        title: 'Channel open command',
+        title: 'Channel open command (*)',
         placeholder: '!online',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -784,12 +795,12 @@ registerPlugin({
     }, {
         name: 'spSupportChannelCommandClose',
         indent: 2,
-        title: 'Channel close command',
+        title: 'Channel close command (*)',
         placeholder: '!offline',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -807,26 +818,26 @@ registerPlugin({
             {
                 name: 'spSupportChannelNameOnlineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is open (!online)',
+                title: 'Channel name to set when support is open (!online) (*)',
                 placeholder: '[cspacer]Support [Online]',
                 type: 'string',
             }, {
                 name: 'spSupportChannelNameOnlinDescription',
                 indent: 1,
-                title: 'Channel description to set when support is open (!online)',
+                title: 'Channel description to set when support is open (!online) (*)',
                 placeholder: 'Support channel is open.',
                 type: 'multiline',
             }, {
                 name: 'spSupportChannelMaxClientsOnline',
                 indent: 1,
-                title: 'Change the maxClients when online.',
+                title: 'Change the maxClients when online. (*)',
                 placeholder: '10',
                 type: 'number',
 
             }, {
                 name: 'spSupportChannelNameOfflineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is closed (!offline)',
+                title: 'Channel name to set when support is closed (!offline) (*)',
                 placeholder: '[cspacer]Support [Offline]',
                 type: 'string',
             }, {
@@ -838,31 +849,36 @@ registerPlugin({
             }, {
                 name: 'spSupportChannelMaxClientsOffline',
                 indent: 1,
-                title: 'Change the maxClients when offline.',
+                title: 'Change the maxClients when offline. (*)',
                 placeholder: '0',
                 type: 'number',
-
+            }, {
+                name: 'spSupportChannelOpenHours',
+                indent: 1,
+                title: '[NEW] Channel open hours. You customers can see the support times.',
+                placeholder: '19:30 - 20:00 Uhr Support',
+                type: 'multiline',
             }, {
 
                 name: 'spSupportChannelNameChange',
                 indent: 1,
-                title: 'The channel that should be renamed',
+                title: 'The channel that should be renamed (*)',
                 type: 'channel',
             }, {
                 name: 'spSupportChannelSupporterId',
                 indent: 1,
-                title: "Supporter Id's for selected Channel.",
+                title: "Supporter Id's for selected Channel. (*)",
                 type: 'strings',
             }, {
                 name: 'spSupportChannelPasswordActiv',
                 indent: 1,
-                title: 'Close offline channel with password. (No User can join.)',
+                title: 'Close offline channel with password. (No User can join.) (*)',
                 type: 'select',
                 options: ['Yes', 'NO'],
             }, {
                 name: 'spSupportChannelKickActiv',
                 indent: 1,
-                title: 'If a channel is closed, kick all waiting users? (only one)', // only one?
+                title: 'If a channel is closed, kick all waiting users? (only one) (*)', // only one?
                 type: 'select',
                 options: ['Yes', 'NO'],
             }, {
@@ -876,7 +892,7 @@ registerPlugin({
         ],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -888,11 +904,11 @@ registerPlugin({
     {
         name: 'spSupportChannelSupporterId',
         indent: 3,
-        title: 'Default Supporter Id. Can change all channels.',
+        title: 'Default Supporter Id. Can change all channels. (*)',
         type: 'strings',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -916,7 +932,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -931,7 +947,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spAutomaticChannelManager',
             value: true
@@ -949,7 +965,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spAutomaticChannelManager',
             value: true
@@ -973,7 +989,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -984,7 +1000,7 @@ registerPlugin({
     }, {
         name: 'spTimeZo',
         indent: 3,
-        title: 'Select your time zone. Check the time with !time.',
+        title: 'Select your time zone. Check the time with !time. (*)',
         type: 'select',
         options: [
             'UTC-12:00',
@@ -1030,7 +1046,7 @@ registerPlugin({
         ],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -1044,7 +1060,7 @@ registerPlugin({
     }, {
         name: 'spTimeChannelManager',
         indent: 2,
-        title: 'Select yout time',
+        title: 'Select yout time (*)',
         type: 'array',
         vars: [{
             name: 'spTimePrefix',
@@ -1066,7 +1082,7 @@ registerPlugin({
         }],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spChannelEditActiv',
             value: true
@@ -1089,7 +1105,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -1101,7 +1117,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1121,7 +1137,7 @@ registerPlugin({
         type: 'track',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spQueueActiv',
@@ -1143,7 +1159,7 @@ registerPlugin({
         type: 'track',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spQueueActiv',
@@ -1164,7 +1180,7 @@ registerPlugin({
         title: '-> Special thanks for the professional sound records to 006mi4. Check out his website: https://vcircle.eu/',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1178,7 +1194,7 @@ registerPlugin({
         title: '[DE] Support Offline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1193,7 +1209,7 @@ registerPlugin({
         title: '[1] FAQ with Musik (02:17 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1209,7 +1225,7 @@ registerPlugin({
         title: '[2] Lite (00:11 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1224,7 +1240,7 @@ registerPlugin({
         title: '[3] Lite Dunkle Stimme (00:07 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1239,7 +1255,7 @@ registerPlugin({
         title: '[4] Lite Helle Stimme (00:09 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1254,7 +1270,7 @@ registerPlugin({
         title: '[5] Lite Langsamme Stimme (00:09 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1269,7 +1285,7 @@ registerPlugin({
         title: '[6] Lite mit Musik (03:31 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1284,7 +1300,7 @@ registerPlugin({
         title: '[DE] Support Online',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1299,7 +1315,7 @@ registerPlugin({
         title: '[7] FAQ ohne Musik (00:21 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1314,7 +1330,7 @@ registerPlugin({
         title: '[8] FAQ mit Musik (02:16 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1329,7 +1345,7 @@ registerPlugin({
         title: '[9] Funny EricCartman (00:10 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1344,7 +1360,7 @@ registerPlugin({
         title: '[10] Funny EricCartman mit Musik (02:48 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1359,7 +1375,7 @@ registerPlugin({
         title: '[11] Lite Mitarbeiter (00:10 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1374,7 +1390,7 @@ registerPlugin({
         title: '[12] Lite Mitarbeiter Gespräch (00:05 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1389,7 +1405,7 @@ registerPlugin({
         title: '[13] Lite Supporter (00:10 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1404,7 +1420,7 @@ registerPlugin({
         title: '[14] Lite Supporter Gespräch (00:05 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1419,7 +1435,7 @@ registerPlugin({
         title: '[15] Lite Supporter Gespräch Musik (02:41 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1437,7 +1453,7 @@ registerPlugin({
         title: '[DE] Willkommen',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1452,7 +1468,7 @@ registerPlugin({
         title: '[16] Lite  (00:19 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1467,7 +1483,7 @@ registerPlugin({
         title: '[17] Regeln Funny Musik (01:38 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1482,7 +1498,7 @@ registerPlugin({
         title: '[18] Regeln Happy (00:14 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1497,7 +1513,7 @@ registerPlugin({
         title: '[19] Regeln Happy Musik (02:20 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1512,7 +1528,7 @@ registerPlugin({
         title: '[20] Regeln Webseite Musik 1 (02:16 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1527,7 +1543,7 @@ registerPlugin({
         title: '[21] Regeln Webseite Musik 2 (02:17 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1542,7 +1558,7 @@ registerPlugin({
         title: '[EN] Support',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1558,7 +1574,7 @@ registerPlugin({
         title: '[22] Lite Funny (00:11 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1573,7 +1589,7 @@ registerPlugin({
         title: '[23] Lite Funny Music (03:55 min)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1585,12 +1601,12 @@ registerPlugin({
     {
         name: 'spSelectMusic',
         indent: 1,
-        title: 'Select the nummber of the Online Song.',
+        title: 'Select the nummber of the Online Song. (*)',
         placeholder: '2',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1601,12 +1617,12 @@ registerPlugin({
     }, {
         name: 'spSelectMusicOffline',
         indent: 1,
-        title: 'Select the nummber of the Offline Song.',
+        title: 'Select the nummber of the Offline Song. (*)',
         placeholder: '2',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1620,7 +1636,7 @@ registerPlugin({
         title: '-> Special thanks for the professional sound records to 006mi4. Check out his website: https://vcircle.eu/',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spQueueActiv',
             value: true
@@ -1633,12 +1649,12 @@ registerPlugin({
 
         name: 'spQueueVolumen',
         indent: 4,
-        title: 'Select the Volumen: ',
+        title: 'Select the Volumen:  (*)',
         placeholder: '60',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spQueueActiv',
@@ -1656,7 +1672,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spQueueActiv',
@@ -1674,7 +1690,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spQueueActiv',
@@ -1698,7 +1714,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -1709,7 +1725,7 @@ registerPlugin({
         title: 'This module will protect your ticket / support bot against flood. (WARNING: This module uses the internal storage.)',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spAntiFloodActiv',
@@ -1722,12 +1738,12 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsReduce',
         indent: 4,
-        title: 'Reduce points per minute',
+        title: 'Reduce points per minute (*)',
         placeholder: '5',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spAntiFloodActiv',
@@ -1740,12 +1756,12 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsLimit',
         indent: 4,
-        title: 'Points to lock the user',
+        title: 'Points to lock the user (*)',
         placeholder: '60',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spAntiFloodActiv',
@@ -1758,12 +1774,12 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsTicket',
         indent: 4,
-        title: 'Points for each ticket',
+        title: 'Points for each ticket (*)',
         placeholder: '20',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spAntiFloodActiv',
@@ -1776,12 +1792,12 @@ registerPlugin({
     }, {
         name: 'spAntiFloodPointsSupport',
         indent: 4,
-        title: 'Points for each support request',
+        title: 'Points for each support request (*)',
         placeholder: '20',
         type: 'number',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spAntiFloodActiv',
@@ -1804,7 +1820,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -1812,11 +1828,11 @@ registerPlugin({
     }, {
         name: 'spCoffeeStopGroup',
         indent: 4,
-        title: 'Servergroup Id to ignore the supporter.',
+        title: 'Servergroup Id to ignore the supporter. (*)',
         type: 'strings',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spCoffeeStopActiv',
             value: true
@@ -1836,7 +1852,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -1844,28 +1860,28 @@ registerPlugin({
     }, {
         name: 'spThemen',
         indent: 4,
-        title: 'Topic',
+        title: 'Topic (*)',
         placeholder: '2',
         type: 'array',
         vars: [{
             name: 'spThemaName',
             indent: 1,
-            title: 'Name of the topic',
+            title: 'Name of the topic (*)',
             type: 'string'
         }, {
             name: 'spThemaId',
             indent: 1,
-            title: 'ID of the topic',
+            title: 'ID of the topic (*)',
             type: 'number'
         }, {
             name: 'spThemaSupporterGroups',
             indent: 1,
-            title: 'Supporter servergroup ID for the topic',
+            title: 'Supporter servergroup ID for the topic (*)',
             type: 'strings'
         }],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spThemenNotificationActiv',
             value: true
@@ -1876,12 +1892,12 @@ registerPlugin({
     }, {
         name: 'spThemenMessageSupporter',
         indent: 4,
-        title: 'Message supporter [Variable &u = User, &thema = Thema]',
+        title: 'Message supporter [Variable &u = User, &thema = Thema] (*)',
         placeholder: 'Hey, the User &u needs support for topic &thema !  ',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spThemenNotificationActiv',
@@ -1894,12 +1910,12 @@ registerPlugin({
     }, {
         name: 'spThemenMessageUser',
         indent: 4,
-        title: 'Message User [Variable &u = User, &thema = Thema]',
+        title: 'Message User [Variable &u = User, &thema = Thema] (*)',
         placeholder: 'Please wait &u, a special supporter for topic &thema has been notified.',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spThemenNotificationActiv',
@@ -1912,12 +1928,12 @@ registerPlugin({
     }, {
         name: 'spThemenMessage',
         indent: 4,
-        title: 'Select the topic message. [Variable &themen-array = Array with all topics + ids]',
+        title: 'Select the topic message. [Variable &themen-array = Array with all topics + ids] (*)',
         placeholder: 'Please select a topic ID... \n &themen-array',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spThemenNotificationActiv',
@@ -1938,7 +1954,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -1951,7 +1967,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spPrefixActiv',
@@ -1969,7 +1985,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spPrefixActiv',
@@ -1987,7 +2003,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spPrefixActiv',
@@ -2005,7 +2021,7 @@ registerPlugin({
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         },
         {
             field: 'spPrefixActiv',
@@ -2028,7 +2044,7 @@ registerPlugin({
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spDatenschutz',
             value: 0
@@ -2036,19 +2052,19 @@ registerPlugin({
     }, {
         name: 'spFeedbackQuestions',
         indent: 4,
-        title: 'Set the Questions (Hint: The questions must be answered with a number of stars.)',
+        title: 'Set the Questions (Hint: The questions must be answered with a number of stars.) (*)',
         type: 'array',
         vars: [{
             name: 'spFeedbackQuestion',
             indent: 4,
-            title: 'Set the Question',
+            title: 'Set the Question (*)',
             placeholder: 'How satisfied are you with the supporter?',
             type: 'string',
         }
         ],
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spFeedbackActiv',
             value: true
@@ -2059,12 +2075,12 @@ registerPlugin({
     }, {
         name: 'msg_feedback_openFeedbakSession',
         indent: 4,
-        title: '[MSG] Welcome message. Start with the feedback system',
+        title: '[MSG] Welcome message. Start with the feedback system (*)',
         placeholder: 'Welcome to the Feedback System! Please help use with your participation! Thanks!',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spFeedbackActiv',
             value: true
@@ -2075,12 +2091,12 @@ registerPlugin({
     }, {
         name: 'msg_feedback_errorFeedbakSession',
         indent: 4,
-        title: '[MSG] User pressed an unallowed key',
+        title: '[MSG] User pressed an unallowed key (*)',
         placeholder: 'Sorry, please complete the feedback or exit with !exit',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spFeedbackActiv',
             value: true
@@ -2091,12 +2107,12 @@ registerPlugin({
     }, {
         name: 'msg_feedback_closeFeedbakSession',
         indent: 4,
-        title: '[MSG] Close the Feedback session',
+        title: '[MSG] Close the Feedback session (*)',
         placeholder: 'Oh, ok, we close your feedback session :/',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spFeedbackActiv',
             value: true
@@ -2107,12 +2123,12 @@ registerPlugin({
     }, {
         name: 'msg_feedback_closeFeedbakSessionOk',
         indent: 4,
-        title: '[MSG] Finish the Feedback session. Thanks for the participation',
+        title: '[MSG] Finish the Feedback session. Thanks for the participation (*)',
         placeholder: 'Thank you for your Feedback!',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
-            value: 1
+            value: 0
         }, {
             field: 'spFeedbackActiv',
             value: true
@@ -2124,7 +2140,7 @@ registerPlugin({
 
     {
         name: 'spCopyright',
-        title: 'This Script is created by VerHext. This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Removal of any watermark / copyright notice is not permitted.'
+        title: 'This Script is created by Support++ . This work is licensed under the MIT License. Removal of any watermark / copyright notice is not permitted. Support++ is a project from the magiCCoder org.'
     }
     ]
 }, function (sinusbot, config, info) {
@@ -2169,6 +2185,7 @@ registerPlugin({
         message_channeledit_no_permission = "[color=#aa0000][b][Support++] You dont have permission to change the support channel '&channel' ! Put your server group id into the field: 'Supporter Id's for selected Channel.' [/b][/color]";
     }
 
+   
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -3330,10 +3347,10 @@ registerPlugin({
         //--------------------------------------------------- { LICENSE } -----------------------------------------------------------
         if (ev.text == '!info' || ev.text == '!help') {
             // The license dont allow you to remove this watermarket! Please dont remove this? The script was lots of work... Thanks for your undestand! :)
-            ev.client.chat("This server uses VerHext's [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url] script. Developed by the Support++ Team. Thanks for use!")
+            ev.client.chat("This server uses Support++ [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url]. Developed by the Support++ Team. Thanks for use!")
         }
         if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.3.1 BETA[/url]")
+            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.4 BETA[/url]")
         }
         if (ev.text == '!time') {
             ev.client.chat("[Support++] Your Time: " + time())
@@ -3594,18 +3611,25 @@ registerPlugin({
                     return;
                 }
 
+                var dec = "";
+                dec = dec + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ SUPPORT HOURS ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n"
+                dec = dec + channelEdit.spSupportChannelOpenHours +"\n"
+                dec = dec + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n"
+                dec = dec + channelEdit.spSupportChannelNameOfflineDescription
+
+
                 if (channelEdit.spSupportChannelPasswordActiv == 0) {
 
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
                         name: channelEdit.spSupportChannelNameOfflineMsg,
                         password: generatePassword(20),
-                        description: channelEdit.spSupportChannelNameOfflineDescription,
+                        description: dec,
                         maxClients: channelEdit.spSupportChannelMaxClientsOffline
                     });
                 } else {
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
                         name: channelEdit.spSupportChannelNameOfflineMsg,
-                        description: channelEdit.spSupportChannelNameOfflineDescription,
+                        description: dec,
                         maxClients: channelEdit.spSupportChannelMaxClientsOffline
                     });
                 }
@@ -3642,6 +3666,7 @@ registerPlugin({
                 if (backend.getChannelByID(channelEdit.spSupportChannelNameChange).name() == channelEdit.spSupportChannelNameOnlineMsg) {
                     return;
                 }
+          
 
                 backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
                     name: channelEdit.spSupportChannelNameOnlineMsg,
@@ -4020,6 +4045,59 @@ registerPlugin({
                 }
             });
         }
+    }
+    //----------------------------------------------------- { Newsletter } ------------------------------------------------------------
+    if (config.spNewsletter != ""){
+
+        if (store.get("newsletter-mail") != ""){
+            if (store.get("newsletter-mail") != config.spNewsletter){
+                engine.log("[Your e-mail adresse was changed! Pleas accept the new mail adress! :=]")
+                addMailToNewsletter(config.spNewsletter)
+                store.set("newsletter-mail", config.spNewsletter);
+            }
+        }
+        if (store.get("newsletter-mail") != ""){
+            return;
+        }
+        engine.log("[Thank you for subscribing to our Newsletter! :=]")
+        store.set("newsletter-mail", config.spNewsletter);
+        addMailToNewsletter(config.spNewsletter)
+        engine.log("->>  " + store.get("newsletter-mail"))
+    }else{
+        if (store.get("newsletter-mail") == ""){
+            return;
+        }
+        engine.log("[Oh, you unsubscribed from our Newsletter! :=]")
+        store.set("newsletter-mail", "");
+    }
+
+    function addMailToNewsletter(email){
+        sinusbot.http({
+            'method': 'POST',
+            'url': "https://newsletter-spp.herokuapp.com/newsletter",
+            'timeout': 90000,
+            'headers': {
+                "email": email,
+                "cache-control": "no-cache"
+            }
+        }, function (error, response) {
+            if (response.statusCode != 200) {
+                engine.log(error);
+                return;
+            }
+
+            var res;
+            try {
+                res = JSON.parse(response.data)
+                engine.log("[DEBUG] Newsletter-Status:: " + res.status )
+            } catch (err) {
+                engine.log(err);
+            }
+            if (res === undefined) {
+                engine.log("Error in JSON!");
+                return;
+            }
+        });
     }
 
     //--------------------------------------------------- {Queue play track} -----------------------------------------------------------
