@@ -1,4 +1,4 @@
-//2.0.4.9-2.4
+//2.5.0
 /*
 Copyright (C) 2017- 2018 VerHext <support@support-pp.de>
 
@@ -41,10 +41,10 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
 
     name: 'Support++',
-    version: '2.0.4.9-2.4 BETA',
+    version: '2.5.0 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
-    enableWeb: true,
+    requiredModules: ["DB"],
     engines: '>= 0.10.7',
 
     vars: [{
