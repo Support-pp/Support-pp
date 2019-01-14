@@ -44,8 +44,8 @@ registerPlugin({
     version: '2.5.0 BETA',
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
-    requiredModules: ["DB"],
-    engines: '>= 0.10.7',
+    requiredModules: ["db"],
+    engines: '>= 1.0.0',
 
     vars: [{
         name: 'spWelcome',
