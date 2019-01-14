@@ -1,3 +1,8 @@
+v2.5.0
+md5 [null]
+- fix required modules config for the new v8.
+- remove website view
+
 v2.0.4.9-2.4
 md5 [a72db5c0b38a2c573b877cc7f92976fb]
 - added (*) to required fields
