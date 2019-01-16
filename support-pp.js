@@ -1,11 +1,12 @@
-//2.5.0
+//2.5.1
+const cVersion = "2.5.1"
 /*
-Copyright (C) 2017- 2018 VerHext <support@support-pp.de>
+Copyright (C) 2017- 2019 VerHext <support@support-pp.de>
 
 Support-Mail: <support@support-pp.de>
 This work is licensed under the MIT License
 
-All Sounds file Copyright (C) 2017 Support-pp.de
+All Sounds file Copyright (C) 2019 Support-pp.de
 Sounds: https://sounds.support-pp.de
 
 Status?
@@ -41,10 +42,10 @@ var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an un
 registerPlugin({
 
     name: 'Support++',
-    version: '2.5.0 BETA',
+    version: cVersion,
     description: 'Advanced support script + ticket system + Telegram and Discord notification + channel rename',
     author: 'Support++ <support@support-pp.de>',
-    requiredModules: ["db"],
+    requiredModules: ["db", "http"],
     engines: '>= 1.0.0',
 
     vars: [{
@@ -218,65 +219,6 @@ registerPlugin({
             value: 0
         }]
     },
-    /*
-            //                         -> Support++ API
-            {
-                name: 'spAPIActiv',
-                indent: 2,
-                title: '[Support++] Use a powerful cross-platform Support API.',
-                type: 'checkbox',
-                conditions: [{
-                    field: 'spLanguage',
-                    value: 0
-                },{
-                    field: 'spDatenschutz',
-                    value: 0
-                } ]
-            },{
-                name: 'spInfoAPI',
-                indent: 4,
-                title: "Why should I use an external API? That's a good question ... I'll explain it to you ... Check it out on the website https://support-pp.de/api",
-                conditions: [{
-                        field: 'spLanguage',
-                        value: 0
-                    },{
-                        field: 'spAPIActiv',
-                        value: true
-                    },{
-                        field: 'spDatenschutz',
-                        value: 0
-                }]
-            }, {
-                name: 'spInfoAPI2',
-                indent: 4,
-                title: "[Disclaimer] The Support++ API is a external and independently API. it allows us to extend the script scope. Our API is developed under the highest privacy policy. Your data is secure thanks to AWS databases and accessible online at any time. However, we assume no liability for this API.",
-                conditions: [{
-                        field: 'spLanguage',
-                        value: 0
-                    },{
-                        field: 'spAPIActiv',
-                        value: true
-                    },{
-                        field: 'spDatenschutz',
-                        value: 0
-                }]
-            }, {
-                name: 'spAPIToken',
-                indent: 4,
-                title: "[Support++ API] That's the only thing we want to know :) Please enter your API token from https://register.support-pp.de ",
-                type: 'password',
-                conditions: [{
-                        field: 'spLanguage',
-                        value: 0
-                    },{
-                        field: 'spAPIActiv',
-                        value: true
-                    },{
-                        field: 'spDatenschutz',
-                        value: 0
-                }]
-            }, 
-    */
 
     //                        -> MySQL
     {
@@ -406,6 +348,7 @@ registerPlugin({
         title: 'Command to send a ticket (e.g !ticket) (*)',
         placeholder: '!t | !ticket | !tr ...',
         type: 'string',
+        default: "!t",
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -2145,7 +2088,6 @@ registerPlugin({
     ]
 }, function (sinusbot, config, info) {
 
-
     //--------------------------------------------------- {Variablen} -----------------------------------------------------------
 
     var message_channeledit_kickreason
@@ -2161,10 +2103,10 @@ registerPlugin({
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     //Here are a list of all system message. You can change the msg into the "...". Thanks.
-    if (config.spLanguage == 0) {
+    /*if (config.spLanguage == 0) {
         // German Message...
         message_channeledit_kickreason = "Der Supportchannel ist geschlossen.";
-        message_channeledit_all_closed = "B]ChannelEdit | [/B] Alle Support Channel sind nun geschlossen.";
+        message_channeledit_all_closed = "[B]ChannelEdit | [/B] Alle Support Channel sind nun geschlossen.";
         message_channeledit_all_open = "B]ChannelEdit | [/B] Alle Support Channel sind nun geöffnet.";
         message_channeledit_closed = "[B]ChannelEdit | [/B] Der Support Channel ist nun geschlossen.";
         message_channeledit_open = "[B]ChannelEdit | [/B] Der Support Channel ist nun geöffnet.";
@@ -2173,22 +2115,21 @@ registerPlugin({
         message_channeledit_no_permission = "[color=#aa0000][b][Support++] Du besitzt keine Berechtigung den support Channel '&channel' zu bearbeiten! Trage deine Server Id in das Feld: 'Supporter Id's for selected Channel.' [/b][/color]";
 
     } else if (config.spLanguage == 1) {
+        */
 
-        // Englisch Message...
-        message_channeledit_kickreason = "The support channels are closed.";
-        message_channeledit_all_closed = "[B]ChannelEdit | [/B] All support channels are now closed";
-        message_channeledit_all_open = "[B]ChannelEdit | [/B] All support channels are now open";
-        message_channeledit_closed = "[B]ChannelEdit | [/B] The support channels are now closed!";
-        message_channeledit_open = "[B]ChannelEdit | [/B] The support channels are now open!";
-        message_antiflood_blocked = "[color=#aa0000][b][Support++] This action is currently not possible because of spam protection. Try again in a few seconds.[/b][/color]";
-        message_channeledit_no_permission_all = "[color=#aa0000][b][Support++] You dont have permission to change all support channel! Put your server group id into the field: 'Default Supporter Id. Can change all Channel' [/b][/color]";
-        message_channeledit_no_permission = "[color=#aa0000][b][Support++] You dont have permission to change the support channel '&channel' ! Put your server group id into the field: 'Supporter Id's for selected Channel.' [/b][/color]";
-    }
+    // Englisch Message...
+    message_channeledit_kickreason = "The support channels are closed.";
+    message_channeledit_all_closed = "[B]ChannelEdit | [/B] All support channels are now closed";
+    message_channeledit_all_open = "[B]ChannelEdit | [/B] All support channels are now open";
+    message_channeledit_closed = "[B]ChannelEdit | [/B] The support channels are now closed!";
+    message_channeledit_open = "[B]ChannelEdit | [/B] The support channels are now open!";
+    message_antiflood_blocked = "[color=#aa0000][b][Support++] This action is currently not possible because of spam protection. Try again in a few seconds.[/b][/color]";
+    message_channeledit_no_permission_all = "[color=#aa0000][b][Support++] You dont have permission to change all support channel! Put your server group id into the field: 'Default Supporter Id. Can change all Channel' [/b][/color]";
+    message_channeledit_no_permission = "[color=#aa0000][b][Support++] You dont have permission to change the support channel '&channel' ! Put your server group id into the field: 'Supporter Id's for selected Channel.' [/b][/color]";
+    //}
 
-   
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
 
 
     //Require module variables
@@ -2200,6 +2141,55 @@ registerPlugin({
     var store = require('store');
     var db = require('db');
     var helpers = require('helpers');
+    var http = require('http');
+
+
+    //Warning! At the moment the part below don't work! Wait on update of the lib (command.js)
+    //============================ { Register Commands for lib (command.js) created by Multivitamin } ============================
+
+    // We use the Command.js version for our commands. You can see now all commands with !help.
+    //Register command.js lib!
+
+    event.on("load", () => {
+        var Command3rd = require("command")
+        if (!Command3rd) {
+            engine.log("Command.js library not found! Please download Command.js and enable it to be able use this script! Or use the Version > 1.0.0")
+            return;
+        }
+
+        //Check and register if possible.
+        if (config.spTicketActiv) {
+            registerTicketCommand();
+        }
+
+
+        function registerTicketCommand() {
+            var ticketCmd = config.spTicketCommand;
+            if (ticketCmd == undefined) {
+                ticketCmd = "!t"
+                engine.log("[Support++] No command set for the ticket module. Use the default command: !t")
+            }
+            Command3rd.createCommand(ticketCmd)
+                .help("Create a new Ticket for the support team!")
+                .manual("Usage: " + ticketCmd + " <message>")
+        }
+
+        
+        
+            Command3rd.createCommand("!info")
+                .help("Get information about the Support++ script.")
+                .manual("Usage: !info")
+
+            Command3rd.createCommand("!version")
+                .help("Get information about the Support++ version.")
+                .manual("Usage: !version")
+
+            Command3rd.createCommand("!time")
+                .help("Get information about the time configuration from Support++.")
+                .manual("Usage: !time")
+
+                //ToDo add command register for channelEdit. Wait of updates ...
+    })
 
 
 
@@ -2329,7 +2319,7 @@ registerPlugin({
     }
     function sendTelegram(text) {
         if (config.spTelegramActiv) {
-            sinusbot.http({
+            http.simpleRequest({
 
                 url: "https://api.telegram.org/bot" + encodeURIComponent(config.spTelegramToken) + "/sendMessage?chat_id=" + encodeURIComponent(config.spTelegramID) + "&text=" + encodeURIComponent(text),
                 timeout: 60000,
@@ -2343,7 +2333,7 @@ registerPlugin({
     function sendDiscord(text, clientUid, mode) {
         if (config.spDiscordActiv) {
             if (mode == 0) {
-                sinusbot.http({
+                http.simpleRequest({
                     //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
                     url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text) + "&mode=0",
                     timeout: 60000,
@@ -2352,14 +2342,14 @@ registerPlugin({
 
             } else {
                 if (!useReplayToken && clientUid == 0) {
-                    sinusbot.http({
+                    http.simpleRequest({
                         //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
                         url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text),
                         timeout: 60000,
                     });
                     engine.log('DiscordNotification send...')
                 } else {
-                    sinusbot.http({
+                    http.simpleRequest({
                         //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
                         url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text) + "&replayToken=" + encodeURIComponent(config.spTicketResponseToken) + "&replayUUID=" + encodeURIComponent(clientUid),
                         timeout: 60000,
@@ -2592,13 +2582,10 @@ registerPlugin({
 
     //--------------------------------------------------- {Support++ API} -----------------------------------------------------------
 
-    function SendNotificationToAPI(token) {
-
-    }
 
     function SendCreateTicketToAPI(title, content, userid, author) {
         if (config.spAPIActiv) {
-            sinusbot.http({
+            http.simpleRequest({
                 'method': 'POST',
                 'url': "http://api.support-pp.de:9696/api/ticket?title=" + encodeURIComponent(title) + "&content=" + encodeURIComponent(content) + "&tagid=2&userid=" + encodeURIComponent(userid) + "&author=" + encodeURIComponent(author) + "&platform=teamspeak",
                 'timeout': 6000,
@@ -3345,12 +3332,12 @@ registerPlugin({
         }
 
         //--------------------------------------------------- { LICENSE } -----------------------------------------------------------
-        if (ev.text == '!info' || ev.text == '!help') {
+        if (ev.text == '!info') {
             // The license dont allow you to remove this watermarket! Please dont remove this? The script was lots of work... Thanks for your undestand! :)
-            ev.client.chat("This server uses Support++ [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url]. Developed by the Support++ Team. Thanks for use!")
+            ev.client.chat("This server uses [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url].")
         }
         if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] 2.0.4.9-2.4 BETA[/url]")
+            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] "+cVersion+"[/url]")
         }
         if (ev.text == '!time') {
             ev.client.chat("[Support++] Your Time: " + time())
@@ -3613,10 +3600,15 @@ registerPlugin({
 
                 var dec = "";
                 dec = dec + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ SUPPORT HOURS ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n"
-                dec = dec + channelEdit.spSupportChannelOpenHours +"\n"
+                dec = dec + channelEdit.spSupportChannelOpenHours + "\n"
                 dec = dec + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n"
                 dec = dec + channelEdit.spSupportChannelNameOfflineDescription
 
+                if (channelEdit.spSupportChannelOpenHours == "" || channelEdit.spSupportChannelOpenHours == undefined) {
+                    engine.log("No Description!")
+                    dec = "";
+                    dec = dec + channelEdit.spSupportChannelNameOfflineDescription
+                }
 
                 if (channelEdit.spSupportChannelPasswordActiv == 0) {
 
@@ -3666,7 +3658,7 @@ registerPlugin({
                 if (backend.getChannelByID(channelEdit.spSupportChannelNameChange).name() == channelEdit.spSupportChannelNameOnlineMsg) {
                     return;
                 }
-          
+
 
                 backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
                     name: channelEdit.spSupportChannelNameOnlineMsg,
@@ -3880,7 +3872,7 @@ registerPlugin({
     var queueChannel;
     var queueClient;
 
-    var connectUrl = "http://sounds.support-pp.de/"
+    var connectUrl = "https://s3.eu-central-1.amazonaws.com/sppaudio/v1/"
     var playUrl;
 
     var sounds = ["null",
@@ -4047,32 +4039,32 @@ registerPlugin({
         }
     }
     //----------------------------------------------------- { Newsletter } ------------------------------------------------------------
-    if (config.spNewsletter != ""){
+    if (config.spNewsletter != "") {
 
-        if (store.get("newsletter-mail") != ""){
-            if (store.get("newsletter-mail") != config.spNewsletter){
+        if (store.get("newsletter-mail") != "") {
+            if (store.get("newsletter-mail") != config.spNewsletter) {
                 engine.log("[Your e-mail adresse was changed! Pleas accept the new mail adress! :=]")
                 addMailToNewsletter(config.spNewsletter)
                 store.set("newsletter-mail", config.spNewsletter);
             }
         }
-        if (store.get("newsletter-mail") != ""){
+        if (store.get("newsletter-mail") != "") {
             return;
         }
         engine.log("[Thank you for subscribing to our Newsletter! :=]")
         store.set("newsletter-mail", config.spNewsletter);
         addMailToNewsletter(config.spNewsletter)
         engine.log("->>  " + store.get("newsletter-mail"))
-    }else{
-        if (store.get("newsletter-mail") == ""){
+    } else {
+        if (store.get("newsletter-mail") == "") {
             return;
         }
         engine.log("[Oh, you unsubscribed from our Newsletter! :=]")
         store.set("newsletter-mail", "");
     }
 
-    function addMailToNewsletter(email){
-        sinusbot.http({
+    function addMailToNewsletter(email) {
+        http.simpleRequest({
             'method': 'POST',
             'url': "https://newsletter-spp.herokuapp.com/newsletter",
             'timeout': 90000,
@@ -4089,7 +4081,7 @@ registerPlugin({
             var res;
             try {
                 res = JSON.parse(response.data)
-                engine.log("[DEBUG] Newsletter-Status:: " + res.status )
+                engine.log("[DEBUG] Newsletter-Status:: " + res.status)
             } catch (err) {
                 engine.log(err);
             }
@@ -4142,6 +4134,9 @@ registerPlugin({
     event.on('api:sp_tickets_get', function (ev) {
         return { succes: true, data: info };
     });
+
+
+
 
 
 });

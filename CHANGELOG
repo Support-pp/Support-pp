@@ -1,3 +1,12 @@
+v2.5.1
+md5 [daf038986cdf940ee9f2d2082ffae19f]
+- fix: undefined channel hours description
+- fix: http module error (outdated)
+- add http permission request
+- start register commands (not work!)
+- remove: !help license copyright
+- fix: audios and content type
+
 v2.5.0
 md5 [null]
 - fix required modules config for the new v8.
