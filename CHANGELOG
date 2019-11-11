@@ -1,3 +1,9 @@
+v2.6.0
+md5 [2cb1d071cfa7e3ca7311595635da58fb]
+- update: DiscordModule
+- fix: ticket cmd parser
+- fix: command.js lib error
+
 v2.5.1
 md5 [daf038986cdf940ee9f2d2082ffae19f]
 - fix: undefined channel hours description

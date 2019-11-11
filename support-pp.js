@@ -1,5 +1,5 @@
-//2.5.1
-const cVersion = "2.5.1"
+//2.6.0
+const cVersion = "2.6.0"
 /*
 Copyright (C) 2017- 2019 VerHext <support@support-pp.de>
 
@@ -14,6 +14,9 @@ https://status.support-pp.de
 
 Website?
 https://support-pp.de
+
+Forum:
+https://meta.support-pp.de
 
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬  PRO  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
@@ -548,7 +551,7 @@ registerPlugin({
     {
         name: 'spDiscordActiv',
         indent: 2,
-        title: '[DiscordNotification] Notification via Discord? [GDPR] For this module, we will need to transmit personal data to our project servers, including the IP address of your server, a UUID and the message.',
+        title: '🆕 [DiscordNotification] Notification via Discord?',
         type: 'checkbox',
         conditions: [{
             field: 'spLanguage',
@@ -594,49 +597,11 @@ registerPlugin({
         }
         ]
     }, {
-        name: 'spTicketResponseToken',
-        indent: 4,
-        title: '[PRO feature] Discord replay token (/id) You can replay with "/replay <ticket nr> msg"',
-        placeholder: '*************',
-        type: 'password',
-        conditions: [{
-            field: 'spLanguage',
-            value: 0
-        }, {
-            field: 'spDiscordActiv',
-            value: true
-        }, {
-            field: 'spTicketActiv',
-            value: true
-        }, {
-            field: 'spDatenschutz',
-            value: 0
-        }
-        ]
-    }, {
-        name: 'spDiscordID',
-        indent: 4,
-        title: 'Discord ChatId (*)',
-        placeholder: '123456789',
-        type: 'string',
-        conditions: [{
-            field: 'spLanguage',
-            value: 0
-        },
-        {
-            field: 'spDiscordActiv',
-            value: true
-        }, {
-            field: 'spDatenschutz',
-            value: 0
-        }
-        ]
-    }, {
         name: 'spDiscordToken',
         indent: 4,
-        title: 'Discord Bot token (*)',
-        placeholder: '987654321',
-        type: 'string',
+        title: '🔑 Token >Infos https://shorturl.at/awAP1 (*)',
+        placeholder: 'eyhjirtzui765ghjo0987tghj',
+        type: 'multiline',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -2088,6 +2053,7 @@ registerPlugin({
     ]
 }, function (sinusbot, config, info) {
 
+    const cVersion = "2.6.0"
     //--------------------------------------------------- {Variablen} -----------------------------------------------------------
 
     var message_channeledit_kickreason
@@ -2101,21 +2067,6 @@ registerPlugin({
 
 
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-    //Here are a list of all system message. You can change the msg into the "...". Thanks.
-    /*if (config.spLanguage == 0) {
-        // German Message...
-        message_channeledit_kickreason = "Der Supportchannel ist geschlossen.";
-        message_channeledit_all_closed = "[B]ChannelEdit | [/B] Alle Support Channel sind nun geschlossen.";
-        message_channeledit_all_open = "B]ChannelEdit | [/B] Alle Support Channel sind nun geöffnet.";
-        message_channeledit_closed = "[B]ChannelEdit | [/B] Der Support Channel ist nun geschlossen.";
-        message_channeledit_open = "[B]ChannelEdit | [/B] Der Support Channel ist nun geöffnet.";
-        message_antiflood_blocked = "[color=#aa0000][b][Support++] Diese aktion ist momentan nicht zuläassig aufgrund der Spam Protection. Versuche es in ein paar Sekunden erneut.[/b][/color]";
-        message_channeledit_no_permission_all = "[color=#aa0000][b][Support++] Du besitzt keine Berechtigung alle support Channel zu bearbeiten! Trage deine Server Id in das Feld: 'Default Supporter Id. Can change all Channel.' [/b][/color]";
-        message_channeledit_no_permission = "[color=#aa0000][b][Support++] Du besitzt keine Berechtigung den support Channel '&channel' zu bearbeiten! Trage deine Server Id in das Feld: 'Supporter Id's for selected Channel.' [/b][/color]";
-
-    } else if (config.spLanguage == 1) {
-        */
 
     // Englisch Message...
     message_channeledit_kickreason = "The support channels are closed.";
@@ -2150,6 +2101,8 @@ registerPlugin({
     // We use the Command.js version for our commands. You can see now all commands with !help.
     //Register command.js lib!
 
+
+    
     event.on("load", () => {
         var Command3rd = require("command")
         if (!Command3rd) {
@@ -2157,38 +2110,55 @@ registerPlugin({
             return;
         }
 
+        /*
+         * Register commands for the command.js lib by multivitamine
+         */
+
+        const sppCmd = Command3rd.createCommandGroup("spp")
+            .help("Support++ Commands")
+
+        sppCmd.addCommand("info")
+            .help("Show info about the installed Script")
+            .exec((client, args, reply) => {
+                client.chat(`Support++ [${cVersion}] [url=https://forum.sinusbot.com/resources/support.229/]Sinusbot Forum[/url] - [url=https://meta.support-pp.de]Support++ Forum[/url]`)
+        })
+
+        sppCmd.addCommand("version")
+            .help("Show the current script version")
+            .exec((client, args, reply) => {
+                client.chat(`Version [${cVersion}]`)
+        })
+
+        sppCmd.addCommand("time")
+            .help("Debug command for ChannelEdit time module.")
+            .exec((client, args, reply) => {
+                client.chat(`Current time [${new Date().toString()}]`)
+        })
+        
         //Check and register if possible.
+        if (config.spTicketCommand.length < 2){
+            console.log("Error: The Ticket command from Support++ need a min length of two chars! e.g. !t")
+            return;
+        }
+        var ticketCmdSep = config.spTicketCommand.replace(config.spTicketCommand.charAt(0), "")
         if (config.spTicketActiv) {
-            registerTicketCommand();
-        }
+            Command3rd.createCommand(ticketCmdSep)
+            .help("create a new ticket")
+            .manual(`Create a new ticket with ${config.spTicketCommand} <text>`)
+            .forcePrefix(config.spTicketCommand.charAt(0))
+/*
+            .checkPermission(client => {
+            //returns true when the client is in the list of allowed clients
+            return allowed.includes(client.uid())
+            })
+            */
+            .exec((client, args, reply, raw) => {
+                client.chat("ok - test");
+            })
 
-
-        function registerTicketCommand() {
-            var ticketCmd = config.spTicketCommand;
-            if (ticketCmd == undefined) {
-                ticketCmd = "!t"
-                engine.log("[Support++] No command set for the ticket module. Use the default command: !t")
-            }
-            Command3rd.createCommand(ticketCmd)
-                .help("Create a new Ticket for the support team!")
-                .manual("Usage: " + ticketCmd + " <message>")
         }
 
         
-        
-            Command3rd.createCommand("!info")
-                .help("Get information about the Support++ script.")
-                .manual("Usage: !info")
-
-            Command3rd.createCommand("!version")
-                .help("Get information about the Support++ version.")
-                .manual("Usage: !version")
-
-            Command3rd.createCommand("!time")
-                .help("Get information about the time configuration from Support++.")
-                .manual("Usage: !time")
-
-                //ToDo add command register for channelEdit. Wait of updates ...
     })
 
 
@@ -2264,6 +2234,7 @@ registerPlugin({
     }
 
     function replayTicketMessage() {
+        /*
         http({
             url: 'https://api.support-pp.de/discord?re=replay&token=' + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&replayToken=" + encodeURIComponent(config.spTicketResponseToken)
         }, function (err, res) {
@@ -2307,6 +2278,7 @@ registerPlugin({
 
             }
         });
+        */
     }
 
     //--------------------------------------------------- {ReplayTicket (PRO)} -----------------------------------------------------------
@@ -2329,36 +2301,46 @@ registerPlugin({
 
     }
 
-
-    function sendDiscord(text, clientUid, mode) {
+    //Please change the url, if you want to use a selfhost bot.
+    const DiscordApiUrl = "https://api.support-pp.de"
+    function sendDiscord(text, clientUid) {
         if (config.spDiscordActiv) {
-            if (mode == 0) {
+            engine.log('    > Send DiscordNotification (...)')
                 http.simpleRequest({
-                    //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
-                    url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text) + "&mode=0",
+                    method: 'POST',
+                    url: DiscordApiUrl + "/api/discord/notification",
                     timeout: 60000,
-                });
-                engine.log('DiscordNotification send...')
-
-            } else {
-                if (!useReplayToken && clientUid == 0) {
-                    http.simpleRequest({
-                        //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
-                        url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text),
-                        timeout: 60000,
-                    });
-                    engine.log('DiscordNotification send...')
-                } else {
-                    http.simpleRequest({
-                        //This is an extern API (from Support++ Team). You would use your self bot? Please contackt me... <support@allesverhext.de>
-                        url: "https://api.support-pp.de/discord?&token=" + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&msg=" + encodeURIComponent(text) + "&replayToken=" + encodeURIComponent(config.spTicketResponseToken) + "&replayUUID=" + encodeURIComponent(clientUid),
-                        timeout: 60000,
-                    });
-                    engine.log('DiscordNotification send + replay info...')
-                }
-
-            }
-
+                    body: JSON.stringify({"embed": true, "message": text }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + config.spDiscordToken
+                    }
+                }, function (error, response) {
+                    if (error) {
+                        engine.log("    = Error: " + error);
+                        return;
+                    }
+                    
+                    if (response.statusCode != 200) {
+                        engine.log("    = HTTP Error: " + response.status);
+                        return;
+                    }
+                    var res;
+                    try {
+                        res = JSON.parse(response.data.toString());
+                    } catch (err) {
+                        engine.log("    = " + err.message);
+                    }
+                    
+                    if (res === undefined) {
+                        engine.log("    = Invalid JSON.");
+                        return;
+                    }
+                    
+                    // success!
+                    engine.log("    = " + JSON.stringify(res));
+            });
+        
 
         }
     }
@@ -3101,79 +3083,6 @@ registerPlugin({
         }
         //--------------------------------------------------- {Ticket System } -----------------------------------------------------------
 
-        //
-
-        /*
-        var tr_ticket_id_count;
-        if (store.get("spp_ticket_nr") == "NaN" || store.get("spp_ticket_nr")  == "undefined" || store.get("spp_ticket_nr") == "null" || typeof (store.get("spp_ticket_nr")) == "undefined"){
-        engine.log("grtrigger---")
-         store.set("spp_ticket_nr", 1);
-         tr_ticket_id_count = 1;
-        }else{
-        tr_ticket_id_count = store.get("spp_ticket_nr");
-        }
-        engine.log("[Support++] : Ticket ID:  " + store.get("spp_ticket_nr") )
-        
-                // [id] [author] [date_short] [date_long] [ticket] [status]
-                ticket_system_prefix_header = "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬  Ticket-List  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-                ticket_system_prefix_table = "[id] | [author] [date] [ticket] [status]"
-                ticket_system_permission_deny_list = "[color=#aa0000][b]" + prefixTicket +" Sorry, but you dont have any permission to show the Ticket -List. Please add your ServerGroup id to the Supporter list. [/b][/color]";
-        
-        
-                //A list with all avaibel ticket information...
-                var tr_id = "[id]";
-                var tr_author = "[author]"
-                var tr_data = "[data]";
-                var tr_ticket = "[ticket]";
-                var tr_status = "[status]"
-        
-        
-                //ticket_array = [id, author, data, ticket, status]
-                function SaveToDB(){
-                    engine.log("TEST " + tr_ticket_id_count + 1);
-                        tr_ticket_id_count = tr_ticket_id_count +1;
-                    var id = tr_ticket_id_count;
-                    var author = "[URL=client://0/" + ev.client.uid() +"]" + ev.client.name() + "[/URL]"
-                    var data = getDateTime();
-                    var ticket = ev.text.replace(config.spTicketCommand, '');
-                    var status = "open";
-        
-                    var tmp_array = [id, author, data, ticket, status];
-                    store.unset("spp_ticket_nr");
-                    store.set("spp_ticket_nr", tr_ticket_id_count);
-        
-                    store.set("ticket_nr_" + tr_ticket_id_count, ev.text)
-                    engine.log("Ticket saved to DB!")
-        
-                }
-        
-                function ShowticketList(){
-                    getSupporter("all").forEach(function(supporter){
-                    var tr_ticket_id_count_tmp = store.get("spp_ticket_nr");
-                        if (supporter == ev.client.id() ){
-                            ev.client.chat(ticket_system_prefix_header);
-                            engine.log("ID-FORTicket: " + tr_ticket_id_count)
-        
-                            for (var i = 1; i >= tr_ticket_id_count; i++ )
-                            {
-                                engine.log("Load: " + i)
-                                var ticket_object = store.get("ticket_nr_" + i);
-                               ev.client.chat(ticket_object); 
-                            }
-        
-                        }else{
-                            engine.log(ticket_system_permission_deny_list);
-                            ev.client.chat(ticket_system_permission_deny_list);
-                            return;
-                        }
-                    });
-        
-        
-        
-                }
-        
-        */
-
         var discord = false;
         var discordTicket = config.spDiscordTextTicket;
         var telegram = false;
@@ -3210,7 +3119,11 @@ registerPlugin({
 
 
 
-        if (ev.text.indexOf(config.spTicketCommand) != -1) {
+        if (ev.text.split(" ")[0] == config.spTicketCommand) {
+            if (ev.text.split(" ").length == 1){
+                ev.client.chat(`Please add a text to you ticket. Usage: ${config.spTicketCommand} <text for ticket>`)
+                return;
+            }
             if (!(isFlood(ev.client.id(), config.spAntiFloodPointsSupport))) {
                 if (!(isIgnore(ev.client.id()))) {
                     //send bestätigung Ticket
@@ -3331,17 +3244,6 @@ registerPlugin({
             return dateTime;
         }
 
-        //--------------------------------------------------- { LICENSE } -----------------------------------------------------------
-        if (ev.text == '!info') {
-            // The license dont allow you to remove this watermarket! Please dont remove this? The script was lots of work... Thanks for your undestand! :)
-            ev.client.chat("This server uses [url=https://forum.sinusbot.com/resources/support.229/]Support++[/url].")
-        }
-        if (ev.text == '!version') {
-            ev.client.chat("[Support++] [url=https://forum.sinusbot.com/resources/support.229/] "+cVersion+"[/url]")
-        }
-        if (ev.text == '!time') {
-            ev.client.chat("[Support++] Your Time: " + time())
-        }
 
 
         //--------------------------------------------------- { Themen Module } -----------------------------------------------------------
@@ -3437,7 +3339,21 @@ registerPlugin({
 
 
         //--------------------------------------------------- {ChannelEdit} -----------------------------------------------------------
+        var tz = [-11, -10, -9, -8.5, -8, -7, -6, -5, -4, -3.5, -3, -2.5, -2, -1, 0, 1, 2, 3, 4, 4.5, 5, 5.5, 6, 6.5, 6.75, 7, 7.5, 8, 9, 9.5, 9.75, 10, 10.5, 11, 11.5, 12, 13, 13.75, 14, 15];
 
+        function time() {
+            var nonutc = new Date();
+            var utc = nonutc.getTime() + (nonutc.getTimezoneOffset() * 60000);
+            var now = new Date(utc + (3600000 * tz[config.spTimeZo]));
+            var h = now.getHours();
+            var m = now.getMinutes();
+    
+            if (m < 10) {
+                m = "0" + m;
+            }
+    
+            return ntime = h + ":" + m;
+        }
 
 
         //Channel Edit for Channel with prefix   
@@ -3811,22 +3727,6 @@ registerPlugin({
 
     //--------------------------------------------------- { Time SupportChannel Manager} -----------------------------------------------------------
 
-    var tz = [-11, -10, -9, -8.5, -8, -7, -6, -5, -4, -3.5, -3, -2.5, -2, -1, 0, 1, 2, 3, 4, 4.5, 5, 5.5, 6, 6.5, 6.75, 7, 7.5, 8, 9, 9.5, 9.75, 10, 10.5, 11, 11.5, 12, 13, 13.75, 14, 15];
-
-    function time() {
-        var nonutc = new Date();
-        var utc = nonutc.getTime() + (nonutc.getTimezoneOffset() * 60000);
-        var now = new Date(utc + (3600000 * tz[config.spTimeZo]));
-        var h = now.getHours();
-        var m = now.getMinutes();
-
-        if (m < 10) {
-            m = "0" + m;
-        }
-
-        return ntime = h + ":" + m;
-    }
-
 
     if (config.spTimeChannelManagerActiv) {
         setInterval(function () {
@@ -4134,9 +4034,5 @@ registerPlugin({
     event.on('api:sp_tickets_get', function (ev) {
         return { succes: true, data: info };
     });
-
-
-
-
 
 });
