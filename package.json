@@ -7,7 +7,8 @@
     "build": "tsc",
     "clean": "rm -r ./dist",
     "clean:all": "rm -rf ./dist && rm -rf ./node_modules",
-    "release": "standard-version"
+    "release-force": "standard-version",
+    "release": "standard-version --dry-run"
   },
   "repository": {
     "type": "git",

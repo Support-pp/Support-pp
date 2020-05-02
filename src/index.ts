@@ -9,6 +9,7 @@ registerPlugin(Config.getScriptConfig(), function (sinusbot: any, config: any, i
     const engine = require('engine');
 
     
+    engine.log(`    > Start Support++ <${Config.getScriptConfig().version}>`);
     engine.log('Hallo Welt!');
     
 });
