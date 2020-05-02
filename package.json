@@ -1,11 +1,13 @@
 {
   "name": "support-pp",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A support system for the Sinusbot https://support-pp.de",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -r ´./dist"
+    "clean": "rm -r ./dist",
+    "clean:all": "rm -rf ./dist && rm -rf ./node_modules",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   "homepage": "https://github.com/Support-pp/Support-pp#readme",
   "dependencies": {
     "@types/node": "^13.13.4",
-    "sinusbot-scripting-engine": "^1.0.18"
+    "sinusbot-scripting-engine": "^1.0.18",
+    "standard-version": "^7.1.0"
   }
 }
