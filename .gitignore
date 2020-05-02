@@ -1,0 +1,8 @@
+# Support++ dont want that all files and folder are pushed to GitHub.
+
+node_modules
+node_modules/
+
+#dist folder
+dist
+dist/

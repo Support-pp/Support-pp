@@ -1,0 +1,30 @@
+{
+  "name": "support-pp",
+  "version": "3.0.0",
+  "description": "A support system for the Sinusbot https://support-pp.de",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -r ´./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Support-pp/Support-pp.git"
+  },
+  "keywords": [
+    "support-pp",
+    "sinusbot",
+    "ts3",
+    "discord"
+  ],
+  "author": "KlexHub UG (haftungsbeschränkt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Support-pp/Support-pp/issues"
+  },
+  "homepage": "https://github.com/Support-pp/Support-pp#readme",
+  "dependencies": {
+    "@types/node": "^13.13.4",
+    "sinusbot-scripting-engine": "^1.0.18"
+  }
+}
