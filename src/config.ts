@@ -25,7 +25,7 @@ class Config{
             description: this.LANG.scriptConfig.description,
             version: this.VERSION,
             backends: ["ts3", "discord"],
-            requiredmodules: ["net"]
+            requiredmodules: ["net", "fs", "db"]
     
         }
      
