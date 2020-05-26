@@ -7,7 +7,8 @@ interface ScriptConfig {
     autorun?: boolean
     enableWeb?: boolean,
     engines?: EngineVersion,
-    requiredmodules?: string[] 
+    requiredmodules?: string[],
+    backends: string[],
     vars?: [],
 }
 
