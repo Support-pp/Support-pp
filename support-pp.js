@@ -1,5 +1,5 @@
 //2.6.0
-const cVersion = "2.6.0"
+const cVersion = "2.6.1"
 /*
 Copyright (C) 2017- 2019 VerHext <support@support-pp.de>
 
@@ -726,26 +726,26 @@ registerPlugin({
             {
                 name: 'spSupportChannelNameOnlineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is open (!online) (*)',
+                title: 'Channel name to set when support is open (!online)',
                 placeholder: '[cspacer]Support [Online]',
                 type: 'string',
             }, {
                 name: 'spSupportChannelNameOnlinDescription',
                 indent: 1,
-                title: 'Channel description to set when support is open (!online) (*)',
+                title: 'Channel description to set when support is open (!online)',
                 placeholder: 'Support channel is open.',
                 type: 'multiline',
             }, {
                 name: 'spSupportChannelMaxClientsOnline',
                 indent: 1,
-                title: 'Change the maxClients when online. (*)',
+                title: 'Change the maxClients when online.',
                 placeholder: '10',
                 type: 'number',
 
             }, {
                 name: 'spSupportChannelNameOfflineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is closed (!offline) (*)',
+                title: 'Channel name to set when support is closed (!offline)',
                 placeholder: '[cspacer]Support [Offline]',
                 type: 'string',
             }, {
@@ -757,7 +757,7 @@ registerPlugin({
             }, {
                 name: 'spSupportChannelMaxClientsOffline',
                 indent: 1,
-                title: 'Change the maxClients when offline. (*)',
+                title: 'Change the maxClients when offline.',
                 placeholder: '0',
                 type: 'number',
             }, {
@@ -3520,30 +3520,26 @@ registerPlugin({
                 dec = dec + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n"
                 dec = dec + channelEdit.spSupportChannelNameOfflineDescription
 
-                if (channelEdit.spSupportChannelOpenHours == "" || channelEdit.spSupportChannelOpenHours == undefined) {
-                    engine.log("No Description!")
+                if (channelEdit.spSupportChannelOpenHours == "" || channelEdit.spSupportChannelOpenHours == undefined || "") {
                     dec = "";
-                    dec = dec + channelEdit.spSupportChannelNameOfflineDescription
+                    dec = dec + channelEdit.spSupportChannelNameOfflineDescription == undefined ? "" : channelEdit.spSupportChannelNameOfflineDescription
                 }
 
                 if (channelEdit.spSupportChannelPasswordActiv == 0) {
 
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                        name: channelEdit.spSupportChannelNameOfflineMsg,
+                        name: channelEdit.spSupportChannelNameOfflineMsg == "" ? undefined : channelEdit.spSupportChannelNameOfflineMsg,
                         password: generatePassword(20),
-                        description: dec,
-                        maxClients: channelEdit.spSupportChannelMaxClientsOffline
+                        description: dec == "" ? undefined : dec,
+                        maxClients: channelEdit.spSupportChannelMaxClientsOffline == "" ? undefined : channelEdit.spSupportChannelMaxClientsOffline
                     });
                 } else {
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                        name: channelEdit.spSupportChannelNameOfflineMsg,
-                        description: dec,
-                        maxClients: channelEdit.spSupportChannelMaxClientsOffline
+                        name: channelEdit.spSupportChannelNameOfflineMsg == "" ? undefined : channelEdit.spSupportChannelNameOfflineMsg,
+                        description: dec == "" ? undefined : dec,
+                        maxClients: channelEdit.spSupportChannelMaxClientsOffline == "" ? undefined : channelEdit.spSupportChannelMaxClientsOffline
                     });
                 }
-
-
-                //Update: maxClients: channelEdit.spSupportChannelMaxClientsOffline  
             }
 
             if (channelEdit.spSupportChannelKickActiv == 0) {
@@ -3554,9 +3550,7 @@ registerPlugin({
                         client.kickFromChannel(message_channeledit_kickreason);
                     }
                 });
-
             }
-
         });
         pw = "";
     }
@@ -3575,15 +3569,13 @@ registerPlugin({
                     return;
                 }
 
-
                 backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                    name: channelEdit.spSupportChannelNameOnlineMsg,
+                    name: channelEdit.spSupportChannelNameOnlineMsg == "" ? undefined : channelEdit.spSupportChannelNameOnlineMsg,
                     password: "",
-                    description: channelEdit.spSupportChannelNameOnlinDescription,
-                    maxClients: channelEdit.spSupportChannelMaxClientsOnline
+                    description:  channelEdit.spSupportChannelNameOnlinDescription == "" ? undefined : channelEdit.spSupportChannelNameOnlinDescription,
+                    maxClients: channelEdit.spSupportChannelMaxClientsOnline == "" ? undefined : channelEdit.spSupportChannelMaxClientsOnline
                 });
 
-                //Update: maxClients: channelEdit.spSupportChannelMaxClientsOnline,
             }
         });
     }
