@@ -1,3 +1,11 @@
+v2.6.2
+md5 [938eb2e57759cab1b8514915ae0d048a]
+- fix: channel edit maxClient bug #61
+- add: checkbox allow ignored users to create a ticket #45
+- replace outdated link
+- add: default values
+- fix: copyright footer
+
 v2.6.1
 md5 [6281c692997d0c527ae99e2e59cef8e4]
 - fix: channel edit overwrite bug #61
