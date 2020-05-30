@@ -1,46 +1,24 @@
-//2.6.0
-const cVersion = "2.6.0"
-/*
-Copyright (C) 2017- 2019 VerHext <support@support-pp.de>
+//2.6.2
+const cVersion = "2.6.2"
+/**
+ * Copyright (C) 2017- 2020 KlexHub UG (haftungsbeschränkt)
+ * E-Mail: <support@klexhub.com>
+ * This work is licensed under the MIT License
+ * 
+ * All Sounds file Copyright (C) 2020 sounds.support-pp.de
+ * Sounds: https://sounds.support-pp.de
+ * 
+ *  Status
+ * https://status.support-pp.de
+ * 
+ * Website
+ * https://support-pp.de
+ * 
+ * Forum:
+ * https://meta.support-pp.de
+ */
 
-Support-Mail: <support@support-pp.de>
-This work is licensed under the MIT License
-
-All Sounds file Copyright (C) 2019 Support-pp.de
-Sounds: https://sounds.support-pp.de
-
-Status?
-https://status.support-pp.de
-
-Website?
-https://support-pp.de
-
-Forum:
-https://meta.support-pp.de
-
-
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬  PRO  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-Thank you for the donation. All PRO members help this project.
-Here is a list:
-- GamerBoomTV | Dan <Support++ bestes Support Script für Sinusbot. Macht schon Spaß mit den anderen coolen Devs an so einem großen Projekt zu arbeiten danke das ich ein Teil davon seine darf🤘>
-- Rubmcraft | Elias <Teamspeak: Addbit.eu>
-- Fynnx <Abonniert mich!>
-- Jason | DJJayT <Wer ein gutes Support Script braucht und einen guten Geschmack hat benutzt Support++ ;)>
-- Cutes-Gaming.net | <Cutes-Gaming.net dein Minecraft Netzwerk>
-- Timo_sf | <Das Heranziehen der nächsten Generation ist eine Ehrenvolle und Bewusste Aufgabe>
-- # <#>
-- Kryben <Super Support Script, hilft uns bei der GermanProLeague den Usern Voice Support zu bieten!>
-- DarkTV_Original <Ihr seit die besten>
-- SecureIM <Danke für das tolle Script. Eine nette Erweiterung für den secureim.de TS3-Server.>
-- Chriss <Natürlich gehe ich mit dem Kopf durch die Wand! Schließlich soll ich ja meinen eigenen Weg gehen!>
-- Abydos <Support is not only experience, but also learning>
-- Herr_Minecraft | Niklas <Euer Plugin wird auf HeroLabsEU genutzt :D>
-- Nxtmaster | Felix <Vielen Dank für das tolle Support Script und für die tolle Zeit in Team ich hoffe auf eine gute weiter Zeit!>
-
-- Here is free space :D You can support us https://support-pp.de
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬  PRO  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-*/
-var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an unserem Projekt. Datenschutz hat einen besonders hohen Stellenwert für die Projektleitung des Support++ Projektes. https://magiccoder.de/datenschutz"
+var DSGVO = "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an unserem Projekt. Datenschutz hat einen besonders hohen Stellenwert für die Projektleitung des Support++ Projektes. https://support-pp.de/datenschutz.html"
 
 registerPlugin({
 
@@ -64,6 +42,7 @@ registerPlugin({
         title: 'Select the language:',
         type: 'select',
         options: ['English'],
+        default: '0',
         conditions: [{
             field: 'spDatenschutz',
             value: 0
@@ -110,12 +89,14 @@ registerPlugin({
             indent: 1,
             title: 'Message sent to the user when he joins the support channel (*)',
             placeholder: 'Hello &u, please wait. A supporter has been informed [Variable &u = Username | &spI = Anzahl der Online Supporter (int)]',
+            default: 'Hello &u, please wait. A supporter has been informed. There are &spI supporter online.',
             type: 'string'
         }, {
             name: 'spSupportMessage',
             indent: 1,
             title: 'Message sent to the supporter if a user requested help [Variable &u = Username] (*)',
             placeholder: 'User &u needs support!',
+            default: 'Hello the user &u need support!',
             type: 'string'
         }],
         conditions: [{
@@ -145,7 +126,7 @@ registerPlugin({
         vars: [{
             name: 'spAfkChannel',
             title: 'AFK Channel ignore Supporters. (*)',
-            type: 'channel'
+            type: 'channel',
         }, {
             name: 'spAfkChannelSub',
             title: 'Ignore all sub channels... (for big server)',
@@ -164,6 +145,7 @@ registerPlugin({
         indent: 2,
         title: 'Response sent to the user if no supporter is online [Variable &u = Username] (*)',
         placeholder: 'Sorry &u, there is no supporter online right now!',
+        default: 'Sorry &u, there is no supporter online right now!',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -177,6 +159,7 @@ registerPlugin({
         indent: 2,
         title: 'Message sent to ignored users [Variable &u = Username] (*)',
         placeholder: 'Sorry &u but you on the ignore list.',
+        default: 'Sorry &u but you on the ignore list.',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -190,6 +173,7 @@ registerPlugin({
         title: 'Notification mode for users (*)',
         type: 'select',
         options: ['Poke', 'Chat'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -202,6 +186,7 @@ registerPlugin({
         title: 'Notification mode for supporters (*)',
         type: 'select',
         options: ['Poke', 'Chat'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -369,6 +354,7 @@ registerPlugin({
         indent: 4,
         title: 'Ticket confirmation message [Variable &u = Username] (*)',
         placeholder: 'Your ticket has been sent',
+        default: "&u, your ticket has been sent",
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -387,6 +373,7 @@ registerPlugin({
         indent: 4,
         title: 'Message sent to supporters when receiving a new ticket [Variable &u = Username, &client = Client[Object] ] (*)',
         placeholder: 'New ticket from &u !',
+        default: "New Ticket from &client",
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -403,8 +390,9 @@ registerPlugin({
     }, {
         name: 'spTicketLargeActiv',
         indent: 4,
-        title: '[WebInterface] Would you like to use a powerful webinterface to manage your tickets? [REQUIRE MySQL] [REQUIRE WEB][NEW] ',
+        title: 'Ignore this Checkbox please! ',
         type: 'checkbox',
+        default: false,
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -416,6 +404,23 @@ registerPlugin({
             value: 0
         }]
     },
+    {
+        name: 'spTicketForceIgnoredUsers',
+        indent: 4,
+        title: 'Allow ignored users to create a ticket.',
+        type: 'checkbox',
+        default: true,
+        conditions: [{
+            field: 'spLanguage',
+            value: 0
+        }, {
+            field: 'spTicketActiv',
+            value: true
+        }, {
+            field: 'spDatenschutz',
+            value: 0
+        }]
+    }, 
     //                          Ticket  <-
 
 
@@ -439,6 +444,7 @@ registerPlugin({
         title: 'Ticket notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -457,6 +463,7 @@ registerPlugin({
         title: 'Support notification mode via Telegram (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -510,6 +517,7 @@ registerPlugin({
         indent: 4,
         title: 'Support | Telegram message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
+        default: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
@@ -528,6 +536,7 @@ registerPlugin({
         indent: 4,
         title: 'Ticket | Telegram message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
+        default: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
@@ -566,6 +575,7 @@ registerPlugin({
         title: 'Ticket notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -584,6 +594,7 @@ registerPlugin({
         title: 'Support notification mode via Discord (*)',
         type: 'select',
         options: ['Always', 'When no supporter online', 'Never'],
+        default: '0',
         conditions: [{
             field: 'spLanguage',
             value: 0
@@ -599,7 +610,7 @@ registerPlugin({
     }, {
         name: 'spDiscordToken',
         indent: 4,
-        title: '🔑 Token >Infos https://shorturl.at/awAP1 (*)',
+        title: '🔑 Token >Infos  https://bit.ly/2TPetBs(*)',
         placeholder: 'eyhjirtzui765ghjo0987tghj',
         type: 'multiline',
         conditions: [{
@@ -619,6 +630,7 @@ registerPlugin({
         indent: 4,
         title: 'Support | Discord message [Variables: &u = username] (*)',
         placeholder: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
+        default: 'Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
@@ -637,6 +649,7 @@ registerPlugin({
         indent: 4,
         title: 'Ticket | Discord message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)',
         placeholder: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
+        default: 'Hello supporter,\n\n you\'ve got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
@@ -689,6 +702,7 @@ registerPlugin({
         indent: 2,
         title: 'Channel open command (*)',
         placeholder: '!online',
+        default: '!online',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -705,6 +719,7 @@ registerPlugin({
         indent: 2,
         title: 'Channel close command (*)',
         placeholder: '!offline',
+        default: '!offline',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -726,27 +741,30 @@ registerPlugin({
             {
                 name: 'spSupportChannelNameOnlineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is open (!online) (*)',
+                title: 'Channel name to set when support is open (!online)',
                 placeholder: '[cspacer]Support [Online]',
+                default: '[cspacer]Support [Online]',
                 type: 'string',
             }, {
                 name: 'spSupportChannelNameOnlinDescription',
                 indent: 1,
-                title: 'Channel description to set when support is open (!online) (*)',
+                title: 'Channel description to set when support is open (!online)',
                 placeholder: 'Support channel is open.',
                 type: 'multiline',
             }, {
                 name: 'spSupportChannelMaxClientsOnline',
                 indent: 1,
-                title: 'Change the maxClients when online. (*)',
+                title: 'Change the maxClients when online.',
+                default: 10,
                 placeholder: '10',
                 type: 'number',
 
             }, {
                 name: 'spSupportChannelNameOfflineMsg',
                 indent: 1,
-                title: 'Channel name to set when support is closed (!offline) (*)',
+                title: 'Channel name to set when support is closed (!offline)',
                 placeholder: '[cspacer]Support [Offline]',
+                default: '[cspacer]Support [Offline]',
                 type: 'string',
             }, {
                 name: 'spSupportChannelNameOfflineDescription',
@@ -757,8 +775,9 @@ registerPlugin({
             }, {
                 name: 'spSupportChannelMaxClientsOffline',
                 indent: 1,
-                title: 'Change the maxClients when offline. (*)',
+                title: 'Change the maxClients when offline.',
                 placeholder: '0',
+                default: 0,
                 type: 'number',
             }, {
                 name: 'spSupportChannelOpenHours',
@@ -782,6 +801,7 @@ registerPlugin({
                 indent: 1,
                 title: 'Close offline channel with password. (No User can join.) (*)',
                 type: 'select',
+                default: 'Yes',
                 options: ['Yes', 'NO'],
             }, {
                 name: 'spSupportChannelKickActiv',
@@ -789,12 +809,14 @@ registerPlugin({
                 title: 'If a channel is closed, kick all waiting users? (only one) (*)', // only one?
                 type: 'select',
                 options: ['Yes', 'NO'],
+                default: 'Yes',
             }, {
                 name: 'spSupportChannelPrefix',
                 indent: 1,
                 title: 'Support channel parameter (*)',
                 placeholder: 'ts //open the channel with !online ts',
                 type: 'string',
+                default: 'ts',
             }
 
         ],
@@ -1648,6 +1670,7 @@ registerPlugin({
         indent: 4,
         title: 'Reduce points per minute (*)',
         placeholder: '5',
+        default: 5,
         type: 'number',
         conditions: [{
             field: 'spLanguage',
@@ -1666,6 +1689,7 @@ registerPlugin({
         indent: 4,
         title: 'Points to lock the user (*)',
         placeholder: '60',
+        default: 60,
         type: 'number',
         conditions: [{
             field: 'spLanguage',
@@ -1684,6 +1708,7 @@ registerPlugin({
         indent: 4,
         title: 'Points for each ticket (*)',
         placeholder: '20',
+        default: 20,
         type: 'number',
         conditions: [{
             field: 'spLanguage',
@@ -1702,6 +1727,7 @@ registerPlugin({
         indent: 4,
         title: 'Points for each support request (*)',
         placeholder: '20',
+        default: 20,
         type: 'number',
         conditions: [{
             field: 'spLanguage',
@@ -1801,7 +1827,8 @@ registerPlugin({
         name: 'spThemenMessageSupporter',
         indent: 4,
         title: 'Message supporter [Variable &u = User, &thema = Thema] (*)',
-        placeholder: 'Hey, the User &u needs support for topic &thema !  ',
+        placeholder: 'Hey, the User &u needs support for topic &thema !',
+        default: 'Hey, the User &u needs support for topic &thema !',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1820,6 +1847,7 @@ registerPlugin({
         indent: 4,
         title: 'Message User [Variable &u = User, &thema = Thema] (*)',
         placeholder: 'Please wait &u, a special supporter for topic &thema has been notified.',
+        default: 'Please wait &u, a special supporter for topic &thema has been notified.',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1836,8 +1864,9 @@ registerPlugin({
     }, {
         name: 'spThemenMessage',
         indent: 4,
-        title: 'Select the topic message. [Variable &themen-array = Array with all topics + ids] (*)',
-        placeholder: 'Please select a topic ID... \n &themen-array',
+        title: 'Select the topic message. (*)',
+        placeholder: 'Please select a topic ID...\n',
+        default: 'Please select a topic ID...\n',
         type: 'multiline',
         conditions: [{
             field: 'spLanguage',
@@ -1872,6 +1901,7 @@ registerPlugin({
         indent: 4,
         title: 'Change the ticket reply prefix [PRO version]',
         placeholder: '[B]Ticket replay | [/B]',
+        default: '[B]Ticket replay | [/B]',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1890,6 +1920,7 @@ registerPlugin({
         indent: 4,
         title: 'Change the ticket prefix',
         placeholder: '[B]Ticket | [/B]',
+        default: '[B]Ticket | [/B]',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1908,6 +1939,7 @@ registerPlugin({
         indent: 4,
         title: 'Change the support prefix',
         placeholder: '[B]Support | [/B]',
+        default: '[B]Support | [/B]',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1926,6 +1958,7 @@ registerPlugin({
         indent: 4,
         title: 'Change the feedback prefix',
         placeholder: '[B][Feedback][/B]',
+        default: '[B][Feedback][/B]',
         type: 'string',
         conditions: [{
             field: 'spLanguage',
@@ -1984,6 +2017,7 @@ registerPlugin({
         name: 'msg_feedback_openFeedbakSession',
         indent: 4,
         title: '[MSG] Welcome message. Start with the feedback system (*)',
+        default: 'Welcome to the feedback system! Please help use with your participation! Thanks!',
         placeholder: 'Welcome to the Feedback System! Please help use with your participation! Thanks!',
         type: 'string',
         conditions: [{
@@ -2000,6 +2034,7 @@ registerPlugin({
         name: 'msg_feedback_errorFeedbakSession',
         indent: 4,
         title: '[MSG] User pressed an unallowed key (*)',
+        default: 'Sorry, please complete the feedback or exit with !exit',
         placeholder: 'Sorry, please complete the feedback or exit with !exit',
         type: 'string',
         conditions: [{
@@ -2016,6 +2051,7 @@ registerPlugin({
         name: 'msg_feedback_closeFeedbakSession',
         indent: 4,
         title: '[MSG] Close the Feedback session (*)',
+        default: 'Oh, ok, we close your feedback session :/',
         placeholder: 'Oh, ok, we close your feedback session :/',
         type: 'string',
         conditions: [{
@@ -2032,6 +2068,7 @@ registerPlugin({
         name: 'msg_feedback_closeFeedbakSessionOk',
         indent: 4,
         title: '[MSG] Finish the Feedback session. Thanks for the participation (*)',
+        default: 'Thank you for your Feedback!',
         placeholder: 'Thank you for your Feedback!',
         type: 'string',
         conditions: [{
@@ -2048,7 +2085,7 @@ registerPlugin({
 
     {
         name: 'spCopyright',
-        title: 'This Script is created by Support++ . This work is licensed under the MIT License. Removal of any watermark / copyright notice is not permitted. Support++ is a project from the magiCCoder org.'
+        title: 'This script is build with ❤️ by Support++ . This work is licensed under the MIT License. Support++ is a open source  project from KlexHub UG (haftungsbeschränkt)'
     }
     ]
 }, function (sinusbot, config, info) {
@@ -2146,6 +2183,8 @@ registerPlugin({
             .help("create a new ticket")
             .manual(`Create a new ticket with ${config.spTicketCommand} <text>`)
             .forcePrefix(config.spTicketCommand.charAt(0))
+            .addArgument(args => args.string.setName("text"))
+            
 /*
             .checkPermission(client => {
             //returns true when the client is in the list of allowed clients
@@ -2153,7 +2192,7 @@ registerPlugin({
             })
             */
             .exec((client, args, reply, raw) => {
-                client.chat("ok - test");
+                    //nothing handle self.
             })
 
         }
@@ -3125,7 +3164,7 @@ registerPlugin({
                 return;
             }
             if (!(isFlood(ev.client.id(), config.spAntiFloodPointsSupport))) {
-                if (!(isIgnore(ev.client.id()))) {
+                if (!isIgnore(ev.client.id()) ||  config.spTicketForceIgnoredUsers) {//|| config.spTicketCommand
                     //send bestätigung Ticket
                     engine.log('Create Ticket');
                     if (config.spThemenNotificationActiv) {
@@ -3521,29 +3560,25 @@ registerPlugin({
                 dec = dec + channelEdit.spSupportChannelNameOfflineDescription
 
                 if (channelEdit.spSupportChannelOpenHours == "" || channelEdit.spSupportChannelOpenHours == undefined) {
-                    engine.log("No Description!")
                     dec = "";
-                    dec = dec + channelEdit.spSupportChannelNameOfflineDescription
+                    dec = dec + channelEdit.spSupportChannelNameOfflineDescription == undefined ? "" : channelEdit.spSupportChannelNameOfflineDescription
                 }
 
                 if (channelEdit.spSupportChannelPasswordActiv == 0) {
 
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                        name: channelEdit.spSupportChannelNameOfflineMsg,
+                        name: channelEdit.spSupportChannelNameOfflineMsg == "" ? undefined : channelEdit.spSupportChannelNameOfflineMsg,
                         password: generatePassword(20),
-                        description: dec,
+                        description: dec == "" ? undefined : dec,
                         maxClients: channelEdit.spSupportChannelMaxClientsOffline
                     });
                 } else {
                     backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                        name: channelEdit.spSupportChannelNameOfflineMsg,
-                        description: dec,
+                        name: channelEdit.spSupportChannelNameOfflineMsg == "" ? undefined : channelEdit.spSupportChannelNameOfflineMsg,
+                        description: dec == "" ? undefined : dec,
                         maxClients: channelEdit.spSupportChannelMaxClientsOffline
                     });
                 }
-
-
-                //Update: maxClients: channelEdit.spSupportChannelMaxClientsOffline  
             }
 
             if (channelEdit.spSupportChannelKickActiv == 0) {
@@ -3554,9 +3589,7 @@ registerPlugin({
                         client.kickFromChannel(message_channeledit_kickreason);
                     }
                 });
-
             }
-
         });
         pw = "";
     }
@@ -3575,15 +3608,13 @@ registerPlugin({
                     return;
                 }
 
-
                 backend.getChannelByID(channelEdit.spSupportChannelNameChange).update({
-                    name: channelEdit.spSupportChannelNameOnlineMsg,
+                    name: channelEdit.spSupportChannelNameOnlineMsg == "" ? undefined : channelEdit.spSupportChannelNameOnlineMsg,
                     password: "",
-                    description: channelEdit.spSupportChannelNameOnlinDescription,
+                    description:  channelEdit.spSupportChannelNameOnlinDescription == "" ? undefined : channelEdit.spSupportChannelNameOnlinDescription,
                     maxClients: channelEdit.spSupportChannelMaxClientsOnline
                 });
 
-                //Update: maxClients: channelEdit.spSupportChannelMaxClientsOnline,
             }
         });
     }
