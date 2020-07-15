@@ -23,7 +23,8 @@ class Config{
             name: this.LANG.scriptConfig.name,
             author: this.LANG.scriptConfig.author,
             description: this.LANG.scriptConfig.description,
-            version: this.VERSION
+            version: this.VERSION,
+            backends: ["discord", "ts3"]
     
         }
      

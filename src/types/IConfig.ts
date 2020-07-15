@@ -7,11 +7,15 @@ interface ScriptConfig {
     autorun?: boolean
     enableWeb?: boolean,
     engines?: EngineVersion,
-    requiredmodules?: string[] 
+    requiredmodules?: string[] ,
+    backends: string[]
     vars?: [],
 }
 
-
+enum Backends{
+    "ts3",
+    "discord"
+}
 
 enum EngineVersion{
     ">= 0.10.7",
