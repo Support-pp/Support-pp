@@ -1,3 +1,7 @@
+v2.6.3
+md5 [145d34210929e377831d07441ae76392]
+- fix: feedback system #64
+
 v2.6.2
 md5 [938eb2e57759cab1b8514915ae0d048a]
 - fix: channel edit maxClient bug #61
