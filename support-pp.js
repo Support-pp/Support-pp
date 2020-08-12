@@ -412,7 +412,7 @@ registerPlugin(
         name: "spTicketActive",
         indent: 2,
         title:
-          "[TicketSystem] TicketSystem Advanced and Minimal. Manage your Tickets with a web panel... [NEW] ",
+          "[TicketSystem] TicketSystem advanced and minimal. Manage your tickets with a web panel... [WIP] ",
         type: "checkbox",
         conditions: [
           {
@@ -2726,7 +2726,7 @@ registerPlugin(
       engine.notify("Support++ is running!");
     } else {
       engine.notify("Support ++ | You must fill out all required (*) fields ");
-      engine.log("WARNING! You have to complete all required (*) fields!");
+      engine.log("WARNING! You have to fill out all required (*) fields!");
     }
     var n_sp = 0;
     var n_user = 1;
@@ -3893,7 +3893,6 @@ registerPlugin(
         }
       }
 
-
       //--------------------------------------------------- { Themen Module } -----------------------------------------------------------
 
       function sendMessage(client, message, type) {
@@ -4212,7 +4211,6 @@ registerPlugin(
       return isSupporterOnline;
     }
 
-
     function generatePassword(length) {
       var result = "";
       var charset =
@@ -4432,7 +4430,7 @@ registerPlugin(
                       engine.log(
                         "Supporter " +
                           ev.client.name() +
-                          " joined the Server! Check Support Channel.."
+                          " joined the Server! Checking support channel.."
                       );
                       openSupportChannel(channelEdit.spSupportChannelPrefix);
                     }
@@ -4456,7 +4454,7 @@ registerPlugin(
                     engine.log(
                       "Supporter " +
                         ev.client.name() +
-                        " left the Server! Check Support Channel.."
+                        " left the Server! Checking support channel..."
                     );
                     if (
                       !isSupporterOnline(channelEdit.spSupportChannelPrefix)
@@ -4482,7 +4480,7 @@ registerPlugin(
                     engine.log(
                       "Supporter " +
                         ev.client.name() +
-                        " went into a AFK Channel! Check Support Channel.."
+                        " went into a AFK Channel! Checking support channel.."
                     );
                     if (
                       !isSupporterOnline(channelEdit.spSupportChannelPrefix)
@@ -4738,7 +4736,7 @@ registerPlugin(
       if (store.get("newsletter-mail") != "") {
         if (store.get("newsletter-mail") != config.spNewsletter) {
           engine.log(
-            "[Your e-mail address was changed! Pleas accept the new mail address! :=]"
+            "[Your e-mail address was changed! Please accept the new e-mail address! :=]"
           );
           addMailToNewsletter(config.spNewsletter);
           store.set("newsletter-mail", config.spNewsletter);
