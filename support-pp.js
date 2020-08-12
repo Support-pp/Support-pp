@@ -18,7 +18,7 @@ const cVersion = "2.6.3";
  * https://meta.support-pp.de
  */
 
-var DSGVO =
+const DSGVO =
   "Datenschutzerklärung Wir freuen uns sehr über Ihr Interesse an unserem Projekt. Datenschutz hat einen besonders hohen Stellenwert für die Projektleitung des Support++ Projektes. https://support-pp.de/datenschutz.html";
 
 registerPlugin(
@@ -59,7 +59,7 @@ registerPlugin(
       {
         name: "spNewsletter",
         title:
-          "[Newsletter] You want recive news / changelog or special information? Then subscribe to our newsletter!",
+          "[Newsletter] You want receive news / changelog or special information? Then subscribe to our newsletter!",
         placeholder: "mymail@mydomain.de",
         type: "string",
         conditions: [
@@ -98,7 +98,7 @@ registerPlugin(
           {
             name: "spSupporterId",
             indent: 1,
-            title: "Supporter servergroup ID (*)",
+            title: "Supporter serverGroup ID (*)",
             type: "strings",
           },
           {
@@ -136,7 +136,7 @@ registerPlugin(
       {
         name: "spIgnoreId",
         indent: 2,
-        title: "Ignore servergroup ID (*)",
+        title: "Ignore serverGroup ID (*)",
         type: "strings",
         conditions: [
           {
@@ -266,7 +266,7 @@ registerPlugin(
 
       //                        -> MySQL
       {
-        name: "spMySQLActiv",
+        name: "spMySQLActive",
         indent: 2,
         title: "[MySQL] Advanced storage for module",
         type: "checkbox",
@@ -292,7 +292,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -313,7 +313,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -334,7 +334,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -356,7 +356,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -377,7 +377,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -397,7 +397,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spMySQLActiv",
+            field: "spMySQLActive",
             value: true,
           },
           {
@@ -409,10 +409,10 @@ registerPlugin(
 
       //                         -> Ticket
       {
-        name: "spTicketActiv",
+        name: "spTicketActive",
         indent: 2,
         title:
-          "[TicketSystem] TicketSystem Advanced and Minimal. Manage your Tickets with a webpanal... [NEW] ",
+          "[TicketSystem] TicketSystem Advanced and Minimal. Manage your Tickets with a web panel... [NEW] ",
         type: "checkbox",
         conditions: [
           {
@@ -438,7 +438,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTicketActiv",
+            field: "spTicketActive",
             value: true,
           },
           {
@@ -460,7 +460,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTicketActiv",
+            field: "spTicketActive",
             value: true,
           },
           {
@@ -483,7 +483,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTicketActiv",
+            field: "spTicketActive",
             value: true,
           },
           {
@@ -493,7 +493,7 @@ registerPlugin(
         ],
       },
       {
-        name: "spTicketLargeActiv",
+        name: "spTicketLargeActive",
         indent: 4,
         title: "Ignore this Checkbox please! ",
         type: "checkbox",
@@ -504,7 +504,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTicketActiv",
+            field: "spTicketActive",
             value: true,
           },
           {
@@ -525,7 +525,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTicketActiv",
+            field: "spTicketActive",
             value: true,
           },
           {
@@ -539,7 +539,7 @@ registerPlugin(
       //                        -> Telegram
 
       {
-        name: "spTelegramActiv",
+        name: "spTelegramActive",
         indent: 2,
         title: "[TelegramNotification] Notification via Telegram?",
         type: "checkbox",
@@ -567,7 +567,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -589,7 +589,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -610,7 +610,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -631,7 +631,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -655,7 +655,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -680,7 +680,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spTelegramActiv",
+            field: "spTelegramActive",
             value: true,
           },
           {
@@ -695,7 +695,7 @@ registerPlugin(
       //                        -> Discord
 
       {
-        name: "spDiscordActiv",
+        name: "spDiscordActive",
         indent: 2,
         title: "🆕 [DiscordNotification] Notification via Discord?",
         type: "checkbox",
@@ -723,7 +723,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spDiscordActiv",
+            field: "spDiscordActive",
             value: true,
           },
           {
@@ -745,7 +745,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spDiscordActiv",
+            field: "spDiscordActive",
             value: true,
           },
           {
@@ -766,7 +766,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spDiscordActiv",
+            field: "spDiscordActive",
             value: true,
           },
           {
@@ -790,7 +790,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spDiscordActiv",
+            field: "spDiscordActive",
             value: true,
           },
           {
@@ -815,7 +815,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spDiscordActiv",
+            field: "spDiscordActive",
             value: true,
           },
           {
@@ -829,7 +829,7 @@ registerPlugin(
 
       //                        -> ChannelEdit
       {
-        name: "spChannelEditActiv",
+        name: "spChannelEditActive",
         indent: 2,
         title: "[ChannelEdit] Edit your Channel",
         type: "checkbox",
@@ -855,7 +855,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -877,7 +877,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -899,7 +899,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -982,7 +982,7 @@ registerPlugin(
             type: "strings",
           },
           {
-            name: "spSupportChannelPasswordActiv",
+            name: "spSupportChannelPasswordActive",
             indent: 1,
             title:
               "Close offline channel with password. (No User can join.) (*)",
@@ -991,7 +991,7 @@ registerPlugin(
             options: ["Yes", "NO"],
           },
           {
-            name: "spSupportChannelKickActiv",
+            name: "spSupportChannelKickActive",
             indent: 1,
             title:
               "If a channel is closed, kick all waiting users? (only one) (*)", // only one?
@@ -1014,7 +1014,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1034,7 +1034,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1060,7 +1060,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1085,7 +1085,7 @@ registerPlugin(
             value: true,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1110,7 +1110,7 @@ registerPlugin(
             value: true,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1123,7 +1123,7 @@ registerPlugin(
       //                        -> Time
 
       {
-        name: "spTimeChannelManagerActiv",
+        name: "spTimeChannelManagerActive",
         indent: 2,
         title: "[Time Channel Manager] Close and open your channel by schedule",
         type: "checkbox",
@@ -1133,7 +1133,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
@@ -1195,11 +1195,11 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
-            field: "spTimeChannelManagerActiv",
+            field: "spTimeChannelManagerActive",
             value: true,
           },
           {
@@ -1242,11 +1242,11 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spChannelEditActiv",
+            field: "spChannelEditActive",
             value: true,
           },
           {
-            field: "spTimeChannelManagerActiv",
+            field: "spTimeChannelManagerActive",
             value: true,
           },
           {
@@ -1259,7 +1259,7 @@ registerPlugin(
       //                        -> Queue
 
       {
-        name: "spQueueActiv",
+        name: "spQueueActive",
         indent: 2,
         title: "[Queue] Play music for waiting users...",
         type: "checkbox",
@@ -1275,7 +1275,7 @@ registerPlugin(
         ],
       },
       {
-        name: "spQueueOwnActiv",
+        name: "spQueueOwnActive",
         indent: 4,
         title: "Use own Music / Soundfiles",
         type: "checkbox",
@@ -1285,7 +1285,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1309,11 +1309,11 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
-            field: "spQueueOwnActiv",
+            field: "spQueueOwnActive",
             value: true,
           },
           {
@@ -1334,11 +1334,11 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
-            field: "spQueueOwnActiv",
+            field: "spQueueOwnActive",
             value: true,
           },
           {
@@ -1358,7 +1358,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1377,7 +1377,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1396,7 +1396,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1415,7 +1415,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1434,7 +1434,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1453,7 +1453,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1472,7 +1472,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1491,7 +1491,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1510,7 +1510,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1529,7 +1529,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1548,7 +1548,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1567,7 +1567,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1586,7 +1586,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1605,7 +1605,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1624,7 +1624,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1643,7 +1643,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1662,7 +1662,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1681,7 +1681,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1702,7 +1702,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1721,7 +1721,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1740,7 +1740,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1759,7 +1759,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1778,7 +1778,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1797,7 +1797,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1816,7 +1816,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1835,7 +1835,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1855,7 +1855,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1874,7 +1874,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1895,7 +1895,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1916,7 +1916,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1936,7 +1936,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1946,7 +1946,7 @@ registerPlugin(
         ],
       },
       {
-        name: "spQueueVolumen",
+        name: "spQueueVolume",
         indent: 4,
         title: "Select the Volumen:  (*)",
         placeholder: "60",
@@ -1957,7 +1957,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1977,7 +1977,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -1997,7 +1997,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spQueueActiv",
+            field: "spQueueActive",
             value: true,
           },
           {
@@ -2012,7 +2012,7 @@ registerPlugin(
       //                        -> AntiFlood
 
       {
-        name: "spAntiFloodActiv",
+        name: "spAntiFloodActive",
         indent: 2,
         title: "[AntiFlood] AntiFlood Protection",
         type: "checkbox",
@@ -2038,7 +2038,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spAntiFloodActiv",
+            field: "spAntiFloodActive",
             value: true,
           },
           {
@@ -2060,7 +2060,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spAntiFloodActiv",
+            field: "spAntiFloodActive",
             value: true,
           },
           {
@@ -2082,7 +2082,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spAntiFloodActiv",
+            field: "spAntiFloodActive",
             value: true,
           },
           {
@@ -2104,7 +2104,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spAntiFloodActiv",
+            field: "spAntiFloodActive",
             value: true,
           },
           {
@@ -2126,7 +2126,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spAntiFloodActiv",
+            field: "spAntiFloodActive",
             value: true,
           },
           {
@@ -2141,7 +2141,7 @@ registerPlugin(
       //                          -> coffee stop
 
       {
-        name: "spCoffeeStopActiv",
+        name: "spCoffeeStopActive",
         indent: 2,
         title: "[☕ CoffeeBreak] Group to ignore the supporter",
         type: "checkbox",
@@ -2167,7 +2167,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spCoffeeStopActiv",
+            field: "spCoffeeStopActive",
             value: true,
           },
           {
@@ -2180,7 +2180,7 @@ registerPlugin(
       //                        -> Themen Notification
 
       {
-        name: "spThemenNotificationActiv",
+        name: "spThemenNotificationActive",
         indent: 2,
         title: "[ThemenNotification] Notify the topic supporter",
         type: "checkbox",
@@ -2227,7 +2227,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spThemenNotificationActiv",
+            field: "spThemenNotificationActive",
             value: true,
           },
           {
@@ -2249,7 +2249,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spThemenNotificationActiv",
+            field: "spThemenNotificationActive",
             value: true,
           },
           {
@@ -2273,7 +2273,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spThemenNotificationActiv",
+            field: "spThemenNotificationActive",
             value: true,
           },
           {
@@ -2295,7 +2295,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spThemenNotificationActiv",
+            field: "spThemenNotificationActive",
             value: true,
           },
           {
@@ -2308,7 +2308,7 @@ registerPlugin(
       //                        -> Prefix
 
       {
-        name: "spPrefixActiv",
+        name: "spPrefixActive",
         indent: 2,
         title: "[Prefix] Change the default prefix (e.g. Support |) (v2.0.0)",
         type: "checkbox",
@@ -2324,11 +2324,11 @@ registerPlugin(
         ],
       },
       {
-        name: "spPrefixTicketReplay",
+        name: "spPrefixTicketReply",
         indent: 4,
         title: "Change the ticket reply prefix [PRO version]",
-        placeholder: "[B]Ticket replay | [/B]",
-        default: "[B]Ticket replay | [/B]",
+        placeholder: "[B]Ticket reply | [/B]",
+        default: "[B]Ticket reply | [/B]",
         type: "string",
         conditions: [
           {
@@ -2336,7 +2336,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spPrefixActiv",
+            field: "spPrefixActive",
             value: true,
           },
           {
@@ -2358,7 +2358,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spPrefixActiv",
+            field: "spPrefixActive",
             value: true,
           },
           {
@@ -2380,7 +2380,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spPrefixActiv",
+            field: "spPrefixActive",
             value: true,
           },
           {
@@ -2402,7 +2402,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spPrefixActiv",
+            field: "spPrefixActive",
             value: true,
           },
           {
@@ -2416,7 +2416,7 @@ registerPlugin(
 
       //                          -> Feedback
       {
-        name: "spFeedbackActiv",
+        name: "spFeedbackActive",
         indent: 2,
         title:
           "[Feedback] Get feedback after a support talk. [requires MySQL] ",
@@ -2453,7 +2453,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spFeedbackActiv",
+            field: "spFeedbackActive",
             value: true,
           },
           {
@@ -2477,7 +2477,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spFeedbackActiv",
+            field: "spFeedbackActive",
             value: true,
           },
           {
@@ -2499,7 +2499,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spFeedbackActiv",
+            field: "spFeedbackActive",
             value: true,
           },
           {
@@ -2521,7 +2521,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spFeedbackActiv",
+            field: "spFeedbackActive",
             value: true,
           },
           {
@@ -2544,7 +2544,7 @@ registerPlugin(
             value: 0,
           },
           {
-            field: "spFeedbackActiv",
+            field: "spFeedbackActive",
             value: true,
           },
           {
@@ -2664,7 +2664,7 @@ registerPlugin(
         config.spTicketCommand.charAt(0),
         ""
       );
-      if (config.spTicketActiv) {
+      if (config.spTicketActive) {
         Command3rd.createCommand(ticketCmdSep)
           .help("create a new ticket")
           .manual(`Create a new ticket with ${config.spTicketCommand} <text>`)
@@ -2700,7 +2700,7 @@ registerPlugin(
 
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-    var useReplayToken = true;
+    var useReplyToken = true;
     //function
     var startOk = true;
     if (typeof config.spSupportChannels == "undefined") {
@@ -2710,7 +2710,7 @@ registerPlugin(
       startOk = false;
     }
     if (typeof config.spTicketResponseToken == "undefined") {
-      useReplayToken = false;
+      useReplyToken = false;
     }
 
     var ChannelOpenCommand = "!online";
@@ -2726,7 +2726,7 @@ registerPlugin(
       engine.notify("Support++ is running!");
     } else {
       engine.notify("Support ++ | You must fill out all required (*) fields ");
-      engine.log("WARNING! You have to compleate all required (*) fields!");
+      engine.log("WARNING! You have to complete all required (*) fields!");
     }
     var n_sp = 0;
     var n_user = 1;
@@ -2739,18 +2739,18 @@ registerPlugin(
       n_user = config.spMsgMode_user;
     }
 
-    //--------------------------------------------------- {ReplayTicket (PRO)} -----------------------------------------------------------
+    //--------------------------------------------------- {ReplyTicket (PRO)} -----------------------------------------------------------
 
-    if (useReplayToken && config.spDiscordActiv) {
+    if (useReplyToken && config.spDiscordActive) {
       setInterval(function () {
-        replayTicketMessage();
+        replyTicketMessage();
       }, 20000);
     }
 
-    function replayTicketMessage() {
+    function replyTicketMessage() {
       /*
         http({
-            url: 'https://api.support-pp.de/discord?re=replay&token=' + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&replayToken=" + encodeURIComponent(config.spTicketResponseToken)
+            url: 'https://api.support-pp.de/discord?re=reply&token=' + encodeURIComponent(config.spDiscordToken) + "&id=" + encodeURIComponent(config.spDiscordID) + "&replyToken=" + encodeURIComponent(config.spTicketResponseToken)
         }, function (err, res) {
             if (err) {
                 log('phpCode: ' + err);
@@ -2772,16 +2772,16 @@ registerPlugin(
                         });
 
                         if (sendLive) {
-                            //Send Replay live to online user
+                            //Send Reply live to online user
                             if (config.spMsgMode_user == 0) {
-                                backend.getClientByUID(uid).poke(prefixTicketReplay + msg);
+                                backend.getClientByUID(uid).poke(prefixTicketReply + msg);
                             } else {
-                                backend.getClientByUID(uid).chat(prefixTicketReplay + msg);
+                                backend.getClientByUID(uid).chat(prefixTicketReply + msg);
                             }
                         } else {
-                            //Save the Replay into the sorage. 
-                            store.set("replay_" + uid, msg)
-                            engine.log('Set replay to store.')
+                            //Save the Reply into the sorage.
+                            store.set("reply_" + uid, msg)
+                            engine.log('Set reply to store.')
 
                         }
 
@@ -2795,7 +2795,7 @@ registerPlugin(
         */
     }
 
-    //--------------------------------------------------- {ReplayTicket (PRO)} -----------------------------------------------------------
+    //--------------------------------------------------- {ReplyTicket (PRO)} -----------------------------------------------------------
 
     // Function startsWith
     if (!String.prototype.startsWith) {
@@ -2804,7 +2804,7 @@ registerPlugin(
       };
     }
     function sendTelegram(text) {
-      if (config.spTelegramActiv) {
+      if (config.spTelegramActive) {
         http.simpleRequest({
           url:
             "https://api.telegram.org/bot" +
@@ -2822,7 +2822,7 @@ registerPlugin(
     //Please change the url, if you want to use a selfhost bot.
     const DiscordApiUrl = "https://api.support-pp.de";
     function sendDiscord(text, clientUid) {
-      if (config.spDiscordActiv) {
+      if (config.spDiscordActive) {
         engine.log("    > Send DiscordNotification (...)");
         http.simpleRequest(
           {
@@ -3055,9 +3055,9 @@ registerPlugin(
     var prefixTicket;
     var prefixSupport;
     var feedback_prefix;
-    var prefixTicketReplay;
+    var prefixTicketReply;
 
-    if (config.spPrefixActiv) {
+    if (config.spPrefixActive) {
       if (typeof config.spPrefixTicket == "undefined") {
         prefixTicket = "[B]Ticket | [/B]";
       } else {
@@ -3073,15 +3073,15 @@ registerPlugin(
       } else {
         prefixSupport = config.spPrefixSupport + " ";
       }
-      if (typeof config.spPrefixTicketReplay == "undefined") {
-        prefixTicketReplay = "[B]Ticket replay | [/B]";
+      if (typeof config.spPrefixTicketReply == "undefined") {
+        prefixTicketReply = "[B]Ticket reply | [/B]";
       } else {
         prefixSupport = config.spPrefixSupport + " ";
       }
     } else {
       prefixSupport = "[B]Support | [/B]";
       prefixTicket = "[B]Ticket | [/B]";
-      prefixTicketReplay = "[B]Ticket replay | [/B]";
+      prefixTicketReply = "[B]Ticket reply | [/B]";
       feedback_prefix = "[B][Feedback] [/B] ";
     }
 
@@ -3212,19 +3212,19 @@ registerPlugin(
         }
       }
 
-      //--------------------------------------------------- {Replay Store Message (PRO)} -----------------------------------------------------------
+      //--------------------------------------------------- {Reply Store Message (PRO)} -----------------------------------------------------------
 
-      if (useReplayToken) {
+      if (useReplyToken) {
         store.getKeys().forEach(function (s) {
-          if (s.startsWith("replay_")) {
-            if (s == "replay_" + ev.client.uid()) {
-              var msg = store.get("replay_" + ev.client.uid());
+          if (s.startsWith("reply_")) {
+            if (s == "reply_" + ev.client.uid()) {
+              var msg = store.get("reply_" + ev.client.uid());
               if (n_user == 0) {
-                ev.client.poke(prefixTicketReplay + msg);
+                ev.client.poke(prefixTicketReply + msg);
               } else {
-                ev.client.chat(prefixTicketReplay + msg);
+                ev.client.chat(prefixTicketReply + msg);
               }
-              store.unset("replay_" + ev.client.uid());
+              store.unset("reply_" + ev.client.uid());
             }
           }
         });
@@ -3256,7 +3256,7 @@ registerPlugin(
                   if (
                     (config.spDiscordModeSupport == 1 ||
                       config.spDiscordModeSupport == 0) &&
-                    config.spDiscordActiv
+                    config.spDiscordActive
                   ) {
                     sendDiscord(
                       config.spDiscordTextSupport.replace(
@@ -3270,7 +3270,7 @@ registerPlugin(
                   if (
                     (config.spTelegramModeSupport == 1 ||
                       config.spTelegramModeSupport == 0) &&
-                    config.spTelegramActiv
+                    config.spTelegramActive
                   ) {
                     sendTelegram(
                       config.spTelegrammTextSupport.replace(
@@ -3279,7 +3279,7 @@ registerPlugin(
                       )
                     );
                   }
-                  playQueuTrackOffline(ev.client.getChannels()[0]);
+                  playQueueTrackOffline(ev.client.getChannels()[0]);
                   sendMessage(ev.client, config.spSupportUserNoMessage, "user");
                 } else {
                   //Supporter is Online!
@@ -3321,7 +3321,7 @@ registerPlugin(
                     );
                   }
                   //playTTS(sp.spSupportUserMessage.replace("&u", ev.client.name()))
-                  playQueuTrack(ev.client.getChannels()[0]);
+                  playQueueTrack(ev.client.getChannels()[0]);
                 }
               }
             }
@@ -3335,45 +3335,45 @@ registerPlugin(
     //With this module you can get Feedback from your User after a Support talk!
     // The Feedback is save in the MySQL DB.
     var session_prefix = "$session_feedback_new_";
-    var msg_feedback_openFeedbakSession =
-      "Welcome to the feedback system! Please help use with your participation! Thanks! Inert a number beetween 1 and 5.";
-    var msg_feedback_errorFeedbakSession =
+    var msg_feedback_openFeedbackSession =
+      "Welcome to the feedback system! Please help use with your participation! Thanks! Inert a number between 1 and 5.";
+    var msg_feedback_errorFeedbackSession =
       "Sorry, please complete the feedback or exit with !exit";
-    var msg_feedback_closeFeedbakSession =
+    var msg_feedback_closeFeedbackSession =
       "Oh, ok, we close your feedback session :/";
-    var msg_feedback_closeFeedbakSessionOk = "Thank you for the feedback!";
+    var msg_feedback_closeFeedbackSessionOk = "Thank you for the feedback!";
     var msg_feedback_to_invoker = "We ask the user &u for a feedback.";
-    var msg_feedbacl_list_failCommand =
+    var msg_feedback_list_failCommand =
       "You can get the feedback of a supporter with !feedbacks <uid>";
     var msg_feedback_unknow =
       "Oh, I have a problem with the mysql connection! Please check if uid exist and sinusbot can connect to MySQL.";
 
     if (typeof config.msg_feedback_openFeedbakSession != "undefined") {
-      msg_feedback_openFeedbakSession = config.msg_feedback_openFeedbakSession;
+      msg_feedback_openFeedbackSession = config.msg_feedback_openFeedbakSession;
     }
     if (typeof config.msg_feedback_errorFeedbakSession != "undefined") {
-      msg_feedback_errorFeedbakSession =
+      msg_feedback_errorFeedbackSession =
         config.msg_feedback_errorFeedbakSession;
     }
     if (typeof config.msg_feedback_closeFeedbakSession != "undefined") {
-      msg_feedback_closeFeedbakSession =
+      msg_feedback_closeFeedbackSession =
         config.msg_feedback_closeFeedbakSession;
     }
     if (typeof config.msg_feedback_closeFeedbakSessionOk != "undefined") {
-      msg_feedback_closeFeedbakSessionOk =
+      msg_feedback_closeFeedbackSessionOk =
         config.msg_feedback_closeFeedbakSessionOk;
     }
     if (typeof config.msg_feedback_openFeedbakSession != "undefined") {
-      msg_feedback_openFeedbakSession = config.msg_feedback_openFeedbakSession;
+      msg_feedback_openFeedbackSession = config.msg_feedback_openFeedbakSession;
     }
 
     //Create DB if activated
     event.on("clientMove", function (ev) {
-      if (!config.spFeedbackActiv) return;
+      if (!config.spFeedbackActive) return;
       if (!backend.isConnected()) return;
       if (ev.client.isSelf()) return;
       if (typeof ev.toChannel == "undefined") {
-        if (feedback_has_activ_session(ev.client.id())) {
+        if (feedback_has_active_session(ev.client.id())) {
           feedback_close_session(ev.client.id());
         }
       }
@@ -3383,7 +3383,7 @@ registerPlugin(
         formChannelId = ev.fromChannel.id();
       }
 
-      if (feedback_has_activ_session(ev.client.id())) return;
+      if (feedback_has_active_session(ev.client.id())) return;
       //Check is user move out from Support channel
 
       config.spSupportChannels.forEach(function (channels) {
@@ -3396,7 +3396,7 @@ registerPlugin(
       function feedback_start_session(clientId, supporterUid) {
         store.set(session_prefix + clientId, supporterUid);
         store.set(session_prefix + clientId + "_id", 0);
-        ev.client.chat(feedback_prefix + msg_feedback_openFeedbakSession);
+        ev.client.chat(feedback_prefix + msg_feedback_openFeedbackSession);
         ev.invoker.chat(
           feedback_prefix +
             msg_feedback_to_invoker.replace("&u", ev.client.name())
@@ -3405,7 +3405,7 @@ registerPlugin(
       }
     });
 
-    function feedback_register_answear(clientId, answearId) {
+    function feedback_register_answer(clientId, answerId) {
       var id = store.get(session_prefix + clientId + "_id");
       var supporterUUID = store.get(session_prefix + clientId);
       //store.unset(session_prefix + clientId + "_id");
@@ -3416,7 +3416,7 @@ registerPlugin(
       config.spFeedbackQuestions.forEach(function (s, i, o) {
         questionCount = questionCount + 1;
         if (id == i) {
-          if (!feedback_has_activ_session(clientId)) return;
+          if (!feedback_has_active_session(clientId)) return;
           var isExist = true;
           var existData = { count: 0, answearSum: 0 };
           question = s.spFeedbackQuestion;
@@ -3432,7 +3432,7 @@ registerPlugin(
                   } else {
                     await res.forEach(function (row) {
                       existData.count = row.fb_count;
-                      existData.answearSum = row.fb_answear;
+                      existData.answearSum = row.fb_answer;
                     });
                   }
                 }
@@ -3441,17 +3441,17 @@ registerPlugin(
                   if (!isExist) {
                     engine.log("INSERT QUESTION");
                     dbc.exec(
-                      "INSERT INTO sp_feedback (sp_uid, fb_question, fb_answear, fb_count) VALUE (?, ?, ?, ?)",
+                      "INSERT INTO sp_feedback (sp_uid, fb_question, fb_answer, fb_count) VALUE (?, ?, ?, ?)",
                       supporterUUID,
                       s.spFeedbackQuestion,
-                      answearId,
+                      answerId,
                       1
                     );
                   } else {
                     engine.log("UPDATE QUESTION");
                     dbc.exec(
-                      "UPDATE sp_feedback SET fb_answear = ?, fb_count = ? WHERE fb_question = ? AND sp_uid = ?",
-                      parseInt(existData.answearSum) + parseInt(answearId),
+                      "UPDATE sp_feedback SET fb_answer = ?, fb_count = ? WHERE fb_question = ? AND sp_uid = ?",
+                      parseInt(existData.answearSum) + parseInt(answerId),
                       existData.count + 1,
                       s.spFeedbackQuestion,
                       supporterUUID
@@ -3476,7 +3476,7 @@ registerPlugin(
       if (ev.client.isSelf()) return;
 
       if (ev.text == "!feedbacks") {
-        ev.client.chat(feedback_prefix + msg_feedbacl_list_failCommand);
+        ev.client.chat(feedback_prefix + msg_feedback_list_failCommand);
         return;
       }
 
@@ -3502,14 +3502,14 @@ registerPlugin(
                 engine.log(res);
                 res.forEach(function (row) {
                   error = false;
-                  engine.log(row.fb_answear / row.fb_count);
+                  engine.log(row.fb_answer / row.fb_count);
                   ev.client.chat(
                     "❯ " +
                       parseString(row.fb_question) +
                       " | " +
-                      IntToStarString(row.fb_answear / +row.fb_count, 2) +
+                      IntToStarString(row.fb_answer / +row.fb_count, 2) +
                       " | Ø" +
-                      extround(row.fb_answear / +row.fb_count, 2)
+                      extround(row.fb_answer / +row.fb_count, 2)
                   );
                 });
               } else {
@@ -3529,7 +3529,7 @@ registerPlugin(
         return zahl;
       }
 
-      if (!feedback_has_activ_session(ev.client.id())) return;
+      if (!feedback_has_active_session(ev.client.id())) return;
       if (ev.text == "!info") return;
       if (ev.text == "!help") return;
       if (ev.text == "!time") return;
@@ -3537,15 +3537,14 @@ registerPlugin(
 
       if (ev.text == "!exit") {
         feedback_close_session(ev.client.id());
-        ev.client.chat(msg_feedback_closeFeedbakSession);
+        ev.client.chat(msg_feedback_closeFeedbackSession);
         return;
       }
 
       if (ev.text <= 5) {
-        feedback_register_answear(ev.client.id(), ev.text);
+        feedback_register_answer(ev.client.id(), ev.text);
       } else {
-        ev.client.chat(msg_feedback_errorFeedbakSession);
-        return;
+        ev.client.chat(msg_feedback_errorFeedbackSession);
       }
     });
 
@@ -3555,26 +3554,21 @@ registerPlugin(
       config.spFeedbackQuestions.forEach(function (s, i, o) {
         if (id == i++) {
           backend.getClientByID(clientId).chat(s.spFeedbackQuestion);
-          return;
         } else {
           tmpID = tmpID + 1;
         }
       });
     }
 
-    function feedback_has_activ_session(clientId) {
-      if (store.get(session_prefix + clientId) != null) {
-        return true;
-      } else {
-        return false;
-      }
+    function feedback_has_active_session(clientId) {
+      return store.get(session_prefix + clientId) != null;
     }
 
     function feedback_close_session(clientId) {
       store.unset(session_prefix + clientId);
       backend
         .getClientByID(clientId)
-        .chat(feedback_prefix + msg_feedback_closeFeedbakSessionOk);
+        .chat(feedback_prefix + msg_feedback_closeFeedbackSessionOk);
     }
 
     function IntToStarString(aNumber) {
@@ -3608,7 +3602,7 @@ registerPlugin(
     //INFO reset: ALTER TABLE sp_supporter AUTO_INCREMENT = 1
     //Create Table `sp_supporter`
 
-    if (config.spMySQLActiv) {
+    if (config.spMySQLActive) {
       var mysql_host = config.spHost;
       var mysql_username = config.spUsername; //config.spUsername;
       var mysql_db = config.spDB;
@@ -3636,7 +3630,7 @@ registerPlugin(
         );
       if (dbc)
         dbc.exec(
-          "CREATE TABLE IF NOT EXISTS `sp_feedback` ( `id` int(11) NOT NULL AUTO_INCREMENT, `sp_uid` varchar(100) NOT NULL, `fb_question` TEXT NOT NULL, `fb_answear` int(11) NOT NULL, `fb_count` int(11) NOT NULL, PRIMARY KEY (`id`) ) CHARSET=utf8mb4"
+          "CREATE TABLE IF NOT EXISTS `sp_feedback` ( `id` int(11) NOT NULL AUTO_INCREMENT, `sp_uid` varchar(100) NOT NULL, `fb_question` TEXT NOT NULL, `fb_answer` int(11) NOT NULL, `fb_count` int(11) NOT NULL, PRIMARY KEY (`id`) ) CHARSET=utf8mb4"
         );
       if (dbc)
         /*  dbc.exec(
@@ -3660,9 +3654,9 @@ registerPlugin(
         ? val.map((c) => String.fromCharCode(c)).join("")
         : "";
     }
-    //--------------------------------------------------- {/MySQL Connecion} -----------------------------------------------------------
+    //--------------------------------------------------- {/MySQL Connection} -----------------------------------------------------------
 
-    //--------------------------------------------------- {functionen Chat} -----------------------------------------------------------
+    //--------------------------------------------------- {functions Chat} -----------------------------------------------------------
 
     event.on("chat", function (ev) {
       if (!backend.isConnected()) return;
@@ -3738,7 +3732,7 @@ registerPlugin(
       //Ticket replace
       ticket = ev.text.replace(config.spTicketCommand, "");
 
-      if (config.spDiscordActiv) {
+      if (config.spDiscordActive) {
         discordTicket = discordTicket.replace("&u", ev.client.name());
         discordTicket = discordTicket.replace("&msg", ticket);
         discordTicket = discordTicket.replace("&u_id", ev.client.uid());
@@ -3748,7 +3742,7 @@ registerPlugin(
         );
         discord = true;
       }
-      if (config.spTelegramActiv) {
+      if (config.spTelegramActive) {
         telegram = true;
         telegramTicket = telegramTicket.replace("&u", ev.client.name());
         telegramTicket = telegramTicket.replace("&msg", ticket);
@@ -3772,18 +3766,18 @@ registerPlugin(
             //send bestätigung Ticket
             engine.log("Create Ticket");
             if (config.spThemenNotificationActiv) {
-              config.spThemen.forEach(function (themen) {
+              config.spThemen.forEach(function (topics) {
                 var startsWithCommand = ticket.startsWith(
-                  " " + themen.spThemaId
+                  " " + topics.spThemaId
                 );
-                engine.log("Ticket " + ticket + " ID " + themen.spThemaId);
+                engine.log("Ticket " + ticket + " ID " + topics.spThemaId);
                 engine.log(startsWithCommand);
                 if (startsWithCommand) {
-                  ticket.replace(themen.spThemaId);
+                  ticket.replace(topics.spThemaId);
                   sendMessage(ev.client, config.spTicketSendMsg, true, "user");
                   backend.getClients().forEach(function (client) {
                     client.getServerGroups().forEach(function (group) {
-                      themen.spThemaSupporterGroups.forEach(function (group2) {
+                      topics.spThemaSupporterGroups.forEach(function (group2) {
                         if (isAFK(client.getChannels()[0].id())) {
                           if (group.id() == group2) {
                             var client_object =
@@ -3813,7 +3807,7 @@ registerPlugin(
                               CreateTicketDb(ev.client, ticket);
                             }
                             SendCreateTicketToAPI(
-                              "Tichet from " + ev.client.name(),
+                              "Ticket from " + ev.client.name(),
                               ticket,
                               ev.client.uid(),
                               ev.client.name()
@@ -3829,7 +3823,7 @@ registerPlugin(
                 sendToNotificationModule();
               }, 10);
             } else if (!config.spThemenNotificationActiv) {
-              engine.log("Themen Module -> Ticket recived");
+              engine.log("Themen Module -> Ticket received");
               sendMessage(ev.client, config.spTicketSendMsg, true, "user");
               config.spSupportChannels.forEach(function (spg) {
                 backend.getClients().forEach(function (client) {
@@ -3860,7 +3854,7 @@ registerPlugin(
                           }
                           client.chat(prefixTicket + ticket);
                           SendCreateTicketToAPI(
-                            "Tichet from " + ev.client.name(),
+                            "Ticket from " + ev.client.name(),
                             ticket,
                             ev.client.uid(),
                             ev.client.name()
@@ -3899,43 +3893,6 @@ registerPlugin(
         }
       }
 
-      function getDateTime() {
-        var now = new Date();
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        var day = now.getDate();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var second = now.getSeconds();
-        if (month.toString().length == 1) {
-          var month = "0" + month;
-        }
-        if (day.toString().length == 1) {
-          var day = "0" + day;
-        }
-        if (hour.toString().length == 1) {
-          var hour = "0" + hour;
-        }
-        if (minute.toString().length == 1) {
-          var minute = "0" + minute;
-        }
-        if (second.toString().length == 1) {
-          var second = "0" + second;
-        }
-        var dateTime =
-          year +
-          "/" +
-          month +
-          "/" +
-          day +
-          " " +
-          hour +
-          ":" +
-          minute +
-          ":" +
-          second;
-        return dateTime;
-      }
 
       //--------------------------------------------------- { Themen Module } -----------------------------------------------------------
 
@@ -4023,7 +3980,7 @@ registerPlugin(
                       config.spSupportUserNoMessage,
                       "user"
                     );
-                    playQueuTrackOffline(ev.client.getChannels()[0]);
+                    playQueueTrackOffline(ev.client.getChannels()[0]);
                   } else {
                     //Supporter is Online!
 
@@ -4069,7 +4026,7 @@ registerPlugin(
                       );
                     }
                     //playTTS(sp.spSupportUserMessage.replace("&u", ev.client.name()))
-                    playQueuTrack(ev.client.getChannels()[0]);
+                    playQueueTrack(ev.client.getChannels()[0]);
                   }
                 }
               }
@@ -4123,20 +4080,6 @@ registerPlugin(
         15,
       ];
 
-      function time() {
-        var nonutc = new Date();
-        var utc = nonutc.getTime() + nonutc.getTimezoneOffset() * 60000;
-        var now = new Date(utc + 3600000 * tz[config.spTimeZo]);
-        var h = now.getHours();
-        var m = now.getMinutes();
-
-        if (m < 10) {
-          m = "0" + m;
-        }
-
-        return (ntime = h + ":" + m);
-      }
-
       //Channel Edit for Channel with prefix
 
       if (
@@ -4145,7 +4088,7 @@ registerPlugin(
       ) {
         var parameter = ev.text.replace(ChannelOpenCommand + " ", "");
 
-        if (issupporter(ev.client.id(), parameter)) {
+        if (isSupporter(ev.client.id(), parameter)) {
           ev.client.chat(message_channeledit_open);
           openSupportChannel(parameter);
         } else {
@@ -4163,7 +4106,7 @@ registerPlugin(
         config.spChannelEditActiv
       ) {
         var parameter = ev.text.replace(ChannelCloseCommand + " ", "");
-        if (issupporter(ev.client.id(), parameter)) {
+        if (isSupporter(ev.client.id(), parameter)) {
           ev.client.chat(message_channeledit_closed);
           closeSupportChannel(parameter);
         } else {
@@ -4227,7 +4170,7 @@ registerPlugin(
       }
     });
 
-    function issupporter(clientId, prefix) {
+    function isSupporter(clientId, prefix) {
       var isSupporter = false;
       config.spChannelEdit.forEach(function (channelEdit) {
         backend
@@ -4246,8 +4189,8 @@ registerPlugin(
       return isSupporter;
     }
 
-    function issupporterOnline(prefix) {
-      var issupporterOnline = false;
+    function isSupporterOnline(prefix) {
+      var isSupporterOnline = false;
 
       config.spChannelEdit.forEach(function (channelEdit) {
         if (prefix == channelEdit.spSupportChannelPrefix) {
@@ -4258,7 +4201,7 @@ registerPlugin(
                   group2
                 ) {
                   if (group2 == groups.id()) {
-                    issupporterOnline = true;
+                    isSupporterOnline = true;
                   }
                 });
               });
@@ -4266,27 +4209,9 @@ registerPlugin(
           });
         }
       });
-      return issupporterOnline;
+      return isSupporterOnline;
     }
 
-    function isDefaultsupporter(clientId) {
-      var isSupporter = false;
-      if (!config.spSupportChannelSupporterId) {
-        return isSupporter;
-      }
-
-      config.spSupportChannelSupporterId.forEach(function (group) {
-        backend
-          .getClientByID(clientId)
-          .getServerGroups()
-          .forEach(function (group) {
-            if (group2 == group.id()) {
-              isSupporter = true;
-            }
-          });
-      });
-      return isSupporter;
-    }
 
     function generatePassword(length) {
       var result = "";
@@ -4304,7 +4229,7 @@ registerPlugin(
             " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ SUPPORT++ | ERROR ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
           );
           engine.log(
-            "[ChannelEdit] Your channel name is to long! Teamspeak has a max size from 40 chars!"
+            "[ChannelEdit] Your channel name is to long! Teamspeak's max channel name length is 40 chars!"
           );
           engine.log("     => Please shortness your channel name. ");
           engine.log(
@@ -4387,14 +4312,14 @@ registerPlugin(
             " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ SUPPORT++ | ERROR ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
           );
           engine.log(
-            "[ChannelEdit] Your channel name is to long! Teamspeak has a max size from 40 chars!"
+            "[ChannelEdit] Your channel name is to long! Teamspeak's max channel name length is 40 chars!"
           );
           engine.log("     => Please shortness your channel name. ");
           engine.log(
             " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ SUPPORT++ | ERROR ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
           );
         }
-        var bool = true;
+
         if (channelEdit.spSupportChannelPrefix == parameter) {
           if (
             backend
@@ -4432,7 +4357,7 @@ registerPlugin(
         formChannelId = ev.fromChannel.id();
       }
 
-      if (formChannelId == 0 && config.spMySQLActiv) {
+      if (formChannelId == 0 && config.spMySQLActive) {
         if (IsUserSupporter(ev.client.id())) {
           if (dbc)
             dbc.exec(
@@ -4450,7 +4375,6 @@ registerPlugin(
       if (config.spAutomaticChannelManager) {
         var fromAfk = false;
         var toAFK = false;
-        var subAFK = false;
 
         var afkChannels = config.spAfkChannels;
         for (var i = 0; i < afkChannels.length; i++) {
@@ -4484,11 +4408,7 @@ registerPlugin(
               }
             }
           }
-          if (bool) {
-            return true;
-          } else {
-            return false;
-          }
+          return bool;
         }
         try {
           config.spAfkChannels.forEach(function (afkCh) {
@@ -4512,7 +4432,7 @@ registerPlugin(
                       engine.log(
                         "Supporter " +
                           ev.client.name() +
-                          " joint Server! Check Suppport Channel.."
+                          " joined the Server! Check Support Channel.."
                       );
                       openSupportChannel(channelEdit.spSupportChannelPrefix);
                     }
@@ -4536,10 +4456,10 @@ registerPlugin(
                     engine.log(
                       "Supporter " +
                         ev.client.name() +
-                        " leave Server! Check Suppport Channel.."
+                        " left the Server! Check Support Channel.."
                     );
                     if (
-                      !issupporterOnline(channelEdit.spSupportChannelPrefix)
+                      !isSupporterOnline(channelEdit.spSupportChannelPrefix)
                     ) {
                       closeSupportChannel(channelEdit.spSupportChannelPrefix);
                     } else {
@@ -4562,10 +4482,10 @@ registerPlugin(
                     engine.log(
                       "Supporter " +
                         ev.client.name() +
-                        " got to AFK Channel! Check Suppport Channel.."
+                        " went into a AFK Channel! Check Support Channel.."
                     );
                     if (
-                      !issupporterOnline(channelEdit.spSupportChannelPrefix)
+                      !isSupporterOnline(channelEdit.spSupportChannelPrefix)
                     ) {
                       closeSupportChannel(channelEdit.spSupportChannelPrefix);
                     } else {
@@ -4581,7 +4501,7 @@ registerPlugin(
 
     //--------------------------------------------------- { Time SupportChannel Manager} -----------------------------------------------------------
 
-    if (config.spTimeChannelManagerActiv) {
+    if (config.spTimeChannelManagerActive) {
       setInterval(function () {
         var timeNow = time();
         config.spTimeChannelManager.forEach(function (timeManager) {
@@ -4616,11 +4536,9 @@ registerPlugin(
     var resumeTrack = false;
     var resumePlaylist = false;
     var resumePos = 0;
-    var securejoin = true;
-    var spQueueVolumen;
-    var oldVolumen;
-    var currentTrack;
-    var posTrack;
+    var secureJoin = true;
+    var spQueueVolume;
+
     var queueChannel;
     var queueClient;
 
@@ -4657,13 +4575,13 @@ registerPlugin(
       "Support_Offline_Lite_Music_EN.wav",
     ];
 
-    function playQueuTrack(channelId) {
-      if (config.spQueueActiv) {
+    function playQueueTrack(channelId) {
+      if (config.spQueueActive) {
         //  if (!(typeof config.spQueueTrackOnline == 'undefined')) {
-        if (typeof config.spQueueVolumen == "undefined") {
-          spQueueVolumen = 70;
+        if (typeof config.spQueueVolume == "undefined") {
+          spQueueVolume = 70;
         } else {
-          spQueueVolumen = config.spQueueVolumen;
+          spQueueVolume = config.spQueueVolume;
         }
         setTimeout(function () {
           TrackBotJoin(channelId);
@@ -4689,7 +4607,7 @@ registerPlugin(
             );
           }
         } else if (resumePlayback) {
-          securejoin = false;
+          secureJoin = false;
 
           if (config.spQueueOwnActiv) {
             media.playURL(
@@ -4716,13 +4634,13 @@ registerPlugin(
         //}
       }
     }
-    function playQueuTrackOffline(channelId) {
-      if (config.spQueueActiv) {
+    function playQueueTrackOffline(channelId) {
+      if (config.spQueueActive) {
         //  if (!(typeof config.spQueueTrackOnline == 'undefined')) {
-        if (typeof config.spQueueVolumen == "undefined") {
-          spQueueVolumen = 70;
+        if (typeof config.spQueueVolume == "undefined") {
+          spQueueVolume = 70;
         } else {
-          spQueueVolumen = config.spQueueVolumen;
+          spQueueVolume = config.spQueueVolume;
         }
         setTimeout(function () {
           TrackBotJoin(channelId);
@@ -4748,7 +4666,7 @@ registerPlugin(
             );
           }
         } else if (resumePlayback) {
-          securejoin = false;
+          secureJoin = false;
 
           if (config.spQueueOwnActiv) {
             media.playURL(
@@ -4779,7 +4697,7 @@ registerPlugin(
     event.on("trackEnd", function (ev, callback) {
       engine.log("Queue trach finnish");
       if (callback == "spQueue" && resumePlayback) {
-        if (securejoin && resumeTrack) {
+        if (secureJoin && resumeTrack) {
           engine.log("Resume last track: " + resumeTrack.Title());
           resumePlayback = false;
           TrackBotJoin(queueChannel);
@@ -4794,7 +4712,7 @@ registerPlugin(
             audio.setMute(false);
           }
         }
-        securejoin = true;
+        secureJoin = true;
       }
     });
 
@@ -4820,7 +4738,7 @@ registerPlugin(
       if (store.get("newsletter-mail") != "") {
         if (store.get("newsletter-mail") != config.spNewsletter) {
           engine.log(
-            "[Your e-mail adresse was changed! Pleas accept the new mail adress! :=]"
+            "[Your e-mail address was changed! Pleas accept the new mail address! :=]"
           );
           addMailToNewsletter(config.spNewsletter);
           store.set("newsletter-mail", config.spNewsletter);
@@ -4867,7 +4785,6 @@ registerPlugin(
           }
           if (res === undefined) {
             engine.log("Error in JSON!");
-            return;
           }
         }
       );
