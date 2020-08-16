@@ -1,3 +1,71 @@
+v2.6.3
+md5 [145d34210929e377831d07441ae76392]
+- fix: feedback system #64
+
+v2.6.2
+md5 [938eb2e57759cab1b8514915ae0d048a]
+- fix: channel edit maxClient bug #61
+- add: checkbox allow ignored users to create a ticket #45
+- replace outdated link
+- add: default values
+- fix: copyright footer
+
+v2.6.1
+md5 [6281c692997d0c527ae99e2e59cef8e4]
+- fix: channel edit overwrite bug #61
+- remove required labels where not needed
+
+v2.6.0
+md5 [2cb1d071cfa7e3ca7311595635da58fb]
+- update: DiscordModule
+- fix: ticket cmd parser
+- fix: command.js lib error
+
+v2.5.1
+md5 [daf038986cdf940ee9f2d2082ffae19f]
+- fix: undefined channel hours description
+- fix: http module error (outdated)
+- add http permission request
+- start register commands (not work!)
+- remove: !help license copyright
+- fix: audios and content type
+
+v2.5.0
+md5 [null]
+- fix required modules config for the new v8.
+- remove website view
+
+v2.0.4.9-2.4
+md5 [a72db5c0b38a2c573b877cc7f92976fb]
+- added (*) to required fields
+- changed string to password at database module
+- add newsletter module
+- add field support hours to channel edit module
+- remove language German
+- change license and copyright information
+
+v2.0.4.9-2.3.1
+md5 [89217516148038fa0e14783c0a7c991f]
+- resolve bug issues #28
+
+v2.0.4.9-2.3
+md5 [44D66C0ABD87267CDE22FDF587B96027]
+- add coffee break module    ( Resolved #22)
+- change license owner from VerHext to support++
+    [I]The copyright from the script is moved to the org Support++
+
+
+v2.0.4.9-2.2
+md5 [2C643D6DBBBD218846ED0077189E517B]
+- fix automatic channel close manager by leave
+- fix unauth access to db
+
+
+v2.0.4.9-2.1
+- change DSGVo text
+- change copyright mail
+
+
 v2.0.4.9-2
 - add Website / Status page to the script
 - change license to MIT
