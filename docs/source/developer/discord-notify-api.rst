@@ -20,7 +20,7 @@ Um also eine Nachricht an einen unautorisierten Channel zu senden, wird der Priv
 
 Aber warum nicht einfach eine Webhook?
 --------------------------------------
-Wir wissen was das ist. Aber es hat einige Gründe, warum diese Webhook für unser Szenario nicht geeignet ist. Webhooks sind in der Regel einseitig. :code:`Sinusbot` -> :code:`Discord`.
+Wir wissen was das ist. Aber es hat einige Gründe, warum diese Webhook für unser Szenario nicht geeignet ist. Webhooks sind in der Regel einseitig. :guilabel:`Sinusbot` -> :guilabel:`Discord`.
 
 Da wir bei manchen Funktionen auf einen Antwort bzw. Reaktion warten z.B. :code:`/reply` Command.
 Ist eine Webhook ungeeignet. Klar könnten wir mithilfe von WebSocket das ganze direkt im Support++ Script implementieren.

@@ -4,6 +4,9 @@
    :maxdepth: 2
    :caption: Modules
 
+   modules/discord
+   modules/teams
+
 .. toctree::
    :maxdepth: 2
    :caption: Developer
@@ -14,3 +17,5 @@
 .. toctree::
    :maxdepth: 2
    :caption: Demo
+
+   demo/identity-import

@@ -1,4 +1,4 @@
-.. image:: https://media.discordapp.net/attachments/318089129307013120/352500865996947466/Support.png
+.. figure:: https://media.discordapp.net/attachments/318089129307013120/352500865996947466/Support.png
    :alt: Support++
 
 .. image:: https://discordapp.com/api/guilds/303663158923493376/widget.png
