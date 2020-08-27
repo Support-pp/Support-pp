@@ -3,10 +3,17 @@
 
 .. image:: https://discordapp.com/api/guilds/303663158923493376/widget.png
    :alt: Discord
+   :width: 119px
    :target: https://discord.gg/q3pAcGA
+
 .. image:: http://forthebadge.com/images/badges/uses-js.svg
+   :width: 106px
+
 .. image:: http://forthebadge.com/images/badges/built-with-love.svg
+   :width: 152px
+
 .. image:: http://forthebadge.com/images/badges/check-it-out.svg
+   :width: 155px
 
 Support++
 =========
