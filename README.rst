@@ -6,13 +6,13 @@
    :target: https://discord.gg/q3pAcGA
 
 .. image:: http://forthebadge.com/images/badges/uses-js.svg
-   :target:
+   :target: Test
 
 .. image:: http://forthebadge.com/images/badges/built-with-love.svg
-   :target:
+   :target: Test
 
 .. image:: http://forthebadge.com/images/badges/check-it-out.svg
-   :target:
+   :target: Test
 
 Support++
 =========
