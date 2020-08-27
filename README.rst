@@ -5,13 +5,13 @@
    :alt: Discord
    :target: https://discord.gg/q3pAcGA
 
-.. image:: http://forthebadge.com/images/badges/uses-js.svg
+.. image:: https://forthebadge.com/images/badges/uses-js.svg
    :target: #
 
-.. image:: http://forthebadge.com/images/badges/built-with-love.svg
+.. image:: https://forthebadge.com/images/badges/built-with-love.svg
    :target: #
 
-.. image:: http://forthebadge.com/images/badges/check-it-out.svg
+.. image:: https://forthebadge.com/images/badges/check-it-out.svg
    :target: #
 
 Support++
