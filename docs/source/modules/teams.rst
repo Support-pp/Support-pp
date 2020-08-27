@@ -5,8 +5,8 @@ Microsoft Teams Module
 
 Einleitung
 ----------
-Sie möchten auch über Kunden informiert werden, die auf Ihrem TeamSpeak³ Server, in Ihrerer Abwesenheit einen der Support Channel betreten hat? Oder doch einfach nur als Übersicht?.
-Kein Problem, das Microsoft Teams module ist eine art Notification Bridge und sendet Benachrichtigungen in einen vorher definierten Teams Channel.
+Sie möchten auch über Kunden informiert werden, die auf Ihrem TeamSpeak³ Server, in Ihrerer Abwesenheit einen der Support Channel betreten hat? Oder doch einfach nur als Übersicht?
+Kein Problem, das Microsoft Teams module ist eine Art Notification Bridge und sendet Benachrichtigungen in einen vorher definierten Teams Channel.
 
 Installation
 ------------

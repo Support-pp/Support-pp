@@ -5,7 +5,7 @@ TeamSpeak³ setzt auf Identitäten. Die Sicherheitsstufen geben an, wie lange je
 | Standartmäßig stellt der TeamSpeak³ Server mit eine Sicherheitsstufe von 8 voraus.
 | Sinusbot hat generierte Identity mit dem Level 9.
 
-| In den meisten Fällen, ist es daher möglich direkt audf den TeamSpeak³ Server zu connecten.
+| In den meisten Fällen, ist es daher möglich direkt auf den TeamSpeak³ Server zu connecten.
 | Solle aber der Server eine höhere Sicherheitsstufe verlangen, müssen Sie diese manuell erhöhen.
 
 Anleitung

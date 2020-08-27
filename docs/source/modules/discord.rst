@@ -10,8 +10,8 @@ Discord Module
 
 Einleitung
 ----------
-Sie möchten auch über Kunden informiert werden, die auf Ihrem TeamSpeak³ Server, in Ihrerer Abwesenheit einen der Support Channel betreten hat? Oder doch einfach nur als Übersicht?.
-Kein Problem, das Discord module ist eine art Notification Bridge und sendet Benachrichtigungen in einen vorher definierten Discord Channel.
+Sie möchten auch über Kunden informiert werden, die auf Ihrem TeamSpeak³ Server, in Ihrerer Abwesenheit einen der Support Channel betreten hat? Oder doch einfach nur als Übersicht?
+Kein Problem, das Discord module ist eine Art Notification Bridge und sendet Benachrichtigungen in einen vorher definierten Discord Channel.
 
 Installation
 ------------
@@ -20,8 +20,8 @@ Installation
 
     Dieses Module ist ab Version :guilabel:`2.6.0` verfügbar.
 
-1. Klicken Sie auf folgenden Link: `Discord Bot`_ hinzufügen
-2. Wählen Sie den Discord Server aus und autorisieren Sie den Support++ Discord Bot, Ihren Server beizutreten.
+1. Klicken Sie auf folgenden Link: `Discord Bot hinzufügen`_
+2. Wählen Sie den Discord Server aus und autorisieren Sie den Support++ Discord Bot Ihrem Server beizutreten.
 3. Dieser Vorgang ist erfolgreich, wenn Sie den :code:`Support++#9820` in der Mitgliederliste Ihres Discord Servers finden.
 
    .. image:: /_static/images/modules/discord/mliste.png
@@ -39,7 +39,7 @@ Installation
 
    Der Code in dem Codeblock, geben Sie nun in der Support++ Sinusbot Konfiguration ein. Fertig.
 
-.. _Discord Bot: https://discordapp.com/api/oauth2/authorize?client_id=303607172544200714&permissions=0&scope=bot
+.. _Discord Bot hinzufügen: https://discordapp.com/api/oauth2/authorize?client_id=303607172544200714&permissions=0&scope=bot
 
 Sie sollten nach dem speichern eine Nachricht erhalten. Der Vorgang ist nun abgeschlossen und Sie können nun Nachrichten in Discord empfangen.
 

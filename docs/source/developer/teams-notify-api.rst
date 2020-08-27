@@ -14,7 +14,7 @@ Microsoft Teams ist einer der meist genutzten Team Kommunikation Lösungen, die 
 
 In diesem Jahr hat Microsoft Teams fast doppelt so viel User wie der ehemalige Konkurrent Slack. Aber auch für Slack wird es in Zukunft ein Module geben.
 
-Die Integration in Messenger, kann die Bearbeitung von Tickets und Support anfragen entlasten und die Arbeit optimieren.
+Die Integration in Messenger, kann die Bearbeitung von Tickets und Support Anfragen entlasten und die Arbeit optimieren.
 
 Wie funktioniert der Spaß?
 --------------------------
