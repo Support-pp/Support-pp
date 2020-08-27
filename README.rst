@@ -49,18 +49,10 @@ Features
 
 Support
 -------
-If you need help with the script send us an E-Mail (support[at]support-pp[dot]de) or visit us on `Discord`_.
+If you need help with the script visit us on `Discord`_.
 If you found an issue or bug feel free to open a new issue on here including all the information that might seem necessary for us to help you.
 
 .. _Discord: https://discord.gg/3acZCcu
-
-Updates
--------
-* Channel Edit Algoritm
-* Automatically open/close channels
-* Website by `@lapotor`_
-
-.. _@lapotor: https://github.com/lapotor
 
 .. tip::
    Telegram and Discord API status/uptime:

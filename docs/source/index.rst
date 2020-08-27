@@ -19,3 +19,10 @@
    :caption: Demo
 
    demo/identity-import
+
+.. toctree::
+   :maxdepth: 0
+   :caption: Legal Pages
+
+   Site Notice <https://support-pp.de/impressum.html>
+   Privacy Policy <https://support-pp.de/datenschutz.html>
