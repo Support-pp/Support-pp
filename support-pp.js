@@ -757,7 +757,7 @@ registerPlugin(
       {
         name: "spDiscordToken",
         indent: 4,
-        title: "🔑 Token >Infos  https://bit.ly/2TPetBs(*)",
+        title: "🔑 Token >Infos  https://docs.support-pp.de/de/latest/modules/discord.html(*)",
         placeholder: "eyhjirtzui765ghjo0987tghj",
         type: "multiline",
         conditions: [
