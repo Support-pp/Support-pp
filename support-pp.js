@@ -1,5 +1,5 @@
 //2.6.3
-const cVersion = "2.6.3";
+const cVersion = "2.6.4";
 /**
  * Copyright (C) 2017- 2020 KlexHub UG (haftungsbeschränkt)
  * E-Mail: <support@klexhub.com>
@@ -14,8 +14,8 @@ const cVersion = "2.6.3";
  * Website
  * https://support-pp.de
  *
- * Forum:
- * https://meta.support-pp.de
+ * Docs:
+ * https://docs.support-pp.de
  */
 
 var DSGVO =
@@ -757,7 +757,7 @@ registerPlugin(
       {
         name: "spDiscordToken",
         indent: 4,
-        title: "🔑 Token >Infos  https://bit.ly/2TPetBs(*)",
+        title: "🔑 Token >Infos  https://bit.ly/38lYFNn(*)",
         placeholder: "eyhjirtzui765ghjo0987tghj",
         type: "multiline",
         conditions: [
