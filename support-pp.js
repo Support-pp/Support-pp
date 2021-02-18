@@ -59,7 +59,7 @@ registerPlugin(
       {
         name: "spNewsletter",
         title:
-          "[Newsletter] You want recive news / changelog or special information? Then subscribe to our newsletter!",
+          "[Newsletter] You want receive news / changelog or special information? Then subscribe to our newsletter!",
         placeholder: "mymail@mydomain.de",
         type: "string",
         conditions: [
@@ -412,7 +412,7 @@ registerPlugin(
         name: "spTicketActiv",
         indent: 2,
         title:
-          "[TicketSystem] TicketSystem Advanced and Minimal. Manage your Tickets with a webpanal... [NEW] ",
+          "[TicketSystem] TicketSystem Advanced and Minimal. Manage your Tickets with a webpanel... [NEW] ",
         type: "checkbox",
         conditions: [
           {
@@ -1052,7 +1052,7 @@ registerPlugin(
         name: "spAutomaticChannelManager",
         indent: 2,
         title:
-          "[Automatic Channel Manager] Close and open your channel autmoatically",
+          "[Automatic Channel Manager] Close and open your channel automatically",
         type: "checkbox",
         conditions: [
           {
@@ -1427,7 +1427,7 @@ registerPlugin(
       {
         name: "Support_Offline_Lite_Dunkle_Stimme",
         indent: 6,
-        title: "[3] Lite Dunkle Stimme (00:07 min)",
+        title: "[3] Lite dunkle Stimme (00:07 min)",
         conditions: [
           {
             field: "spLanguage",
@@ -1463,9 +1463,9 @@ registerPlugin(
         ],
       },
       {
-        name: "Support_Offline_Lite_Langame_Stimme",
+        name: "Support_Offline_Lite_Langsame_Stimme",
         indent: 6,
-        title: "[5] Lite Langsamme Stimme (00:09 min)",
+        title: "[5] Lite langsame Stimme (00:09 min)",
         conditions: [
           {
             field: "spLanguage",
@@ -1886,7 +1886,7 @@ registerPlugin(
       {
         name: "spSelectMusic",
         indent: 1,
-        title: "Select the nummber of the Online Song. (*)",
+        title: "Select the number of the Online Song. (*)",
         placeholder: "2",
         type: "number",
         conditions: [
@@ -1907,7 +1907,7 @@ registerPlugin(
       {
         name: "spSelectMusicOffline",
         indent: 1,
-        title: "Select the nummber of the Offline Song. (*)",
+        title: "Select the number of the Offline Song. (*)",
         placeholder: "2",
         type: "number",
         conditions: [
