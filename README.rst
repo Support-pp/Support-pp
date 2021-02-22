@@ -28,14 +28,14 @@ If you want to download the script, go to the `Releases Tab`_ and download the l
 
 Features
 --------
-* Module store - easily expand the script's functionality
+* Module store - easily expands the script's functionality
 * Channel notifications
 * Ignore list
-* Messages (e.g. if no supporters are online)
+* Messages (e.g., if no supporters are online)
 * Create tickets
 * Send notifications via Telegram (module)
 * Send notifications via Discord (module)
-* Channel (name) renaming (!online / !offline)
+* Channel (name) renaming (! online /! offline)
 * Open and close support channels automatically if (no) supporters are online
 * Open and close support channels according to your service hours
 * Upload your own queue music or use our samples (e.g. `here`_)
@@ -50,7 +50,7 @@ Features
 Support
 -------
 If you need help with the script visit us on `Discord`_.
-If you found an issue or bug feel free to open a new issue on here including all the information that might seem necessary for us to help you.
+If you found an issue or bug, feel free to open a new issue on here including all the information that might seem necessary for us to help you.
 
 .. _Discord: https://discord.gg/3acZCcu
 
