@@ -1,7 +1,7 @@
-//2.6.3
-const cVersion = "2.6.4";
+//2.6.5
+const cVersion = "2.6.5";
 /**
- * Copyright (C) 2017- 2020 KlexHub UG (haftungsbeschränkt)
+ * Copyright (C) 2017- 2021 KlexHub UG (haftungsbeschränkt)
  * E-Mail: <support@klexhub.com>
  * This work is licensed under the MIT License
  *
@@ -4878,18 +4878,13 @@ registerPlugin(
     function CreateTicketDb(client, text) {
       if (dbc)
         dbc.exec(
-          "INSERT INTO sp_tickets (text, uuid, name, version, status ) VALUE ('" +
-            helpers.base64Encode(text) +
-            "', '" +
-            client.uid() +
-            "', '" +
-            client.name() +
-            "', '" +
-            client.getPlatform() +
-            "::" +
-            client.getVersion() +
-            "', '1')"
-        ); // TODO: ESCAPE!
+          "INSERT INTO sp_tickets (text, uuid, name, version, status ) VALUE (?, ?, ?, ?, '1')",
+          text,
+          client.uid(),
+          client.name(),
+          client.getPlatform(),
+          client.getVersion()
+        );
       engine.log("Create ticket in the db!");
     }
 

@@ -1,3 +1,10 @@
+v2.6.5
+md5 [e327697e975280efd42544137e501d2c]
+- fix: encode databse insert command :/
+- chore: rename copyright year to 2021
+- remove: docs -> Support++ docs are now part of the developers.klexhub.com family
+- remove travis (don't needed)
+
 v2.6.4
 md5 [e2f031e4bea5e763b962b32e24e81077]
 - chore: fiy typos and outdated links
