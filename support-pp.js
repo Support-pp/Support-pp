@@ -1,5 +1,5 @@
 //2.6.3
-const cVersion = "2.6.4";
+const cVersion = "2.6.5";
 /**
  * Copyright (C) 2017- 2020 KlexHub UG (haftungsbeschränkt)
  * E-Mail: <support@klexhub.com>
@@ -933,7 +933,6 @@ registerPlugin(
             name: "spSupportChannelMaxClientsOnline",
             indent: 1,
             title: "Change the maxClients when online.",
-            default: 10,
             placeholder: "10",
             type: "number",
           },
@@ -958,7 +957,6 @@ registerPlugin(
             indent: 1,
             title: "Change the maxClients when offline.",
             placeholder: "0",
-            default: 0,
             type: "number",
           },
           {

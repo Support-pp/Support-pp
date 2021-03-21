@@ -1,3 +1,7 @@
+v2.6.5
+md5 [1d91d227cb1efef2f0bb6e2f0523d331]
+- chore: remove default value for maxClients
+
 v2.6.4
 md5 [e2f031e4bea5e763b962b32e24e81077]
 - chore: fiy typos and outdated links
