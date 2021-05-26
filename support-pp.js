@@ -1,11 +1,11 @@
-//2.6.3
-const cVersion = "2.6.5";
+//2.7.0
+const cVersion = "2.7.0";
 /**
- * Copyright (C) 2017- 2020 KlexHub UG (haftungsbeschränkt)
+ * Copyright (C) 2017- 2021 KlexHub UG (haftungsbeschränkt)
  * E-Mail: <support@klexhub.com>
  * This work is licensed under the MIT License
  *
- * All Sounds file Copyright (C) 2020 sounds.support-pp.de
+ * All Sounds file Copyright (C) 2021 sounds.support-pp.de
  * Sounds: https://sounds.support-pp.de
  *
  *  Status
@@ -692,6 +692,161 @@ registerPlugin(
 
       //                        Telegram <-
 
+      //                        -> WhatsApp
+
+      {
+        name: "spWhatsAppActiv",
+        indent: 2,
+        title: "🆕 [WhatsAppNotification] Notification via WhatsApp? (BETA)",
+        type: "checkbox",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsappBetaNotice",
+        indent: 2,
+        title:
+          "WatsApp Notification is in closed beta. You can join our beta list at: https://beta-whatsapp.support-pp.de/",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsAppModeTicket",
+        indent: 4,
+        title: "Ticket notification mode via WhatsApp (*)",
+        type: "select",
+        options: ["Always", "When no supporter online", "Never"],
+        default: "0",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsAppModeSupport",
+        indent: 4,
+        title: "Support notification mode via WhatsApp (*)",
+        type: "select",
+        options: ["Always", "When no supporter online", "Never"],
+        default: "0",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsAppToken",
+        indent: 4,
+        title: "🔑 Token >Infos https://bit.ly/34bWAls (*)",
+        placeholder: "eyhjirtzui765ghjo0987tghj",
+        type: "multiline",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsAppTextSupport",
+        indent: 4,
+        title: "Support | WhatsApp message [Variables: &u = username] (*)",
+        placeholder:
+          "Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)",
+        default:
+          "Hello support team,\n\n User &u joined the support room and needs support.\n\n Help would be appreciated!\n Thanks ;)",
+        type: "multiline",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+      {
+        name: "spWhatsAppTextTicket",
+        indent: 4,
+        title:
+          "Ticket | WhatsApp message [Variables: &u = username | &msg = message | &u_id = uid | &u_ip = ip] (*)",
+        placeholder:
+          "Hello supporter,\n\n you've got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)",
+        default:
+          "Hello supporter,\n\n you've got a new ticket:\nname: &u\nmessage: &msg\n\n Please answer the ticket, thanks ;)",
+        type: "multiline",
+        conditions: [
+          {
+            field: "spLanguage",
+            value: 0,
+          },
+          {
+            field: "spWhatsAppActiv",
+            value: true,
+          },
+          {
+            field: "spDatenschutz",
+            value: 0,
+          },
+        ],
+      },
+
+      //                        WhatsApp <-
+
       //                        -> Discord
 
       {
@@ -757,7 +912,7 @@ registerPlugin(
       {
         name: "spDiscordToken",
         indent: 4,
-        title: "🔑 Token >Infos  https://bit.ly/38lYFNn(*)",
+        title: "🔑 Token >Infos  https://bit.ly/34aJQvg (*)",
         placeholder: "eyhjirtzui765ghjo0987tghj",
         type: "multiline",
         conditions: [
@@ -2624,9 +2779,8 @@ registerPlugin(
        * Register commands for the command.js lib by multivitamine
        */
 
-      const sppCmd = Command3rd.createCommandGroup("spp").help(
-        "Support++ Commands"
-      );
+      const sppCmd =
+        Command3rd.createCommandGroup("spp").help("Support++ Commands");
 
       sppCmd
         .addCommand("info")
@@ -2818,19 +2972,67 @@ registerPlugin(
     }
 
     //Please change the url, if you want to use a selfhost bot.
-    const DiscordApiUrl = "https://api.support-pp.de";
+    const ApiUrl = "https://api.support-pp.de";
     function sendDiscord(text, clientUid) {
       if (config.spDiscordActiv) {
         engine.log("    > Send DiscordNotification (...)");
         http.simpleRequest(
           {
             method: "POST",
-            url: DiscordApiUrl + "/api/discord/notification",
+            url: ApiUrl + "/api/discord/notification",
             timeout: 60000,
             body: JSON.stringify({ embed: true, message: text }),
             headers: {
               "Content-Type": "application/json",
               Authorization: "Bearer " + config.spDiscordToken,
+            },
+          },
+          function (error, response) {
+            if (error) {
+              engine.log("    = Error: " + error);
+              return;
+            }
+
+            if (response.statusCode != 200) {
+              engine.log("    = HTTP Error: " + response.status);
+              return;
+            }
+            var res;
+            try {
+              res = JSON.parse(response.data.toString());
+            } catch (err) {
+              engine.log("    = " + err.message);
+            }
+
+            if (res === undefined) {
+              engine.log("    = Invalid JSON.");
+              return;
+            }
+
+            // success!
+            engine.log("    = " + JSON.stringify(res));
+          }
+        );
+      }
+    }
+
+    /**
+     * Call the support-pp api and send a message via whatsapp channel to user.
+     * Please read more about this feature in our docu: https://developers.klexhub.com/support-pp/modules/whatsapp
+     */
+
+    function sendWhatsApp(text, clientUid) {
+      if (config.spWhatsAppActiv) {
+        engine.log("    > Send WhatsAppNotification (...)");
+        http.simpleRequest(
+          {
+            method: "POST",
+            url: ApiUrl + "/api/whatsapp/notification",
+            timeout: 60000,
+            body: JSON.stringify({ embed: true, message: text }),
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + config.spWhatsAppToken,
             },
           },
           function (error, response) {
@@ -3266,6 +3468,20 @@ registerPlugin(
                     );
                   }
                   if (
+                    (config.spWhatsAppModeSupport == 1 ||
+                      config.spWhatsAppModeSupport == 0) &&
+                    config.spWhatsAppActiv
+                  ) {
+                    sendWhatsApp(
+                      config.spWhatsAppTextSupport.replace(
+                        "&u",
+                        ev.client.name()
+                      ),
+                      0,
+                      0
+                    );
+                  }
+                  if (
                     (config.spTelegramModeSupport == 1 ||
                       config.spTelegramModeSupport == 0) &&
                     config.spTelegramActiv
@@ -3311,6 +3527,16 @@ registerPlugin(
                   if (config.spDiscordModeSupport == 0) {
                     sendDiscord(
                       config.spDiscordTextSupport.replace(
+                        "&u",
+                        ev.client.name()
+                      ),
+                      0,
+                      0
+                    );
+                  }
+                  if (config.spWhatsAppModeSupport == 0) {
+                    sendWhatsApp(
+                      config.spWhatsAppTextSupport.replace(
                         "&u",
                         ev.client.name()
                       ),
@@ -3714,6 +3940,8 @@ registerPlugin(
 
       var discord = false;
       var discordTicket = config.spDiscordTextTicket;
+      var whatsApp = false;
+      var whatsAppTicket = config.spWhatsAppTextTicket;
       var telegram = false;
       var telegramTicket = config.spTelegrammTextTicket;
 
@@ -3729,6 +3957,12 @@ registerPlugin(
           config.spDiscordModeTicket == 1
         ) {
           sendDiscord(discordTicket, ev.client.uid(), 1);
+        }
+        if (
+          (whatsApp && config.spWhatsAppModeTicket == 0) ||
+          config.spWhatsAppModeTicket == 1
+        ) {
+          sendWhatsApp(whatsAppTicket, ev.client.uid(), 1);
         }
       }
       var ticket = "no Text!";
@@ -4005,6 +4239,19 @@ registerPlugin(
                       );
                     }
                     if (
+                      config.spWhatsAppModeSupport == 1 ||
+                      config.spWhatsAppModeSupport == 0
+                    ) {
+                      sendWhatsApp(
+                        config.spWhatsAppTextSupport.replace(
+                          "&u",
+                          ev.client.name()
+                        ),
+                        0,
+                        0
+                      );
+                    }
+                    if (
                       config.spTelegramModeSupport == 1 ||
                       config.spTelegramModeSupport == 0
                     ) {
@@ -4066,6 +4313,15 @@ registerPlugin(
                         0
                       );
                     }
+                    if (config.spWhatsAppModeSupport == 0) {
+                      sendWhatsApp(
+                        config.spWhatsAppTextSupport
+                          .replace("&u", ev.client.name())
+                          .replace("&thema", thema.spThemaName),
+                        0,
+                        0
+                      );
+                    }
                     //playTTS(sp.spSupportUserMessage.replace("&u", ev.client.name()))
                     playQueuTrack(ev.client.getChannels()[0]);
                   }
@@ -4079,46 +4335,9 @@ registerPlugin(
 
       //--------------------------------------------------- {ChannelEdit} -----------------------------------------------------------
       var tz = [
-        -11,
-        -10,
-        -9,
-        -8.5,
-        -8,
-        -7,
-        -6,
-        -5,
-        -4,
-        -3.5,
-        -3,
-        -2.5,
-        -2,
-        -1,
-        0,
-        1,
-        2,
-        3,
-        4,
-        4.5,
-        5,
-        5.5,
-        6,
-        6.5,
-        6.75,
-        7,
-        7.5,
-        8,
-        9,
-        9.5,
-        9.75,
-        10,
-        10.5,
-        11,
-        11.5,
-        12,
-        13,
-        13.75,
-        14,
-        15,
+        -11, -10, -9, -8.5, -8, -7, -6, -5, -4, -3.5, -3, -2.5, -2, -1, 0, 1, 2,
+        3, 4, 4.5, 5, 5.5, 6, 6.5, 6.75, 7, 7.5, 8, 9, 9.5, 9.75, 10, 10.5, 11,
+        11.5, 12, 13, 13.75, 14, 15,
       ];
 
       function time() {
